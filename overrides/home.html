@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+
+<!-- Render hero under tabs -->
+{% block tabs %}
+{{ super() }}
+
+<!-- Additional styles for landing page -->
+<style>
+    /* Application header should be static for the landing page */
+    .md-header {
+        position: initial;
+    }
+
+    /* Remove spacing, as we cannot hide it completely */
+    .md-main__inner {
+        margin: 0;
+    }
+
+    /* Hide main content for now */
+    .md-content {
+        display: none;
+    }
+
+    /* Hide table of contents */
+    @media screen and (min-width: 60em) {
+        .md-sidebar--secondary {
+            display: none;
+        }
+    }
+
+    /* Hide navigation */
+    @media screen and (min-width: 76.25em) {
+        .md-sidebar--primary {
+            display: none;
+        }
+    }
+</style>
+
+<!-- Hero for landing page -->
+<section class="mdx-container">
+    <div class="md-grid md-typeset">
+        {{ page.content }}
+    </div>
+</section>
+{% endblock %}
+
+<!-- Content -->
+{% block content %}{% endblock %}
+
+<!-- Application footer -->
+{% block footer %}{% endblock %}

@@ -1,0 +1,53 @@
+site_name: Linux 银河漫游指南
+repo_url: https://github.com/linuxhitchhiker/THGLG
+edit_uri: edit/main/docs/
+copyright: "© 2022 Linux 银河漫游指南贡献者"
+
+nav:
+  - 主页: "index.md"
+  - 入门:
+      - 导言:
+          - 简介: "basic/prologue/introduction.md"
+          - 切换到Linux: "basic/prologue/switch-to-linux.md"
+      - 系统安装:
+          - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
+          - openSUSE 安装指南: "basic/installation/opensuse-installation-guide.md"
+  - 进阶:
+      - 打包:
+          - "advanced/packaging/flatpak.md"
+  - 解决方案:
+      - 软件:
+          - solution/software/browser.md
+          - solution/software/instant-messaging.md
+      - 系统配置:
+          - solution/config/hidpi.md
+  - 帮助:
+      - 常见问题: "help/faq.md"
+  - 关于:
+      - 'about/license.md'
+      - "about/contributing/guide.md"
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  locale: zh_CN
+  palette:
+    primary: blue
+    accent: light blue
+  features:
+    - navigation.tabs
+plugins:
+  - search:
+      lang: zh
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - def_list
+  - toc:
+      permalink: true
+      slugify: !!python/name:pymdownx.slugs.uslugify #保证中文链接
+
+
