@@ -50,4 +50,5 @@ markdown_extensions:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify #保证中文链接
 
-
+extra_css:
+  - stylesheets/extra.css
