@@ -9,6 +9,7 @@ nav:
       - 切换到Linux: "prologue/switch-to-linux.md"
       - 寻求帮助:
           - 常见问题: "help/faq.md"
+          - 联系我们: "help/contact.md"
   - 安装:
       - Fedora 安装指南: "installation/fedora-installation-guide.md"
       - openSUSE 安装指南: "installation/opensuse-installation-guide.md"
