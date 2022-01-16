@@ -26,7 +26,7 @@ Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux]
 
 在不熟悉 Linux 基本知识的情况下，在物理机上安装 Fedora 可能会导致数据丢失，或者是硬件损坏。所以，在付诸行动之前，你需要先在虚拟机上熟悉一下 Linux。
 
-- Virtualbox 是一个让你再不破坏当前系统结构的情况下，能够获得最接近原生 Linux 环境体验的工具。你也可以使用 VMware 安装 Fedora 。
+- [Virtualbox](https://www.virtualbox.org/) 是一个让你再不破坏当前系统结构的情况下，能够获得最接近原生 Linux 环境体验的工具。你也可以使用 [VMware](https://www.vmware.com/products/workstation-pro.html) 安装 Fedora 。
 - 注意，在物理机上安装 Fedora 并非是必须的步骤，不安装到物理机上可以省去大量的迁移工作，但安装到物理机上会让系统具备更强的性能和更多的功能。
 
 ### 获取 ISO
