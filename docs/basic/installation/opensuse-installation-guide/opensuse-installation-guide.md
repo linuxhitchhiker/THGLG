@@ -69,6 +69,8 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 - 划分未分配的磁盘空间</p>
 如果你是在实体机上安装 openSUSE，请提前用磁盘分区工具划分一个大小为 40GB （如果不使用快照功能或你会定期清理快照，可只划分 20GB）或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
 
+如果你想提高 U 盘的利用率或想一个 U 盘容纳多个操作系统的安装文件，你可以访问 [ventoy](https://www.ventoy.net/cn/index.html) 了解更多信息。
+
 ### 配置虚拟机
 
 配置虚拟机的部分和[安装 Fedora](/docs/installation/fedora-installation-guide.md) 的步骤大同小异，如果你发现 VMware 无法正确识别你选择的 ISO 文件，则你需要手动指定客户机操作系统类型。
