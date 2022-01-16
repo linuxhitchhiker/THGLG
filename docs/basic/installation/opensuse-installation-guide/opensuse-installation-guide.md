@@ -52,6 +52,7 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 >如：http://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
 
 注意：
+
 - 离线安装的 DVD 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
 - 请打开浏览器检查一下链接是否真实可用。
 
