@@ -13,9 +13,11 @@ weight: 200
 toc: true
 ---
 
-# 概述
+# 安装 Fedora
 
-## 什么是 Fedora Linux
+## 概述
+
+### 什么是 Fedora Linux
 
 Fedora Linux（第七版以前为 Fedora Core）是著名的 Linux 主流发行版之一，由 [Fedora 项目](https://getfedora.org/)社群开发、[红帽公司](https://www.redhat.com/zh)赞助，目标是创建一套新颖、多功能并且自由（开放源代码）的操作系统。
 
@@ -23,19 +25,21 @@ Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux]
 
 详细的用户使用文档可[在此](https://docs.fedoraproject.org/)处找到。
 
-## 本文的目的
+### 本文的目的
 
 本文主要描述如何在 Windows 10 上使用虚拟机（平台为 [VMWare](https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html)）安装 Fedora Linux 以及物理机双系统所需要注意的事项。
 
 - 参考：[Fedora 35 - Installation Guide](https://docs.fedoraproject.org/en-US/fedora/f35/install-guide/)
 
-# 获取 ISO
+## 安装前准备
+
+### 获取 ISO
 
 你可以在 [Get Fedora](https://getfedora.org/en/) 上直接下载**最新的** Fedora Workstation ISO 文件；或者查找一个距离你地理位置最近的开源镜像站，下载**最新的** Fedora ISO。
 
 - 如果你不喜欢 Workstation 的桌面环境（Gnome Desktop），你可以选择 [Fedora Spin](https://spins.fedoraproject.org/)。
 
-## Fedora ISO 的主要类型
+### Fedora ISO 的主要类型
 
 - **Live 镜像**</p>
   Live 镜像允许你在不对电脑进行更改的情况下，快速预览一下 Fedora 图形化界面，然后决定要不要安装。Live 镜像包含安装一个基本的 Fedora 所需的全部文件。
@@ -46,27 +50,24 @@ Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux]
 - **DVD 镜像**</p>
   DVD 镜像直接引导到安装环境，并允许你从随它提供的各种软件包中进行选择。在 Fedora 21 中，DVD 选项仅在 Fedora 服务器版中可用。
 
-# 制作安装介质
+### 制作安装介质
 
 如果你只在虚拟机中安装 Fedora，那你可以跳过该步骤，阅读下一节“安装”。
 
 如果你需要将 Fedora 安装至硬盘中，你需要使用 [Rufus](https://rufus.ie/zh/) 或 [Fedora Media Writer](https://getfedora.org/en/workstation/download/) 之类的 ISO 刻录工具将下载好的 ISO 文件刻录到移动储存介质中。
 
-## Fedora Media Writer
-
+- Fedora Media Writer</p>
 将你的 U 盘插入电脑，打开 Fedora Media Writer 选择“**自定义镜像**”，选择你刚刚下载好的 ISO 文件，请确认选择正确的设备，然后点击 “**写入磁盘**”，等刻录自动完成。
 
-## Rufus
-
+- Rufus</p>
 将你的 U 盘插入电脑，打开 Rufus，它会自动选择可用的移动存储设备。点击“**选择**”打开要刻录的镜像文件。请确认选择正确的设备，然后点击底端的“**开始**”等待刻录自动完成。
 
-## 划分未分配的磁盘空间
-
+- 划分未分配的磁盘空间</p>
 如果你是在实体机上安装 Fedora，请提前用磁盘分区工具划分一个大小为 20GB 或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
 
-# 安装
+## 安装
 
-## 准备安装
+### 配置虚拟机
 
 在安装好 VMWare Workstation 后，点击左上方“**文件(F)**” ，选择“**新建虚拟机(N)**”。
 
@@ -89,12 +90,13 @@ Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux]
 
 - `Ctrl + Alt` 快捷键组合可以让 VMware 停止捕获你的鼠标。
 - 对于需要将 Fedora Linux 安装至实体机上的用户，请将刻录好的安装介质插入到电脑中，重启电脑，手动进入引导界面，选择安装介质作为引导启动的对象。
+- 对于不喜欢付费的 VMware 用户，你可以选择开源免费的 [Virtualbox](https://www.virtualbox.org/)。相关的操作内容另见：[Virtualbox - openSUSE Wiki](https://zh.opensuse.org/Virtualbox)。
 
 然后你就会看到 Fedora 的引导启动页面，选择“**Test this media & start Fedora**”。进入下一步。
 
 然后你就会进入到 Fedora Live 环境，你此时可以体验一下 Fedora 的图形界面，你此时所作出的更改基本不会影响到电脑原有的布局。如果你要开始安装，请找到并启动带有 Fedora 图标，名为“**Install to Hard Drive**”的应用程序。
 
-## 使用 Anaconda 安装系统
+### 使用 Anaconda 安装系统
 
 Fedora 使用 Anaconda 作为系统安装器。启动 Anaconda 后，第一步是选择语言，找到“**中文**”，并选择“**简体中文**”，然后进入下一步。
 
@@ -113,9 +115,10 @@ Fedora 使用 Anaconda 作为系统安装器。启动 Anaconda 后，第一步�
 使用鼠标右键单击右侧逻辑视图下方的 free space，选择“**新建**”，若磁盘没有分区表或者你打算删除原有系统进行一次全新的安装，Anaconda 会提示你选择新分区表类型（推荐设置为 GPT）。
 
 为了安装 Fedora，你至少需要 `/` 和 `/boot` 两个基本的分区。
+
 |分区|描述|
 |---|---|
-|`/boot`|这个分区包含操作系统内核和在引导过程中使用的其他文件。推荐大小为 1GB。文件系统类型可设置为 `ext4`|
+|`/boot`|这个分区包含操作系统内核和在引导过程中使用的其他文件。推荐大小为 1GB。文件系统类型可设置为 `ext4`。|
 |`/boot/efi`|独立的 [EFI](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface) 分区，推荐当 Fedora 需要与 Windows 共存时创建该分区，大小为 512MB，格式为 `vfat` 或 `fat32`。|
 |`/(root)`|这是根目录所在的位置。根目录是目录结构的顶层。默认情况下，所有文件都写入此分区，除非在写入的路径中安装了不同的分区（例如，`/boot` 或 `/home`）。</p>Fedora 现在已经使用 [Btrfs](https://wiki.archlinux.org/title/Btrfs) 卷作为根目录的默认文件系统。官方推荐大小为 25GB 及以上。实际上你只需要保证根目录大于 15GB 即可。|
 |`/home`|独立的用户目录，具体大小取决于你想要放入多少文件；不是必需的分区。分区格式为 `xfs`、`ext4` 或 `btrfs` 等你所偏好的分区格式。|
