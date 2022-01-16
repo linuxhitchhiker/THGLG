@@ -22,4 +22,4 @@ lead: "面向普通桌面用户的、开源的、人类可读的 Linux 桌面文
 * [进阶教程](advanced/using-commandline.md)：更进一步的指引，伴以概念性的讲解
 * [解决方案](solution/software/browser.md)：对于各种需求解决方案，包括影音娱乐、网上冲浪等方面
 
-我们建议读者使用目录与搜索功能，这样能更快的定位自己所需要的内容。同时，本文档完全开源，托管于 GitHub，采用 CC-BY-SA 4.0 协议，我们鼓励读者提交更新与修正，具体事项参见[贡献指南](about/contributing/index.md)
+我们建议读者使用目录与搜索功能，这样能更快的定位自己所需要的内容。同时，本文档完全开源，托管于 GitHub，采用 CC-BY-SA 4.0 协议，我们鼓励读者提交更新与修正，具体事项参见[贡献指南](about/contributing/index.md)。

@@ -7,7 +7,7 @@ nav:
   - 主页:
       - 欢迎: "index.md"
       - 简介: "intro.md"
-  - 入门:
+  - 入门指南:
       - 序言:
           - "basic/prologue/switch-to-linux.md"
       - 安装系统:
@@ -15,7 +15,7 @@ nav:
           - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/index.md"
       - 使用桌面环境:
           - 安装软件: "TBD"
-  - 进阶:
+  - 进阶教程:
       - 使用命令行: "advanced/using-commandline.md"
       - 打包:
           - "advanced/packaging/flatpak.md"
@@ -24,12 +24,12 @@ nav:
           - 浏览器: solution/software/browser.md
           - 即时通讯: solution/software/instant-messaging.md
       - 系统配置:
-          - HiDPI: config/hidpi.md
+          - HiDPI: solution/config/hidpi.md
   - 寻求帮助:
       - 常见问题: "help/faq.md"
       - 联系我们: "help/contact.md"
   - 关于:
-      - 简介: "about/introduction.md"
+      - 简介: "about/index.md"
       - 许可协议: "about/license/deed.md"
       - 贡献指南: "about/contributing/index.md"
 
@@ -43,7 +43,9 @@ theme:
     accent: blue
   features:
     - navigation.tabs
+   
 plugins:
+  - git-revision-date
   - search:
       lang: zh
 markdown_extensions:
