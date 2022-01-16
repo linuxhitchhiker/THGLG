@@ -18,6 +18,7 @@ toc: true
 ## 参考资料
 
 本文参考了 openSUSE 中文 Wiki 的一些页面：
+
 - [为什么选择 openSUSE](https://zh.opensuse.org/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9_openSUSE)
 - [SDB:制作安装 U 盘](https://zh.opensuse.org/SDB:%E5%88%B6%E4%BD%9C%E5%AE%89%E8%A3%85_U_%E7%9B%98)
 - [SDB:DVD 安装方式](https://zh.opensuse.org/SDB:DVD_%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F)
@@ -111,6 +112,7 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 首先，在**建议分区**页面点击正下方的**专家分区程序**，然后你可以选择 openSUSE 预置的分区方案，也可选择自己修改分区方案。从**当前提案开始**表示你选择以 openSUSE 默认的分区方案为基础进行修改，从**现有分区开始**表示是你选择自己创建分区。
 
 注意：
+
 - 本文使用的演示用虚拟机的磁盘空间为 30GB（`/dev/sda`）。
 - 实际操作中，SWAP 分区大小请参考[安装 Fedora - 手动分区](https://linuxhitchhiker.github.io/THGLG/basic/installation/fedora-installation-guide/#%E6%89%8B%E5%8A%A8%E5%88%86%E5%8C%BA)中提供的参考表格。
 - openSUSE 的[硬件需求](https://zh.opensuse.org/Hardware_requirements_15.2)要求至少需要 10GB 的空间进行安装系统，如果需要图形化界面，最小的磁盘空间需要大于 16GB 。在实体机上日常使用推荐的空间大小为 40GB 及以上。
