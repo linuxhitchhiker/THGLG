@@ -42,15 +42,17 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 
 - Leap：
 
->下载地址：镜像站地址 + /opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso</p>
->如：http://mirrors.ustc.edu.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso
+>下载地址：镜像站地址 + /opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-DVD-x86_64-Current.iso</p>
+>如：http://mirrors.ustc.edu.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-DVD-x86_64-Current.iso
 
 - Tumbleweed：
 
 >下载地址：镜像站地址 + /opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso</p>
 >如：http://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
 
-- 注意：离线安装的 DVD 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
+注意：
+- 离线安装的 DVD 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
+- 请打开浏览器检查一下链接是否真实可用。
 
 ### 制作安装介质
 
