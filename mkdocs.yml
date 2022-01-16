@@ -4,9 +4,9 @@ edit_uri: edit/main/docs/
 copyright: "© 2022 Linux 银河漫游指南贡献者，在 CC BY-SA 4.0 下提供。"
 
 nav:
-  - 开始:
+  - 主页:
       - 欢迎: "index.md"
-  - 初级:
+  - 入门:
       - 序言:
           - "basic/prologue/switch-to-linux.md"
       - 安装系统:
@@ -29,7 +29,7 @@ nav:
       - 联系我们: "help/contact.md"
   - 关于:
       - 简介: "about/introduction.md"
-      - 许可协议: "about/license/index.md"
+      - 许可协议: "about/license/deed.md"
       - 贡献指南: "about/contributing/index.md"
 
 theme:
@@ -39,7 +39,7 @@ theme:
   locale: zh_CN
   palette:
     primary: blue
-    accent: light blue
+    accent: blue
   features:
     - navigation.tabs
 plugins:
