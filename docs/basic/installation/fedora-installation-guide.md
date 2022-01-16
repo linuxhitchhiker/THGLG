@@ -88,7 +88,7 @@ Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux]
 
 - `Ctrl + Alt` 快捷键组合可以让 VMware 停止捕获你的鼠标。
 - 对于需要将 Fedora Linux 安装至实体机上的用户，请将刻录好的安装介质插入到电脑中，重启电脑，手动进入引导界面，选择安装介质作为引导启动的对象。
-- 对于不喜欢付费的 VMware 用户，你可以选择开源免费的 [Virtualbox](https://www.virtualbox.org/)。相关的操作内容另见：[Virtualbox - openSUSE Wiki](https://zh.opensuse.org/Virtualbox)。
+- 如果不喜欢为 VMware 付费，你可以选择开源免费的 [Virtualbox](https://www.virtualbox.org/)。相关的操作内容另见：[Virtualbox - openSUSE Wiki](https://zh.opensuse.org/Virtualbox)。
 
 然后你就会看到 Fedora 的引导启动页面，选择“**Test this media & start Fedora**”。进入下一步。
 
