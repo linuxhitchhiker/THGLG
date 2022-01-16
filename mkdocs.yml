@@ -11,7 +11,7 @@ nav:
           - "basic/prologue/switch-to-linux.md"
       - 安装系统:
           - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
-          - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/opensuse-installation-guide.md"
+          - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/index.md"
       - 使用桌面环境:
           - 安装软件: "TBD"
   - 进阶:
