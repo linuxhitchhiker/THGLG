@@ -1,11 +1,12 @@
 site_name: Linux 银河漫游指南
 repo_url: https://github.com/linuxhitchhiker/THGLG
 edit_uri: edit/main/docs/
-copyright: "© 2022 Linux 银河漫游指南贡献者，在 CC BY-SA 4.0 下提供。"
+copyright: "© 2022 Linux 银河漫游指南贡献者，在 CC-BY-SA 4.0 下提供。"
 
 nav:
   - 主页:
       - 欢迎: "index.md"
+      - 简介: "intro.md"
   - 入门:
       - 序言:
           - "basic/prologue/switch-to-linux.md"
@@ -59,6 +60,5 @@ markdown_extensions:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify #保证中文链接
 
-
-extra_css:
-  - assets/stylesheets/extra.css
+# extra_css:
+#   - assets/stylesheets/extra.css

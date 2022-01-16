@@ -17,14 +17,17 @@ title: 欢迎
             //display: none !important;
         }
     }
-    .feat-block{
+    .feat-block {
         /* display: none; */
         clear:both;
         text-align: center;
         padding: 1em 0em 1em 0em; 
     }
-    .feat-head{
+    .feat-head {
         text-align: center;
+    }
+    .md-content__button {
+        display: none;
     }
     @media screen and (min-width: 60em) {
         .feat-block img {
@@ -42,15 +45,15 @@ title: 欢迎
     }
 </style>
 
-# Linux 银河漫游指南
-
 <div markdown class="feat-head">
+
+# Linux 银河漫游指南
 
 面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档。
 
 <div markdown>
 
-[开始阅读](basic/prologue/switch-to-linux.md){ .md-button  .md-button--primary }
+[开始阅读](intro.md){ .md-button  .md-button--primary }
 
 </div>
 
