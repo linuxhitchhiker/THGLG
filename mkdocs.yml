@@ -1,9 +1,10 @@
 site_name: Linux 银河漫游指南
 repo_url: https://github.com/linuxhitchhiker/THGLG
 edit_uri: edit/main/docs/
-copyright: "© 2022 Linux 银河漫游指南贡献者"
+copyright: "© 2022 Linux 银河漫游指南贡献者，在 CC BY-SA 4.0 下提供。"
 
 nav:
+<<<<<<< HEAD
   - 开始:
       - 欢迎: "index.md"
       - 切换到Linux: "prologue/switch-to-linux.md"
@@ -18,13 +19,29 @@ nav:
       - 即时通讯: software/instant-messaging.md
   - 系统配置:
       - HiDPI: config/hidpi.md
+=======
+  - 主页: "index.md"
+  - 入门:
+      - 导言:
+          - 简介: "basic/prologue/introduction.md"
+          - 切换到Linux: "basic/prologue/switch-to-linux.md"
+      - 系统安装: 
+          - "basic/installation/general.md"
+          - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
+          - openSUSE 安装指南: "basic/installation/opensuse-installation-guide.md"
+>>>>>>> 06ee441 (change structure)
   - 进阶:
       - 打包:
           - "advanced/packaging/flatpak.md"
   - 关于:
+<<<<<<< HEAD
       - 简介: "about/introduction.md"
       - 许可协议: 'about/license.md'
       - 贡献指南: "about/contributing/guide.md"
+=======
+      - "about/license/index.md"
+      - "about/contributing/index.md"
+>>>>>>> 06ee441 (change structure)
 
 theme:
   name: material
@@ -40,6 +57,9 @@ plugins:
   - search:
       lang: zh
 markdown_extensions:
+  - abbr
+  - footnotes
+  - pymdownx.snippets
   - admonition
   - pymdownx.details
   - pymdownx.superfences
@@ -48,6 +68,8 @@ markdown_extensions:
   - toc:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify #保证中文链接
+extra_css:
+  - assets/stylesheets/red.css
 
 extra_css:
   - stylesheets/extra.css

@@ -2,15 +2,6 @@
 title: "简介"
 description: "简介"
 lead: "面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档。"
-date: 2020-10-13T15:21:01+02:00
-lastmod: 2020-10-13T15:21:01+02:00
-draft: false
-images: []
-menu:
-  docs:
-    parent: "prologue"
-weight: 100
-toc: true
 ---
 
 《Linux 银河漫游指南》面向所有桌面用户，不论你是初探 Linux 世界的新手，还是经验丰富的资深老鸟，我们都希望你能在这里找到有价值的信息。

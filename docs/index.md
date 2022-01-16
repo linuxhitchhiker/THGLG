@@ -5,7 +5,7 @@ title: 欢迎
 
 # Linux 银河漫游指南
 
-面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档。以 CC BY-SA-NC 协议开源于 GitHub。
+面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档。以 CC-BY-SA 协议开源于 GitHub。
 
 ## 符合标准
 
@@ -29,4 +29,4 @@ Flatpak、Toolbx 等容器化技术弱化了发行版之间的鸿沟，为应用
 
 ## 真正开源
 
-本文档采用 CC BY-SA-NC 开源协议发布。
+本文档采用 CC-BY-SA 开源协议发布。
