@@ -4,44 +4,34 @@ edit_uri: edit/main/docs/
 copyright: "© 2022 Linux 银河漫游指南贡献者，在 CC BY-SA 4.0 下提供。"
 
 nav:
-<<<<<<< HEAD
   - 开始:
       - 欢迎: "index.md"
-      - 切换到Linux: "prologue/switch-to-linux.md"
-      - 寻求帮助:
-          - 常见问题: "help/faq.md"
-          - 联系我们: "help/contact.md"
-  - 安装:
-      - Fedora 安装指南: "installation/fedora-installation-guide.md"
-      - openSUSE 安装指南: "installation/opensuse-installation-guide.md"
-  - 软件:
-      - 浏览器: software/browser.md
-      - 即时通讯: software/instant-messaging.md
-  - 系统配置:
-      - HiDPI: config/hidpi.md
-=======
-  - 主页: "index.md"
-  - 入门:
-      - 导言:
-          - 简介: "basic/prologue/introduction.md"
-          - 切换到Linux: "basic/prologue/switch-to-linux.md"
-      - 系统安装: 
-          - "basic/installation/general.md"
+  - 初级:
+      - 序言:
+          - "basic/prologue/switch-to-linux.md"
+      - 安装系统:
           - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
           - openSUSE 安装指南: "basic/installation/opensuse-installation-guide.md"
->>>>>>> 06ee441 (change structure)
+      - 使用桌面环境:
+          - 安装软件: ""
   - 进阶:
+      - 使用命令行: ""
+  - 高级:
       - 打包:
           - "advanced/packaging/flatpak.md"
+  - 解决方案:
+      - 软件:
+          - 浏览器: solution/software/browser.md
+          - 即时通讯: solution/software/instant-messaging.md
+      - 系统配置:
+          - HiDPI: config/hidpi.md
+  - 寻求帮助:
+      - 常见问题: "help/faq.md"
+      - 联系我们: "help/contact.md"
   - 关于:
-<<<<<<< HEAD
       - 简介: "about/introduction.md"
-      - 许可协议: 'about/license.md'
-      - 贡献指南: "about/contributing/guide.md"
-=======
-      - "about/license/index.md"
-      - "about/contributing/index.md"
->>>>>>> 06ee441 (change structure)
+      - 许可协议: "about/license/index.md"
+      - 贡献指南: "about/contributing/index.md"
 
 theme:
   name: material
@@ -68,8 +58,7 @@ markdown_extensions:
   - toc:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify #保证中文链接
-extra_css:
-  - assets/stylesheets/red.css
+
 
 extra_css:
-  - stylesheets/extra.css
+  - assets/stylesheets/extra.css
