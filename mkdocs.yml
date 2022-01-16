@@ -9,7 +9,8 @@ nav:
       - 简介: "intro.md"
   - 入门指南:
       - 序言:
-          - "basic/prologue/switch-to-linux.md"
+          - 切换到 Linux: "basic/prologue/switch-to-linux.md"
+          - 选择发行版: "basic/prologue/choosing-distribution.md"
       - 安装系统:
           - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
           - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/index.md"
