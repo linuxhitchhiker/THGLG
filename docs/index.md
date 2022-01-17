@@ -1,6 +1,7 @@
 ---
 #template: home.html
 title: 欢迎
+toc_depth: 0
 ---
 
 <script type="text/javascript">
@@ -16,6 +17,9 @@ title: 欢迎
         .md-sidebar {
             //display: none !important;
         }
+    }
+    .headerlink {
+        display: none !important;
     }
     .feat-block {
         /* display: none; */

@@ -43,6 +43,9 @@ theme:
     primary: blue
     accent: blue
   features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
     - navigation.tabs
    
 plugins:
