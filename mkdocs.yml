@@ -51,6 +51,10 @@ plugins:
   - git-revision-date-localized:
       type: iso_date
       enable_creation_date: true
+      exclude:
+        - index.md
+        - "intro.md"
+        - about/*
   - search:
       lang: zh
 markdown_extensions:
