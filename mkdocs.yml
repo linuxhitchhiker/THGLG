@@ -15,6 +15,7 @@ nav:
           - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
           - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/index.md"
       - 使用桌面环境:
+          - 桌面环境简介: "basic/desktop/desktop-environment.md"  
           - 安装软件: "TBD"
   - 进阶教程:
       - 使用命令行: "advanced/using-commandline.md"
