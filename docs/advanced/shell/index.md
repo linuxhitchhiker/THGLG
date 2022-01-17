@@ -1,5 +1,5 @@
 ---
-title: "使用 shell"
+title: "成为一个 Linux 实力用户"
 ---
 
 该部分正在施工……
