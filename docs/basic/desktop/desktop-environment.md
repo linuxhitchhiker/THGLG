@@ -18,6 +18,8 @@ Linux 可用的桌面环境非常多，各有特色，面向不同的群体。
 
 其中由三个最为流行和广泛应用的桌面环境：[Gnome](https://www.gnome.org/)、[KDE](https://kde.org/) 和 [Xfce](https://xfce.org/)。
 
+**注意，你所看到的桌面截图并非用户最终使用的样子**，Liunx 桌面的开放使得用户可以根据自己的喜好进行修整。你可能会看到 MacOS 风格的 KDE 或是 Windows 风格的 Gnome。
+
 Gnome 是由 [Gnome Project](https://www.gnome.org/) 主导开发的一个类似于 Mac 的桌面环境，是 Fedora, RHEL 等 Linux 社区/商业发行版的默认桌面环境。Gnome 为了让用户专注于工作本身而生，所以它的整体设计是简约风格。Gnome 强调工作空间的管理与使用，而不是让一堆的程序界面杂乱无章地散落在一个桌面上。Gnome 的缺点是缺乏灵活的自定义，对插件的管理能力比较差，很多额外的功能实现需要依靠第三方工具。
 
 ![GNOME](./assets/OSlp151_GNOME-Notifications.png)
