@@ -152,6 +152,8 @@ bh       tty1         2022-01-17 17:06 (:0)
 
 - 一般而言，用户所在的组应该是 `users`，但 Fedora 和 RHEL 及其衍生发行版都是采用 [User Private Groups](https://web.mit.edu/rhel-doc/3/rhel-rg-en-3/s1-users-groups-private-groups.html)，所以用户名通常和用户首要组相同。
 
+当你输入一堆的命令后，你可以使用 `clear` 清空整个屏幕
+
 ### 定位命令的位置
 
 你在 Linux 上所输入的命令一般都存储在你的路径（path）中，对于不在路径中的命令，你可以输入命令位置的完整标识。
@@ -198,3 +200,59 @@ dnf 是 /usr/bin/dnf
 
 你可以使用 `history` 查询你最近输过的命令。然后用鼠标选中复制，然后使用 `Ctrl` + `Shift` + `V` 快捷键组合将内容复制到终端中。或者你可以使用方向键 `↑` 和 `↓` 显示你之前输过的命令。然后使用 `←` 和 `→` 移动光标，编辑命令。
 
+### 命令行编辑
+
+bash shell 支持基于 [emacs](https://www.gnu.org/software/emacs/) 文本编辑器的命令行编辑功能（你可以输入 `man emacs` 查阅相关用户手册了解更多信息，要关闭手册按，只需要按 `q` 即可退出）来编辑你输入的命令。
+
+### 命令行补全
+
+bash shell 提供了几种不同的方法来补全部分键入的值。要尝试完成一个值，请键入前几个字符并按 `Tab` 键。以下是你可以从 bash shell 中部分键入的一些值：
+
+- **命令，别名或函数**  如果你键入的文本以常规字符开头，shell 会尝试使用命令、别名或函数名来完成文本。
+- **变量**  如果你键入的文本以 `$` 开头，shell 补齐变量。
+- **用户名**  如果你键入的文本以 `~` 开头，shell 会使用用户名（username）补齐文本。例如 `cd ~`，移动到当前用户的家目录。
+- **主机名**  如果你键入的文本以 `@` 开头，shell 会使用 `/etc/hosts` 文件中的主机名补齐文本。
+
+```
+[bh@c004-v1 ~]$ echo $P<Tab>
+$PANEL_GDK_CORE_DEVICE_EVENTS  $PROMPT_COMMAND                $PS4
+$PATH                          $PS0                           $PWD
+$PIPESTATUS                    $PS1                           
+$PPID                          $PS2  
+[bh@c004-v1 ~]$ echo $P
+```
+
+如上，输入 `echo $P` 再按下 `Tab` 键，shell 会显示以 `$P` 开头的变量。在显示变量后，shell 会回到原本的位置 `echo $P`，你可以继续输入命令。
+
+还有其他几个命令你可以试试看：
+
+```
+$ echo $OS<Tab>
+$ cd ~ro<Tab>
+$ userm<Tab>
+```
+
+### 命令行召回
+
+你所输入的命令都会存储在 shell 的历史记录列表中，当你退出 shell 会话后，这些记录会存储到一个 history 文件中，以便下一次会话时查阅。
+
+你可以使用 `history` + 数字显示你所希望看到的历史命令的数量，如：
+
+```
+[bh@c004-v1 ~]$ history 10
+  326  cd ~
+  327  ls
+  328  sudo dnf up -y
+  329  uptime
+  330  id
+  331  whoami
+  332  type locate
+  333  type ls
+  334  cat /etc/hosts
+  335  history 10
+[bh@c004-v1 ~]$ !329
+uptime
+ 11:06:42 up  2:04,  1 user,  load average: 0.14, 0.17, 0.10
+```
+
+然后使用 `!` + 数字的形式执行之前运行过的命令。
