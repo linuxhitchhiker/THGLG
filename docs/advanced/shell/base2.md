@@ -89,4 +89,11 @@ drwxr-xr-x. 1 bh bh       620  1月  8 13:47 CFW
 /home/bh/Applications/CFW
 ```
 
-`mkdir` 用于创建文件
+`mkdir` 用于创建文件夹，要在用户目录内新建一个名为 test 文件夹，只需要：
+
+```
+$ mkdir test #或者 mkdir ~/test
+```
+
+## 使用元字符和运算符
+
