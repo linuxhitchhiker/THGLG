@@ -38,3 +38,55 @@ Linux 系统中所有东西（数据、命令、符号连结、设备和文件�
 
 在 Linux 中，文件并不需要像 windows 那样的后缀名（.txt、.xls）。后缀名也没有实际意义，后缀名并不影响文件的功能，但它有助于帮助用户理解此文件的用途。此外，Linux 文件系统有着严格且明确的权限和所有权管理系统，这将在后文详述。
 
+## 使用基本的文件系统命令
+
+要在命令行中与文件系统进行交互，你至少需要知道以下命令。
+
+|命令|功能|
+|---|---|
+|cd|变更到另一个文件夹|
+|pwd|将你当前所在的文件夹打印到屏幕上|
+|mkdir|创建一个文件夹|
+|chmod|更改一个文件夹或文件的权限|
+|ls|列出指定目录的文件夹和文件|
+
+一般地，当你打开一个终端后，你所在的文件夹是你的用户文件夹（`~`）。你可以使用 `cd` 命令移动到指定的目录（路径可以是绝对路径或相对路径），如：
+
+```
+[bh@c004-v1 ~]$ ls #列出当前目录的文件
+公共  模板  视频  图片  文档  下载  音乐  桌面  Applications  FolderA
+[bh@c004-v1 ~]$ cd Applications #移动到 Applications 子文件
+[bh@c004-v1 Applications]$ ls #列出当前目录的文件
+CFW  Icalingua-2.4.5.AppImage  mount.sh
+[bh@c004-v1 Applications]$ pwd #打印当前目录至输出
+/home/bh/Applications
+[bh@c004-v1 Applications]$ cd /usr/share/backgrounds #移动到 /usr/share/backgrounds
+[bh@c004-v1 backgrounds]$ ls #列出当前目录的文件
+default.png  default.xml  f35  images  wallhaven-967zyk.jpg  xfce
+[bh@c004-v1 backgrounds]$ pwd #打印当前目录至输出
+/usr/share/backgrounds
+[bh@c004-v1 backgrounds]$ cd ~ #回到用户主目录
+[bh@c004-v1 ~]$ pwd #打印当前目录至输出
+/home/bh
+```
+
+直接输入 `cd` 也可以立即回到用户主目录；你可以使用 `..` 表示上一级文件夹（相对路径），`.` 表示当前文件夹，如：
+
+```
+[bh@c004-v1 Applications]$ ls -lat
+总用量 111440
+drwx------. 1 bh bh       440  1月 18 16:22 ..
+-rwxrw-rw-. 1 bh bh       117  1月 12 11:35 mount.sh
+drwxr-xr-x. 1 bh bh        70  1月  8 14:54 .
+drwxr-xr-x. 1 bh bh       620  1月  8 13:47 CFW
+-rwxrwxrwx. 1 bh bh 114110270 12月 23 15:01 Icalingua-2.4.5.AppImage
+[bh@c004-v1 Applications]$ cd ..
+[bh@c004-v1 ~]$ pwd
+/home/bh
+
+[bh@c004-v1 Applications]$ cd ./CFW
+[bh@c004-v1 CFW]$ pwd
+/home/bh/Applications/CFW
+```
+
+`mkdir` 用于创建文件
