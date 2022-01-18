@@ -19,7 +19,8 @@ nav:
           - 桌面环境简介: "basic/desktop/desktop-environment.md"  
           - 安装软件: "TBD"
   - 进阶教程:
-      - 使用命令行: "advanced/shell/index.md"
+      - 使用命令行: 
+          - "advanced/shell/base1.md"
       - 打包:
           - "advanced/packaging/flatpak.md"
   - 解决方案:
