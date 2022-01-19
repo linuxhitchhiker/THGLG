@@ -47,7 +47,6 @@ title: 下载与写入镜像
 |搜狐|企业镜像源|http://mirrors.sohu.com/|
 |OpenTUNA 开源软件镜像站|企业镜像源|https://opentuna.cn/|
 |开源社/Azure 中国|企业镜像源|http://mirror.kaiyuanshe.cn/|
-|---|---|---|
 
 ## 创建可启动镜像
 
