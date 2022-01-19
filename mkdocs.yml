@@ -22,6 +22,7 @@ nav:
       - 使用命令行: 
           - "advanced/shell/base1.md"
           - "advanced/shell/base2.md"
+          - "advanced/shell/base3.md"
       - 打包:
           - "advanced/packaging/flatpak.md"
   - 解决方案:
