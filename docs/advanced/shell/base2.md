@@ -10,7 +10,7 @@ Linux 系统中所有东西（数据、命令、符号连结、设备和文件�
 
 与 Windows 不同的一点，Linux 的不同层级的文件夹之间都是使用斜杠 `/` 进行区分，而不是 NTFS 文件系统常用的反斜杠，比如 `C:\Program Files (x86)\Microsoft`。这也是为什么当今所有的网页地址都是使用斜杠而非反斜杠的原因之一。且 Linux 中所有的绝对路径都是以 `/` 开头。
 
-同时，Linux 文件名是有分区大小写的。例如 Apple.c、APPLE.c、apple.C 和 ApplE.c 是三个不同的文件。
+同时，Linux 文件名是有分区大小写的。例如 Apple.c、APPLE.c、apple.C 和 ApplE.c 是四个不同的文件。
 
 ![file system](./assets/file-system.png)
 
