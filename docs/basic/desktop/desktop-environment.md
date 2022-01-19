@@ -26,7 +26,7 @@ Gnome 是由 [Gnome Project](https://www.gnome.org/) 主导开发的一个类似
 
 KDE 是由 [KDE.org](https://kde.org/) 主导开发的一个类似 Windows 的桌面环境。它具有类似 Windows 但更胜一筹，非常优美的初始外观；并支持用户高度自定义整个系统（KDE 甚至支持美化登陆界面的外观）；和 KDE 环境深度整合的 [KDE 套件](https://apps.kde.org/)也是让很多用户喜爱 KDE 的原因之一; KDE 还具有很好的可扩展性，用户可以安装各种各样的插件增强 KDE 的功能。KDE 的缺点是容易因为过度自定义变得臃肿，内存占用偏高，其配置页面可能会使一些用户晕头转向，个别 KDE 软件功能和效率不及专业软件。
 
-![KDE](./assets/Plasma-launcher.png)
+![KDE](./assets/opensuse-kde.png)
 
 Xfce 是由 [Xfce Project](https://xfce.org/) 主导开发的一个类似 Windows 的轻量级桌面环境。Xfce 占用的资源更少，整体更轻便（依赖少量的额外软件包），反应更灵敏（操作灵敏度可以和同硬件配置的 Windows 相提并论）；以三年为一个研发周期，注重稳定性；虽然简约，但已具备必须的基本功能。Xfce 的缺点是它的默认配置对于新用户来说显得有些古板或简陋，不支持动画。
 
