@@ -17,7 +17,7 @@ title: 下载与写入镜像
 
 ### 镜像站列表
 
-- 延伸阅读：[请给清华镜像站减压 - 竹林里有冰的博客](https://blog.zhullyb.top/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/)
+- **延伸阅读：[请给清华镜像站减压 - 竹林里有冰的博客](https://blog.zhullyb.top/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/)**
 - 更多镜像站信息请点击[此处](https://gitee.com/gsls200808/chinese-opensource-mirror-site)
 
 |镜像站名称|类型|地址|
