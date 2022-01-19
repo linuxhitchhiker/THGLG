@@ -35,6 +35,7 @@ title: 下载与写入镜像
 |哈尔滨工业大学开源软件镜像|大学镜像源|https://mirrors.hit.edu.cn/|
 |南京大学开源软件镜像|大学镜像源|http://mirrors.nju.edu.cn/|
 |南方科技大学开源软件镜像|大学镜像源|https://mirrors.sustech.edu.cn/|
+|OpenTUNA 开源软件镜像站|大学镜像源|https://opentuna.cn/|
 |---|---|---|
 |腾讯软件源|企业镜像源|https://mirrors.cloud.tencent.com|
 |腾讯软件源（腾讯云内网）|企业镜像源|https://mirrors.tencentyun.com|
@@ -45,7 +46,6 @@ title: 下载与写入镜像
 |华为开源镜像站|企业镜像源|https://mirrors.huaweicloud.com|
 |首都在线镜像站|企业镜像源|http://mirrors.yun-idc.com/|
 |搜狐|企业镜像源|http://mirrors.sohu.com/|
-|OpenTUNA 开源软件镜像站|企业镜像源|https://opentuna.cn/|
 |开源社/Azure 中国|企业镜像源|http://mirror.kaiyuanshe.cn/|
 
 ## 创建可启动镜像
