@@ -401,8 +401,14 @@ shell 的行为由数个配置文件进行控制，一些配置会应用到每�
 
 |文件名|描述|
 |---|---|
-|/etc/profile||
-|/etc/bashrc||
-|~/.bash_profile||
-|~/.bashrc||
-|~/.bash_logout||
+|`/etc/profile`|该文件用于为每个用户设置用户环境信息。它在你第一次登录时执行。除了为您的邮箱位置和历史文件大小等设置环境变量外，该文件还为你的路径提供变量。最后，`/etc/profile` 会从 `/etc/profile.d` 目录中的配置文件中收集 shell 设置。|
+|`/etc/bashrc`|该文件在每个运行 bash shell 的用户，每次打开 bash shell 时都会运行。它设置默认提示符并可能添加一个或多个命令别名。此文件中的值可以被每个用户的 `~/.bashrc` 文件中的信息覆盖。|
+|`~/.bash_profile`|这是每个用户用来设置仅限于该用户的 shell 配置信息的文件。它只在当用户登录时执行一次。默认情况下，它会设置一些环境变量并执行用户的 `.bashrc` 文件。这是添加环境变量的好地方，因为一旦设置，它们就会被未来的 shell 会话继承。|
+|`~/.bashrc`|这文件包含专用于你的 bash shell 的信息。登录系统时以及每次打开新的 bash shell 时 shell 都会读取它。这是添加别名的最佳位置，以便你的 shell 使用它们。|
+|`~/.bash_logout`|它在你每次登出系统的时候执行（退出最后的 bash shell）。|
+
+要更改 `/etc/profile` 或者 `/etc/bashrc` 文件，你需要 root 权限。但在 `/etc/profile.d/` 文件夹下创建自定义配置文件（如：setting.sh）是一个既能将变更应用整个系统又相对安全的办法，这避免了你直接损坏系统配置文件的糟糕情况。普通用户可以更改 `$HOME/.bash_profile`、`$HOME/.bashrc` 和 `$HOME/.bash_logout` 来为自己设置 shell 自定义配置。你可以使用 `nano` 编辑文件（如果担心操作失误，可以提前备份一下文件再编辑。），如：
+
+```
+$ nano $HOME/.bashrc
+```
