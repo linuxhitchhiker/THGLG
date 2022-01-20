@@ -24,6 +24,9 @@ nav:
           - "advanced/shell/base1.md"
           - "advanced/shell/base2.md"
           - "advanced/shell/base3.md"
+      - 再次入门:
+          - 综述: 'advanced/re-entry/index.md'
+          - 软件源与镜像源: 'advanced/re-entry/mirror.md'
       - 打包:
           - "advanced/packaging/flatpak.md"
   - 解决方案:
