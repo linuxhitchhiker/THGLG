@@ -14,6 +14,7 @@ nav:
       - 安装系统:
           - "basic/installation/index.md"
           - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
+          - Fedora Silverblue 安装指南: "basic/installation/fedora-silverblue-installation-guide.md"
           - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/index.md"
       - 使用桌面环境:
           - 桌面环境简介: "basic/desktop/desktop-environment.md"  
