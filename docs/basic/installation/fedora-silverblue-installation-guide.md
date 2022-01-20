@@ -22,17 +22,17 @@ Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在
 > 💡️ 注意
 > 无论是双系统还是手动分区都存在一定的风险，建议有相关的知识储备或经验时再做尝试。
 
-2. 获取 Fedora Silverblue 安装镜像
+2. 获取 Fedora Silverblue 安装镜像  
 请前往 [Fedora Silverblue 网站](https://silverblue.fedoraproject.org/)进行下载。
 
-3. 验证安装镜像
+3. 验证安装镜像  
     安装前请务必验证镜像。验证镜像的方法有很多，Unix-like 系统下可运行：
     ```
     sha256sum /path/to/Fedora-Silverblue-ostree-x86_64-35-1.2.iso
     ```
     然后，将输出的结果与[下载页面](https://silverblue.fedoraproject.org/)的 checksum 文件进行比对。
 
-4. 制作安装介质
+4. 制作安装介质  
 使用 [Ventoy](https://www.ventoy.net/cn/index.html)、[Rufus](https://rufus.ie/zh/) 或 [Fedora Media Writer](https://silverblue.fedoraproject.org/download) 创建安装所需要的引导盘。
 
 - Ventoy 
@@ -41,10 +41,10 @@ Ventoy 安装完成之后，U盘会被分成两个分区。
 其中第一个分区（就是容量大的那个分区，也可以称之为镜像分区）将会被格式化为 exFAT 文件系统（也可以再手动重新格式化成其他支持的文件系统，比如 NTFS/FAT32/UDF/XFS/Ext2/3/4 等），只需要把 ISO/WIM 等文件拷贝到这里面即可。
 可选择把文件放在任意目录。 Ventoy 默认会遍历所有的目录，找出所有镜像文件，并按照字母先后排序显示在引导菜单中。
 
-- Fedora Media Writer
+- Fedora Media Writer  
 插入 U 盘，运行 Fedora Media Writer 选择“自定义镜像”，并选择刚刚下载的 ISO 镜像。请确保选择正确的设备，然后点击 “写入磁盘”，等待刻录完成后即可。
 
-- Rufus
+- Rufus  
 插入 U 盘后运行 Rufus，请确保选择正确的设备。点击“选择”打开要刻录的镜像文件，最点击“开始”并等待刻录完成。
 
 ## 3. Fedora Silverblue 安装流程
@@ -159,7 +159,7 @@ Anaconda 安装程序无法检测分区方案是否符合 Silverblue 的分区�
 
 ![silverblue7](https://gitlab.com/omgcao/fedora-silverblue-images/-/raw/main/13-install-progress.png)
 
-## 3.8. 完成安装
+### 3.8. 完成安装
 重启后将进入欢迎界面，进行简单的用户名、密码以及开启第三方存储库等设置后，安装完成。
 
 ![silverblue8-1](https://gitlab.com/omgcao/fedora-silverblue-images/-/raw/main/14-install-repo.png)
