@@ -16,24 +16,24 @@ Fedora Silverblue 系统更新的速度非常快，无需等待安装，重启�
 Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在硬盘分区部分。  
 其它安装步骤也可以参考 [Fedora Workstation 安装指南](https://docs.fedoraproject.org/en-US/docs/)。
 
-* 1. <span id="limitations">已知局限</span>  
-双系统引导和手动分区时 Fedora Silverblue 缺乏一定的灵活性。
-当然，Fedora Silverblue 是支持双系统引导和手动分区的，详见“手动分区”部分。
-
 > 💡️ 注意  
 > 无论是双系统还是手动分区都存在一定的风险，建议有相关的知识储备或经验时再做尝试。
 
-* 2. 获取 Fedora Silverblue 安装镜像  
+1. <span id="limitations">已知局限</span>  
+双系统引导和手动分区时 Fedora Silverblue 缺乏一定的灵活性。
+当然，Fedora Silverblue 是支持双系统引导和手动分区的，详见“手动分区”部分。
+
+2. 获取 Fedora Silverblue 安装镜像  
 请前往 [Fedora Silverblue 网站](https://silverblue.fedoraproject.org/)进行下载。
 
-* 3. 验证安装镜像  
+3. 验证安装镜像  
     安装前请务必验证镜像。验证镜像的方法有很多，Unix-like 系统下可运行：
     ```
     sha256sum /path/to/Fedora-Silverblue-ostree-x86_64-35-1.2.iso
     ```
     然后，将输出的结果与[下载页面](https://silverblue.fedoraproject.org/)的 checksum 文件进行比对。
 
-* 4. 制作安装介质  
+4. 制作安装介质  
 使用 [Ventoy](https://www.ventoy.net/cn/index.html)、[Rufus](https://rufus.ie/zh/) 或 [Fedora Media Writer](https://silverblue.fedoraproject.org/download) 创建安装所需要的引导盘。
 
 ## Fedora Silverblue 安装流程
