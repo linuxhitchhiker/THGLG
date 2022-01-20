@@ -377,7 +377,7 @@ $ alias rm='rm -i'
 |MAIL|这是你的邮箱文件的位置。该文件通常是你在 `/var/spool/mail` 目录中的用户名|
 |OLDPWD|这是你更改到当前工作目录之前的工作目录。|
 |OSTYPE|此名称标识当前操作系统。对于 Fedora Linux，OSTYPE 值是 `linux` 或 `linux-gnu`，具体取决于你使用的 shell 类型。（Bash 也可以在其他操作系统上运行。）|
-|PATH|这是用于查找你键入的命令的以冒号分隔的目录列表。普通用户的默认值因不同的发行版而异，但通常包括以下内容：`~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin`。对于不在 PATH 中命令，你需要键入要运行的命令的完整路径或相对路径。|
+|PATH|这是用于查找你键入的命令的以冒号分隔的目录列表。普通用户的默认值因不同的发行版而异，但通常包括以下内容：`~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin`。对于不在 PATH 中命令，你需要键入要运行的命令完整的绝对路径或相对路径。|
 |PPID|这是启动当前 shell 的命令的进程 ID（例如，包含 shell 的终端窗口）|
 |PROMPT_COMMAND|这可以设置为每次显示 shell 提示符之前运行的命令名称。设置 `PROMPT_COMMAND=date` 会列出提示符出现之前的当前日期/时间。|
 |PS1|这将设置你的 shell 提示符的值。你可以将许多项目读入提示符（日期、时间、用户名、主机名等）。有时命令需要额外的提示符，你可以使用变量 `PS2`、`PS3` 等进行设置|
@@ -391,3 +391,18 @@ $ alias rm='rm -i'
 
 ## 创建你自己的 shell 环境
 
+你可以调整 shell 以使其更高效地工作。
+
+### 配置 shell
+
+shell 的行为由数个配置文件进行控制，一些配置会应用到每个用户和每个 shell 会话。其他一些配置只会对特定的用户生效。
+
+- Bash 配置文件：
+
+|文件名|描述|
+|---|---|
+|/etc/profile||
+|/etc/bashrc||
+|~/.bash_profile||
+|~/.bashrc||
+|~/.bash_logout||
