@@ -26,6 +26,7 @@ nav:
           - "advanced/shell/base3.md"
       - 再次入门:
           - 综述: "advanced/re-entry/index.md"
+          - 选择发行版: "advanced/re-entry/distro.md"
           - 软件源与镜像源: "advanced/re-entry/repo-and-mirror.md"
           - 安装软件（命令行界面）: "advanced/re-entry/apps-cli.md"
       - 打包:
