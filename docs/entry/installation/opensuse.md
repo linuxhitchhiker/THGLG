@@ -69,7 +69,7 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 
 ### 配置虚拟机
 
-配置虚拟机的部分和[安装 Fedora](/docs/entry/installation/fedora.md) 的步骤大同小异，如果你发现 VMware 无法正确识别你选择的 ISO 文件，则你需要手动指定客户机操作系统类型。
+配置虚拟机的部分和[安装 Fedora](./fedora.md) 的步骤大同小异，如果你发现 VMware 无法正确识别你选择的 ISO 文件，则你需要手动指定客户机操作系统类型。
 
 ## 安装系统
 
