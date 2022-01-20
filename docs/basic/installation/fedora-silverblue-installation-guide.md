@@ -12,14 +12,14 @@ Fedora Silverblue 不可变是指 `/` 和 `/usr` 目录下的文件为只读模�
 Fedora Silverblue 系统更新的速度非常快，无需等待安装，重启系统后即可使用新版本。如果系统出现问题可选择回滚。
 
 ## 2. 安装前的准备
-Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在硬盘分区部分。
+Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在硬盘分区部分。  
 其它安装步骤也可以参考 [Fedora Workstation 安装指南](https://docs.fedoraproject.org/en-US/docs/)。
 
-1. <span id="limitations">已知局限</span>
+1. <span id="limitations">已知局限</span>  
 双系统引导和手动分区时 Fedora Silverblue 缺乏一定的灵活性。
 当然，Fedora Silverblue 是支持双系统引导和手动分区的，详见“手动分区”部分。
 
-> 💡️ 注意
+> 💡️ 注意  
 > 无论是双系统还是手动分区都存在一定的风险，建议有相关的知识储备或经验时再做尝试。
 
 2. 获取 Fedora Silverblue 安装镜像  
