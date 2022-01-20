@@ -69,7 +69,7 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 
 ### 配置虚拟机
 
-配置虚拟机的部分和[安装 Fedora](/docs/installation/fedora-installation-guide.md) 的步骤大同小异，如果你发现 VMware 无法正确识别你选择的 ISO 文件，则你需要手动指定客户机操作系统类型。
+配置虚拟机的部分和[安装 Fedora](/docs/entry/installation/fedora.md) 的步骤大同小异，如果你发现 VMware 无法正确识别你选择的 ISO 文件，则你需要手动指定客户机操作系统类型。
 
 ## 安装系统
 
@@ -113,7 +113,7 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 注意：
 
 - 本文使用的演示用虚拟机的磁盘空间为 30GB（`/dev/sda`）。
-- 实际操作中，SWAP 分区大小请参考[安装 Fedora - 手动分区](https://linuxhitchhiker.github.io/THGLG/basic/installation/fedora-installation-guide/#%E6%89%8B%E5%8A%A8%E5%88%86%E5%8C%BA)中提供的参考表格。
+- 实际操作中，SWAP 分区大小请参考[安装 Fedora - 手动分区](https://linuxhitchhiker.github.io/THGLG/entry/installation/fedora/#%E6%89%8B%E5%8A%A8%E5%88%86%E5%8C%BA)中提供的参考表格。
 - openSUSE 的[硬件需求](https://zh.opensuse.org/Hardware_requirements_15.2)要求至少需要 10GB 的空间进行安装系统，如果需要图形化界面，最小的磁盘空间需要大于 16GB 。在实体机上日常使用推荐的空间大小为 40GB 及以上。
 - 请不要让 windows 和 openSUSE 共享同一个 EFI 分区。
 - 如果你是 Tumbleweed 用户，建议使用官方的 btrfs 文件系统，且不建议你关闭 [Snapper 快照功能](https://zh.opensuse.org/SDB:Snapper_Tutorial)。

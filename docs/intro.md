@@ -18,7 +18,7 @@ lead: "面向普通桌面用户的、开源的、人类可读的 Linux 桌面文
 
 本指南大致分为三个部分，敬请选择自己需要的部分阅读：
 
-* [入门指南](basic/prologue/switch-to-linux.md)：针对新手的Linux安装与使用指南，旨在快速安装并使用
+* [入门指南](entry/prologue/switch-to-linux.md)：针对新手的Linux安装与使用指南，旨在快速安装并使用
 * [进阶教程](advanced/using-commandline.md)：更进一步的指引，伴以概念性的讲解
 * [解决方案](solution/software/browser.md)：对于各种需求解决方案，包括影音娱乐、网上冲浪等方面
 

@@ -9,15 +9,15 @@ nav:
       - 简介: "intro.md"
   - 入门指南:
       - 序言:
-          - 切换到 Linux: "basic/prologue/switch-to-linux.md"
-          - 选择发行版: "basic/prologue/choosing-distribution.md"
+          - 切换到 Linux: "entry/prologue/switch-to-linux.md"
+          - 选择发行版: "entry/prologue/choosing-distribution.md"
       - 安装系统:
-          - "basic/installation/index.md"
-          - Fedora 安装指南: "basic/installation/fedora-installation-guide.md"
-          - Fedora Silverblue 安装指南: "basic/installation/fedora-silverblue-installation-guide.md"
-          - openSUSE 安装指南: "basic/installation/opensuse-installation-guide/index.md"
+          - "entry/installation/index.md"
+          - Fedora 安装指南: "entry/installation/fedora.md"
+          - Fedora Silverblue 安装指南: "entry/installation/fedora-sliverblue.md"
+          - openSUSE 安装指南: "entry/installation/opensuse.md"
       - 使用桌面环境:
-          - 桌面环境简介: "basic/desktop/desktop-environment.md"  
+          - 桌面环境简介: "entry/desktop/desktop-environment.md"  
           - 安装软件: "TBD"
   - 进阶教程:
       - 使用命令行: 
