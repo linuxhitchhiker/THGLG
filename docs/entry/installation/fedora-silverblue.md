@@ -7,6 +7,8 @@
 
 Fedora Silverblue 是 Fedora Workstation 的变体版本，由 Atomic Workstation 更名而来。它是一个不可变的操作系统，目标是为开发者和重度容器用户提供一个稳定且可靠的平台。
 
+- Silverblue 的默认桌面环境是 Gnome，但它也有一个基于 KDE 桌面环境的变体：[Fedora Kinoite](https://kinoite.fedoraproject.org/)。安装 Fedora Kinoite 所需要注意的事项基本与 Silverblue 相同，此处不再重复叙述。
+
 Fedora Silverblue 不可变是指 `/` 和 `/usr` 目录下的文件为只读模式。由于该特性使得它相对于传统的 Linux 操作系统更加稳定，更适合于容器化程序的应用和基于容器的软件开发。同时，容器将应用程序与系统隔离也让系统更为可靠。
 
 Fedora Silverblue 系统更新的速度非常快，无需等待安装，重启系统后即可使用新版本。如果系统出现问题可选择回滚。
