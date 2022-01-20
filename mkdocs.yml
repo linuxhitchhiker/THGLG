@@ -18,7 +18,7 @@ nav:
           - openSUSE 安装指南: "entry/installation/opensuse.md"
       - 使用桌面环境:
           - 桌面环境简介: "entry/desktop/desktop-environment.md"
-          - 安装软件: "TBD"
+          - 安装软件（图形化界面）: "entry/desktop/apps-gui.md"
   - 进阶教程:
       - 使用命令行:
           - "advanced/shell/base1.md"
@@ -27,6 +27,7 @@ nav:
       - 再次入门:
           - 综述: "advanced/re-entry/index.md"
           - 软件源与镜像源: "advanced/re-entry/repo-and-mirror.md"
+          - 安装软件（命令行界面）: "advanced/re-entry/apps-cli.md"
       - 打包:
           - "advanced/packaging/flatpak.md"
   - 解决方案:
