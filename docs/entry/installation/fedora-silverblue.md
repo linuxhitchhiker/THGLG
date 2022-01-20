@@ -16,37 +16,25 @@ Fedora Silverblue 系统更新的速度非常快，无需等待安装，重启�
 Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在硬盘分区部分。  
 其它安装步骤也可以参考 [Fedora Workstation 安装指南](https://docs.fedoraproject.org/en-US/docs/)。
 
-1. <span id="limitations">已知局限</span>  
+* 1. <span id="limitations">已知局限</span>  
 双系统引导和手动分区时 Fedora Silverblue 缺乏一定的灵活性。
 当然，Fedora Silverblue 是支持双系统引导和手动分区的，详见“手动分区”部分。
 
 > 💡️ 注意  
 > 无论是双系统还是手动分区都存在一定的风险，建议有相关的知识储备或经验时再做尝试。
 
-2. 获取 Fedora Silverblue 安装镜像  
+* 2. 获取 Fedora Silverblue 安装镜像  
 请前往 [Fedora Silverblue 网站](https://silverblue.fedoraproject.org/)进行下载。
 
-3. 验证安装镜像  
+* 3. 验证安装镜像  
     安装前请务必验证镜像。验证镜像的方法有很多，Unix-like 系统下可运行：
     ```
     sha256sum /path/to/Fedora-Silverblue-ostree-x86_64-35-1.2.iso
     ```
     然后，将输出的结果与[下载页面](https://silverblue.fedoraproject.org/)的 checksum 文件进行比对。
 
-4. 制作安装介质  
+* 4. 制作安装介质  
 使用 [Ventoy](https://www.ventoy.net/cn/index.html)、[Rufus](https://rufus.ie/zh/) 或 [Fedora Media Writer](https://silverblue.fedoraproject.org/download) 创建安装所需要的引导盘。
-
-- Ventoy 
-该软件的具体用法参见[官网的使用说明](https://www.ventoy.net/cn/doc_start.html)
-Ventoy 安装完成之后，U盘会被分成两个分区。
-其中第一个分区（就是容量大的那个分区，也可以称之为镜像分区）将会被格式化为 exFAT 文件系统（也可以再手动重新格式化成其他支持的文件系统，比如 NTFS/FAT32/UDF/XFS/Ext2/3/4 等），只需要把 ISO/WIM 等文件拷贝到这里面即可。
-可选择把文件放在任意目录。 Ventoy 默认会遍历所有的目录，找出所有镜像文件，并按照字母先后排序显示在引导菜单中。
-
-- Fedora Media Writer  
-插入 U 盘，运行 Fedora Media Writer 选择“自定义镜像”，并选择刚刚下载的 ISO 镜像。请确保选择正确的设备，然后点击 “写入磁盘”，等待刻录完成后即可。
-
-- Rufus  
-插入 U 盘后运行 Rufus，请确保选择正确的设备。点击“选择”打开要刻录的镜像文件，最点击“开始”并等待刻录完成。
 
 ## Fedora Silverblue 安装流程
 
