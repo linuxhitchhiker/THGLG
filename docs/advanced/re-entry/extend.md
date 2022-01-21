@@ -33,6 +33,7 @@ Gentoo 官方站点：
 - [Ask Fedora](https://ask.fedoraproject.org/)
 - [Fedora Documentation](https://docs.fedoraproject.org/en-US/docs/)
 - [Fedora Magazine](https://fedoramagazine.org/)
+- [Fedora 中文用户组](https://zh.fedoracommunity.org/)
 
 ## openSUSE Linux
 
