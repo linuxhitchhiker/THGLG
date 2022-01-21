@@ -82,7 +82,7 @@ Linux 桌面以 Freedesktop.Org 标准为核心，所有的桌面环境都在这
 
 <div markdown class="feat-block feat-block--right">
 
-![Image title](assets/images/Flatpak-distro.webp)
+![Image title](assets/images/Distro.webp)
 
 ## 跨发行版
 
