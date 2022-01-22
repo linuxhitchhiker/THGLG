@@ -4,15 +4,22 @@ title: 创建安装介质
 
 ## 下载可启动镜像
 
+!!! attention
+    离线安装的 DVD 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 和 [Motrix](https://motrix.app/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
+
 本指南快速入门安装教程涵盖的发行版的镜像下载链接如下：
 
 === "openSUSE"
 
-    * 安装镜像：[openSUSE Tumbleweed (x86_64, DVD)](https://opentuna.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso) [约4.7GB]
+    * 安装镜像：[openSUSE Tumbleweed (x86_64, DVD)](https://opentuna.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso) [约 4.7GB]
 
 === "Fedora"
 
-    * 安装镜像：[Fedora 35 (x86_64, Workstation)](https://opentuna.cn/fedora/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) [约2GB]
+    * 安装镜像：[Fedora 35 (x86_64, Workstation)](https://opentuna.cn/fedora/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) [约 2GB]
+
+=== "Kubuntu"
+
+    * 安装镜像：[Kubuntu 21.10 (x86_64, DVD)](https://opentuna.cn/ubuntu-cdimage/kubuntu/releases/21.10/release/kubuntu-21.10-desktop-amd64.iso) [约 3GB]
 
 === "其他发行版"
 

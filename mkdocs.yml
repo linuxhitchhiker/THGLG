@@ -12,10 +12,11 @@ nav:
           - 切换到 Linux: "entry/prologue/switch-to-linux.md"
           - Linux 发行版: "entry/prologue/choose-distro.md"
       - 安装系统:
-          - "entry/installation/create-media.md"
+          - 创建安装介质: "entry/installation/create-media.md"
           - Fedora 安装指南: "entry/installation/fedora.md"
           - Fedora Silverblue 安装指南: "entry/installation/fedora-silverblue.md"
           - openSUSE 安装指南: "entry/installation/opensuse.md"
+          - Kubuntu 安装指南: "entry/installation/Kubuntu.md"
       - 使用桌面环境:
           - 桌面环境简介: "entry/desktop/desktop-environment.md"
           - 安装软件（图形化界面）: "entry/desktop/apps-gui.md"
@@ -33,6 +34,7 @@ nav:
       - 打包:
           - "advanced/packaging/flatpak.md"
   - 解决方案:
+      - 系统美化: "solution/eyecandy/index.md"
       - 软件:
           - 浏览器: solution/software/browser.md
           - 即时通讯: solution/software/instant-messaging.md
