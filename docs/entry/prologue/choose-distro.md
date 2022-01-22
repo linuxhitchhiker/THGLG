@@ -11,8 +11,9 @@ title: "Linux 发行版"
 
 ## openSUSE Tumbleweed
 
-openSUSE Tumbleweed （也叫：openSUSE 风滚草）是 **滚动** 的 Linux 发行版。滚动意味着没有固定的发行周期，一般每周都会收到 1-3 次更新。openSUSE 项目与 SUSE 公司的企业级 Linux 产品有着莫大的渊源，而且针对桌面环境进行了一系列的优化，是一个对Linux新手较为友好的Linux发行版。 
+[openSUSE Tumbleweed](https://www.opensuse.org/#Tumbleweed)（也叫：openSUSE 风滚草）是 **滚动** 的 Linux 发行版。滚动发行意味着没有固定的发行周期，一般每周都会收到 1-3 次更新。openSUSE 针对桌面环境进行了一系列的优化，并具有一整套图形化系统管理工具，是一个对 Linux 系统管理新学者友好的 Linux 发行版。openSUSE 是 [SUSE](https://www.suse.com/zh-cn/) 的[企业级 Linux](https://www.suse.com/zh-cn/products/server/) 的技术上游，同时也从企业级技术中受益颇多。
 
 ## Fedora Workstation
 
-Fedora Workstation 是知名 Linux 发行版，由Fedora项目社群开发、红帽公司赞助，是红帽公司商业产品的上游。Fedora 每6个月发布一个新版本，使用的技术也比较新，采用 Gnome 桌面。
+[Fedora Workstation](https://getfedora.org/) 是另一个国际知名的 Linux 发行版，由 Fedora 项目社群开发、[红帽公司](https://www.redhat.com/zh)赞助。Fedora 每6个月发布一个新版本，是众多 Linux 前沿技术的发源地，红帽公司[商业产品](https://www.redhat.com/zh/technologies/linux-platforms/enterprise-linux)的技术上游，靠近上游，贴近原生，激进而不失稳定。Fedora Workstation 默认的桌面环境是 [Gnome](https://www.gnome.org/)。
+
