@@ -39,6 +39,10 @@ kubuntu-20.04.3-desktop-amd64.iso: 11bca68f3366b11c7887666124e0155c6e2fbe1350ab1
 
 ![Welcome](./assets/Kubuntu/welcome.png)
 
+你可以选择“试用 Kubuntu”，Kubuntu 的 DVD 镜像包含了一个完整的 Live 环境，从 Live 环境安装系统可以操作的空间更大。
+
+在进入 Live 桌面后，点击桌面的 “Installation Kubuntu 21.10” 即可开始安装。在安装过程中，如果你不需要联网，请断开网络连接，KUbuntu 可能会在最后一步刷新软件源的时候卡住（网络延迟过高）。
+
 ### 键盘布局
 
 请确认键盘布局是否正确：
@@ -117,3 +121,5 @@ SWAP 分区推荐大小如下所示：
 崭新的 Kubuntu 很快就会安装完成，安装结束后请拔出 U 盘并重启计算机进入新系统。
 
 ![Wlecome again](./assets/Kubuntu/welcome=again.png)
+
+![Completed](./assets/Kubuntu/completed.png)
