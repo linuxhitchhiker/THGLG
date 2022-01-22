@@ -18,7 +18,7 @@ Kubuntu 和 Ubuntu 有三种方式获得镜像文件：
 
 ### 校验文件
 
-你可以参照[前文](./create-media.md)对 ISO 进行校验。官方文件的校验和可在[此处](https://kubuntu.org/alternative-downloads/)找到：
+你可以参照[前文](./pre-install.md)对 ISO 进行校验。官方文件的校验和可在[此处](https://kubuntu.org/alternative-downloads/)找到：
 
 ```
 kubuntu-21.10-desktop-amd64.iso: 4a56cfc43e0f4ead6b7e66b3da67ab22d96c46dc090190a06d2848b6e03fe02a

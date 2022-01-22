@@ -12,7 +12,8 @@ nav:
           - 切换到 Linux: "entry/prologue/switch-to-linux.md"
           - Linux 发行版: "entry/prologue/choose-distro.md"
       - 安装系统:
-          - 创建安装介质: "entry/installation/create-media.md"
+          - 安装前准备: "entry/installation/pre-install.md"
+          - 虚拟机: "entry/installation/virtual-machine.md"
           - Fedora 安装指南: "entry/installation/fedora.md"
           - Fedora Silverblue 安装指南: "entry/installation/fedora-silverblue.md"
           - openSUSE 安装指南: "entry/installation/opensuse.md"

@@ -14,62 +14,21 @@ title: "openSUSE 安装指南"
 
 你可以前往 [openSUSE wiki](https://zh.opensuse.org/) 查阅本指南省略的部分。
 
-## openSUSE 是什么
+## 准备
 
-[openSUSE](https://zh.opensuse.org/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9_openSUSE) 源自 openSUSE 项目，是一个独立的 Linux 发行版分支，使用 RPM 作为分发的软件包格式，采用 zypper 作为包管理器，同时兼容多种计算机硬件。 
+### openSUSE Leap
 
-openSUSE 有两个正式的发行版：[Leap](https://zh.opensuse.org/Portal:Leap) 和 [Tumbleweed](https://zh.opensuse.org/Portal:Tumbleweed)。
+openSUSE 有两个正式的发行分支：[Leap](https://zh.opensuse.org/Portal:Leap) 和 [Tumbleweed](https://zh.opensuse.org/Portal:Tumbleweed)。
 
 openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 个月的维护周期，Leap 致力于为用户提供稳定的桌面环境和成熟的软件包。Tumbleweed 是 openSUSE 的滚动发行分支，致力于为用户提供最新的稳定版内核、软件和桌面环境。
 
-## 准备
-
-### 虚拟机与物理机
-
-在不熟悉 Linux 基本知识的情况下，在物理机上安装 openSUSE 可能会导致数据丢失，或者是硬件损坏。所以，在付诸行动之前，你需要先在虚拟机上熟悉一下 Linux。
-
-- [Virtualbox](https://www.virtualbox.org/) 是一个让你再不破坏当前系统结构的情况下，能够获得最接近原生 Linux 环境体验的工具。你也可以使用 [VMware](https://www.vmware.com/products/workstation-pro.html) 安装 openSUSE。
-- 注意，在物理机上安装 openSUSE 并非是必须的步骤，不安装到物理机上可以省去大量的迁移工作，但安装到物理机上会让系统具备更强的性能和更多的功能。
-
-### 获取 ISO 文件
-
-我们推荐两种方法下载：一是从[官方渠道](https://get.opensuse.org/)下载，二是从 [openSUSE 镜像站](https://mirrors.opensuse.org/)下载。
-
-为了简化流程，我们推荐使用从镜像站下载的 DVD 离线镜像安装系统（2020 年后生产的桌面设备最常见的系统架构为 `x86_64`）。
-
-- Leap：
-
->下载地址：镜像站地址 + /opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-DVD-x86_64-Current.iso</p>
->如：http://mirrors.ustc.edu.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-DVD-x86_64-Current.iso
-
-- Tumbleweed：
-
->下载地址：镜像站地址 + /opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso</p>
->如：http://mirrors.ustc.edu.cn/opensuse/tumbleweed/iso/openSUSE-Tumbleweed-DVD-x86_64-Current.iso
-
-注意：
-
-- 离线安装的 DVD 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
-- 请打开浏览器检查一下链接是否真实可用。
-
 ### 制作安装介质
 
-- 使用虚拟机安装 openSUSE 的用户可略过此节，直接阅读下下一节。
+请参照[前文](./pre-install.md) 自行下载 ISO 并创建安装介质。
 
-你可以使用 [Rufus](https://rufus.ie/zh/) 或 [balenaEtcher](https://www.balena.io/etcher/) 制作安装镜像。
+对于想要尝试一下 Leap 的用户，点击下方连接下载 Leap 的镜像：
 
-- Rufus</p>
-将你的 U 盘插入电脑，打开 Rufus，它会自动选择可用的移动存储设备。点击“**选择**”打开要刻录的镜像文件。请确认选择正确的设备，然后点击底端的“**开始**”等待刻录自动完成。
-- balenaEtcher</p>
-将你的 U 盘插入电脑，打开 balenaEtcher，点击最左侧的加号下面的“Flash from file”，选择要写入的ISO镜像。点击中间的磁盘图标下面的“Select target”，选择要写入的设备。点击最右边的“Flash!”按钮，开始写入。等待刻录自动完成。
-- 划分未分配的磁盘空间</p>
-如果你是在实体机上安装 openSUSE，请提前用磁盘分区工具划分一个大小为 40GB （如果不使用快照功能或你会定期清理快照，可只划分 20GB）或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
-
-如果你想提高 U 盘的利用率或想一个 U 盘容纳多个操作系统的安装文件，你可以访问 [ventoy](https://www.ventoy.net/cn/index.html) 了解更多信息。
-
-### 配置虚拟机
-
-配置虚拟机的部分和[安装 Fedora](./fedora.md) 的步骤大同小异，如果你发现 VMware 无法正确识别你选择的 ISO 文件，则你需要手动指定客户机操作系统类型。
+- [openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso | openTUNA](https://opentuna.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso)
 
 ## 安装系统
 

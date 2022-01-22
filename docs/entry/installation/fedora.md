@@ -6,28 +6,11 @@ title: "Fedora 安装指南"
 
 ## 概述
 
-### 什么是 Fedora Linux
-
-Fedora Linux（第七版以前为 Fedora Core）是著名的 Linux 主流发行版之一，由 [Fedora 项目](https://getfedora.org/)社群开发、[红帽公司](https://www.redhat.com/zh)赞助，目标是创建一套新颖、多功能并且自由（开放源代码）的操作系统。
-
-Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux](https://archlinux.org/)，Linux 新兴技术的开放测试平台。
-
-详细的用户使用文档可[在此](https://docs.fedoraproject.org/)处找到。
-
-### 本文的目的
-
-本文主要描述如何在 Windows 10 上使用虚拟机（平台为 [VMWare](https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html)）安装 Fedora Linux 以及物理机双系统所需要注意的事项。
+Fedora 是一个流行的发行版，它有很多的分支，本文只描述使用 LiveDVD 镜像安装 Fedora Workstation 以及物理机双系统所需要注意的事项。
 
 - 参考：[Fedora 35 - Installation Guide](https://docs.fedoraproject.org/en-US/fedora/f35/install-guide/)
 
 ## 安装前准备
-
-### 虚拟机与物理机
-
-在不熟悉 Linux 基本知识的情况下，在物理机上安装 Fedora 可能会导致数据丢失，或者是硬件损坏。所以，在付诸行动之前，你需要先在虚拟机上熟悉一下 Linux。
-
-- [Virtualbox](https://www.virtualbox.org/) 是一个让你再不破坏当前系统结构的情况下，能够获得最接近原生 Linux 环境体验的工具。你也可以使用 [VMware](https://www.vmware.com/products/workstation-pro.html) 安装 Fedora 。
-- 注意，在物理机上安装 Fedora 并非是必须的步骤，不安装到物理机上可以省去大量的迁移工作，但安装到物理机上会让系统具备更强的性能和更多的功能。
 
 ### 获取 ISO
 
@@ -35,66 +18,17 @@ Fedora 是一个贴近上游，软件包版本新旧程度仅次于 [Arch Linux]
 
 - 如果你不喜欢 Workstation 的桌面环境（Gnome Desktop），你可以选择 [Fedora Spin](https://spins.fedoraproject.org/)。
 
-### Fedora ISO 的主要类型
-
-- **Live 镜像**</p>
-  Live 镜像允许你在不对电脑进行更改的情况下，快速预览一下 Fedora 图形化界面，然后决定要不要安装。Live 镜像包含安装一个基本的 Fedora 所需的全部文件。
-
-- **netinstall 镜像**</p>
-  netinstall 镜像直接引导到安装环境，并使用在线 Fedora 软件包存储库作为安装源。你可以使用 netinstall 镜像安装任何 Fedora 版本或选择各种软件包来创建自定义的 Fedora 安装。
-
-- **DVD 镜像**</p>
-  DVD 镜像直接引导到安装环境，并允许你从随它提供的各种软件包中进行选择。在 Fedora 21 中，DVD 选项仅在 Fedora 服务器版中可用。
-
 ### 制作安装介质
 
-如果你只在虚拟机中安装 Fedora，那你可以跳过该步骤，阅读下一节“安装”。
+请参照[前文](./pre-install.md)自行制作安装介质。
 
-如果你需要将 Fedora 安装至硬盘中，你需要使用 [Rufus](https://rufus.ie/zh/) 或 [Fedora Media Writer](https://getfedora.org/en/workstation/download/) 之类的 ISO 刻录工具将下载好的 ISO 文件刻录到移动储存介质中。
+### 划分未分配的磁盘空间
 
-- Fedora Media Writer</p>
-将你的 U 盘插入电脑，打开 Fedora Media Writer 选择“**自定义镜像**”，选择你刚刚下载好的 ISO 文件，请确认选择正确的设备，然后点击 “**写入磁盘**”，等刻录自动完成。
+要在实体机上安装 Fedora，请提前用磁盘分区工具划分一个大小为 20GB 或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
 
-- Rufus</p>
-将你的 U 盘插入电脑，打开 Rufus，它会自动选择可用的移动存储设备。点击“**选择**”打开要刻录的镜像文件。请确认选择正确的设备，然后点击底端的“**开始**”等待刻录自动完成。
+## 使用 Anaconda 安装系统
 
-- 划分未分配的磁盘空间</p>
-如果你是在实体机上安装 Fedora，请提前用磁盘分区工具划分一个大小为 20GB 或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
-
-如果你想提高 U 盘的利用率或想一个 U 盘容纳多个操作系统的安装文件，你可以访问 [ventoy](https://www.ventoy.net/cn/index.html) 了解更多信息。
-
-## 安装
-
-### 配置虚拟机
-
-在安装好 VMWare Workstation 后，点击左上方“**文件(F)**” ，选择“**新建虚拟机(N)**”。
-
-在弹出的新建虚拟机向导中，点击“**下一步(N)**”，然后选择“**安装程序光盘映像文件(iso)**”，打开你下载好的 Fedora ISO 文件。点击“**下一步(N)**”。
-
-在“命名虚拟机”中指定你的虚拟机的名称和位置。点击“**下一步(N)**”，指定“**最大磁盘大小(GB)**”，你可以使用默认值，或者指定更大的容量。完成后点击“**下一步(N)**”。
-
-在“已准备好创建虚拟机”页面中，检查虚拟机[硬件配置](https://docs.fedoraproject.org/en-US/fedora/rawhide/release-notes/welcome/Hardware_Overview/)是否合乎要求：
-
-- 最小安装的系统硬件需求：
-  - 2GHz 双核处理器或更快的处理器
-  - 2GB 系统内存
-  - 15GB 未分配的硬盘空间
-- 推荐的系统配置：
-  - 2GHz 四核处理器
-  - 4GB 系统内存
-  - 20GB 未分配的硬盘空间
-
-你可以在“**自定义硬件(C)**”中自行调整配置。完成后点击“**完成**”启动虚拟机。
-
-- `Ctrl + Alt` 快捷键组合可以让 VMware 停止捕获你的鼠标。
-- 对于需要将 Fedora Linux 安装至实体机上的用户，请将刻录好的安装介质插入到电脑中，重启电脑，手动进入引导界面，选择安装介质作为引导启动的对象。
-- 如果不喜欢为 VMware 付费，你可以选择开源免费的 [Virtualbox](https://www.virtualbox.org/)。相关的操作内容另见：[Virtualbox - openSUSE Wiki](https://zh.opensuse.org/Virtualbox)。
-
-然后你就会看到 Fedora 的引导启动页面，选择“**Test this media & start Fedora**”。进入下一步。
-
-然后你就会进入到 Fedora Live 环境，你此时可以体验一下 Fedora 的图形界面，你此时所作出的更改基本不会影响到电脑原有的布局。如果你要开始安装，请找到并启动带有 Fedora 图标，名为“**Install to Hard Drive**”的应用程序。
-
-### 使用 Anaconda 安装系统
+### 时间和语言
 
 Fedora 使用 Anaconda 作为系统安装器。启动 Anaconda 后，第一步是选择语言，找到“**中文**”，并选择“**简体中文**”，然后进入下一步。
 
@@ -104,11 +38,13 @@ Fedora 使用 Anaconda 作为系统安装器。启动 Anaconda 后，第一步�
 
 你可以在“**安装目的地**”中，对 Fedora 安装位置进行设置。
 
-### 手动分区
+### 自动分区
 
-- 使用虚拟机安装 Fedora 的用户可在“**本地标准磁盘**”中勾选空闲的磁盘空间，然后选择“**自动**”进行自动分区。最后点击两次“**完成(D)**”确认更改即可。
+你可在“**本地标准磁盘**”中勾选提前划分的空闲磁盘空间，然后选择“**自动**”进行自动分区。最后点击两次“**完成(D)**”确认更改即可。
+
+### 手动分区
  
-在“**安装目的地**”中，点击你之前预留的未分配的磁盘空间或虚拟机磁盘。然后在“**存储配置**”中选择“**高级自定义 (Blivet-GUI)**”，点击“**完成(D)**”进入配置页面。
+要进行手动分区，首先在“**安装目的地**”中，点击你之前预留的未分配的磁盘空间或虚拟机磁盘。然后在“**存储配置**”中选择“**高级自定义 (Blivet-GUI)**”，点击“**完成(D)**”进入配置页面。
 
 使用鼠标右键单击右侧逻辑视图下方的 free space，选择“**新建**”，若磁盘没有分区表或者你打算删除原有系统进行一次全新的安装，Anaconda 会提示你选择新分区表类型（推荐设置为 GPT）。
 
@@ -155,7 +91,7 @@ SWAP 分区推荐大小如下所示：
   - 不创建 `swap` 分区也可安装 Fedora。
   - 独立的 `/home` 不是必须的，你也可以编辑现有的磁盘分区或创建一个新的大分区（用于储存大量个人文件），设置挂载点挂载到 `/` 或 `/home` 下（如果挂载的分区存储有重要文件，请勿格式化该分区）。
 
----
+### 网络和主机名
 
 在完成分区后，点击**网络和主机名**，即可为你的 Fedora 设置一个主机名。安装系统后，你可以使用 `hostnamectl` 进行[修改主机名](https://docs.fedoraproject.org/en-US/quick-docs/changing-hostname/)。
 
@@ -163,6 +99,8 @@ SWAP 分区推荐大小如下所示：
 
 - 请牢记你的用户密码，丢失密码可能会导致你无法进入系统。
 - root 用户不是必须创建的。
+
+### 收尾工作
 
 最后，点击右下方的**开始安装(B)**开始安装 Fedora。
 

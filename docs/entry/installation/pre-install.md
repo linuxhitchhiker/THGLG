@@ -1,11 +1,17 @@
 ---
-title: 创建安装介质
+title: 安装前准备
 ---
+
+# 安装前准备
+
+本文主要描述安装 Linux 前应当做的一些预备工作。
 
 ## 下载可启动镜像
 
+为了简化流程，我们推荐使用从镜像站下载的 DVD 或 LiveDVD 离线镜像安装系统（2020 年后生产的桌面设备最常见的系统架构为 `x86_64`）。
+
 !!! attention
-    离线安装的 DVD 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 和 [Motrix](https://motrix.app/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
+    用于离线安装的 ISO 镜像体积较为庞大，我们推荐你采用 [aria2](https://aria2.github.io/)、[FDM](https://www.freedownloadmanager.org/zh/) 和 [Motrix](https://motrix.app/) 之类的下载管理器下载 ISO 镜像文件以避免常规浏览器下载出现网络中断的情况。
 
 本指南快速入门安装教程涵盖的发行版的镜像下载链接如下：
 
@@ -33,7 +39,6 @@ title: 创建安装介质
     许多 Linux 发行版会有多种不同的镜像。这些镜像会针对不同的 CPU 或者带有不同的软件，同时也有一种专门用于试用的 Live 镜像。请按照自己的需求下载。
 
 
-
 ## 创建可启动镜像
 
 你可以使用 [Rufus](https://rufus.ie/zh/) 或 [balenaEtcher](https://www.balena.io/etcher/) 制作安装镜像。
@@ -44,6 +49,12 @@ title: 创建安装介质
   将你的 U 盘插入电脑，打开 balenaEtcher，点击最左侧的加号下面的“Flash from file”，选择要写入的ISO镜像。点击中间的磁盘图标下面的“Select target”，选择要写入的设备。点击最右边的“Flash!”按钮，开始写入。等待刻录自动完成。
 - Fedora Media Writer  
   插入 U 盘，运行 Fedora Media Writer 选择“自定义镜像”，并选择刚刚下载的 ISO 镜像。请确保选择正确的设备，然后点击 “写入磁盘”，等待刻录完成后即可。
+
+如果你想提高 U 盘的利用率或想一个 U 盘容纳多个操作系统的安装文件，你可以访问 [ventoy](https://www.ventoy.net/cn/index.html) 了解更多信息。
+
+## 划分未分配的磁盘空间
+
+如果你是在实体机上安装 Linux，请提前用磁盘分区工具划分一个大小为 20GB（openSUSE Tumbleweed 的根目录起码需要 40GB 的空间，如果不使用快照功能或你会定期清理快照，可只划分 20GB。）或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
 
 ### 校验和
 
