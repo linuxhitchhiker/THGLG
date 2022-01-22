@@ -27,3 +27,8 @@ kubuntu-20.04.3-desktop-amd64.iso: 11bca68f3366b11c7887666124e0155c6e2fbe1350ab1
 
 ## 安装
 
+在配置完虚拟机设置或插入安装介质并重启系统后，你会进入 GRUB 引导界面，请选择 `Kubuntu`。
+
+![Grub](./assets/Kubuntu/grub.png)
+
+登录系统后，你会看到
