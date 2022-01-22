@@ -28,6 +28,10 @@ Fedora 是一个流行的发行版，它有很多的分支，本文只描述使�
 
 ## 使用 Anaconda 安装系统
 
+将 U 盘插入电脑并重启，你就会看到 Fedora 的引导启动页面，选择“**Test this media & start Fedora**”。进入下一步。
+
+然后你就会进入到 Fedora Live 环境，你此时可以体验一下 Fedora 的图形界面，你此时所作出的更改基本不会影响到电脑原有的布局。如果你要开始安装，请找到并启动带有 Fedora 图标，名为“**Install to Hard Drive**”的应用程序。
+
 ### 时间和语言
 
 Fedora 使用 Anaconda 作为系统安装器。启动 Anaconda 后，第一步是选择语言，找到“**中文**”，并选择“**简体中文**”，然后进入下一步。
