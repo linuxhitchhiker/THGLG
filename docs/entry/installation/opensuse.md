@@ -16,19 +16,17 @@ title: "openSUSE 安装指南"
 
 ## 准备
 
-### openSUSE Leap
-
 openSUSE 有两个正式的发行分支：[Leap](https://zh.opensuse.org/Portal:Leap) 和 [Tumbleweed](https://zh.opensuse.org/Portal:Tumbleweed)。
 
 openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 个月的维护周期，Leap 致力于为用户提供稳定的桌面环境和成熟的软件包。Tumbleweed 是 openSUSE 的滚动发行分支，致力于为用户提供最新的稳定版内核、软件和桌面环境。
 
-### 制作安装介质
-
-请参照[前文](./pre-install.md) 自行下载 ISO 并创建安装介质。
-
 对于想要尝试一下 Leap 的用户，点击下方连接下载 Leap 的镜像：
 
 - [openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso | openTUNA](https://opentuna.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso)
+
+### 制作安装介质
+
+请参照[前文](./pre-install.md)自行下载 ISO 并创建安装介质。
 
 ## 安装系统
 

@@ -41,7 +41,7 @@ title: 安装前准备
 
 ## 创建可启动镜像
 
-你可以使用 [Rufus](https://rufus.ie/zh/)、[balenaEtcher](https://www.balena.io/etcher/) 或 [Fedora Media Writer](https://getfedora.org/en/workstation/download/) 制作安装镜像。
+首先，你需要一个储存空间大小在 8GB 或以上的 U 盘。然后你可以使用 [Rufus](https://rufus.ie/zh/)、[balenaEtcher](https://www.balena.io/etcher/) 或 [Fedora Media Writer](https://getfedora.org/en/workstation/download/) 等工具将 ISO 文件刻录到 U 盘中，制成一个可引导启动的 Linux 系统安装介质。
 
 - Rufus  
   将你的 U 盘插入电脑，打开 Rufus，它会自动选择可用的移动存储设备。点击“**选择**”打开要刻录的镜像文件。请确认选择正确的设备，然后点击底端的“**开始**”等待刻录自动完成。
@@ -54,7 +54,14 @@ title: 安装前准备
 
 ## 划分未分配的磁盘空间
 
-如果你是在实体机上安装 Linux，请提前用磁盘分区工具划分一个大小为 20GB（openSUSE Tumbleweed 的根目录起码需要 40GB 的空间，如果不使用快照功能或你会定期清理快照，可只划分 20GB。）或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
+!!! attention
+    如果你选择将 Tumbleweed 作为日常使用的系统，它的根目录起码需要 40GB 的空间（因为 openSUSE 默认启用了快照功能）。
+
+如果要在实体机上安装 Linux，请提前用磁盘分区工具划分一个大小为 20GB 或更大的未分配的磁盘空间（不要格式化和写入文件系统）。
+
+## 引导启动
+
+你需要查询一下你当前的设备如何在开机时手动重定向至 BIOS 界面，然后选择引导设备。
 
 ### 校验和
 
