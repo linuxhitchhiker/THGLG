@@ -44,3 +44,11 @@ title: 创建安装介质
   将你的 U 盘插入电脑，打开 balenaEtcher，点击最左侧的加号下面的“Flash from file”，选择要写入的ISO镜像。点击中间的磁盘图标下面的“Select target”，选择要写入的设备。点击最右边的“Flash!”按钮，开始写入。等待刻录自动完成。
 - Fedora Media Writer  
   插入 U 盘，运行 Fedora Media Writer 选择“自定义镜像”，并选择刚刚下载的 ISO 镜像。请确保选择正确的设备，然后点击 “写入磁盘”，等待刻录完成后即可。
+
+### 校验和
+
+虽然 ISO 文件损坏的情况很少发生，但是我们依然建议你计算 ISO 文件的校验和并与官方的校验和进行比对。
+
+Rufus 也可以用于校验文件（校验按钮位于选择镜像文件的按钮左侧）：
+
+![Chek-Hash](./assets/misc/check-hash.png)
