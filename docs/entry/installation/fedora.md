@@ -20,7 +20,7 @@ Fedora 是一个流行的发行版，它有很多的分支，本文只描述使�
 
 将 U 盘插入电脑并重启，你就会看到 Fedora 的引导启动页面，选择 **Test this media & start Fedora**，进入下一步。
 
-[start](./assets/fedora/start.png)
+![start](./assets/fedora/start.png)
 
 在系统完成自检后，你就会进入到 Fedora Live 环境，你此时可以体验一下 Fedora 的图形界面，你此时所作出的更改基本不会影响到电脑原有的布局。如果你要开始安装，请找到并启动带有 Fedora 图标，名为 **Install to Hard Drive** 的应用程序。
 
