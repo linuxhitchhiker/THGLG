@@ -28,6 +28,8 @@ nav:
           - "advanced/shell/base3.md"
           - "advanced/shell/base4.md"
           - "advanced/shell/base5.md"
+      - 配置系统:
+          - "advanced/systemctl/index.md"
       - 再次入门:
           - 综述: "advanced/re-entry/index.md"
           - 选择发行版: "advanced/re-entry/distro.md"
