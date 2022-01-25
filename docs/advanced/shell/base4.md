@@ -73,3 +73,7 @@ bh@localhost:~> ps -eo pid,user,group,gid,vsz,rss,comm --sort=-vsz | head
 是不是看着很繁琐，且你无法查看实时运行情况？
 
 ### 使用 top 列出和更改进程
+
+`top` 也是一个常用的命令，用于查看进程和系统概况：
+
+![TOP](./assets/top.png)
