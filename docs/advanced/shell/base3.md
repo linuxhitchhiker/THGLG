@@ -145,5 +145,51 @@ time 选项（`-atime`、`-ctime` 和 `-mtime`）使你能够根据每个文件�
 
 #### 使用 not 和 or 进行查找文件
 
+#### 查找文件然后执行命令
+
 ### 使用 grep 搜索文件
 
+`grep` 是另一个常用于检索信息的工具。它可以检索文件包含的信息（而不是只搜索元数据）。
+
+搜索时，你可以在屏幕上打印包含该术语的每一行（标准输出），或者仅列出包含该搜索词的文件的名称。默认情况下，`grep` 以区分大小写的方式搜索文本，但你也可以进行不区分大小写的搜索。
+
+除了搜索文件，你还可以使用 `grep` 搜索标准输出。因此，如果一个命令输出大量文本，而你只想查找包含特定文本的行，则可以使用 `grep` 来过滤你想要的内容。
+
+```
+bh@localhost:~> cat ~/test
+Linux
+linux
+LINUX
+GNU/Linux
+Fedora
+bh@localhost:~> grep Linux ~/test
+Linux
+GNU/Linux
+bh@localhost:~> grep -i Linux ~/test
+Linux
+linux
+LINUX
+GNU/Linux
+bh@localhost:~> grep -vi linux ~/test
+Fedora
+```
+
+如上，使用 `grep` 检索 `~/test` 文件中包含 `Linux` 关键字的行。`-i` 选项可以让 `grep` 忽略大小写，匹配全部结果。`-v` 选项相当于反选，用于检索出不包含关键字的行。
+
+要进行递归搜索（recursive searches），请使用 `-r` 选项和被搜索目录作为参数。以下示例包含 `-l` 选项，它仅列出包含搜索文本的文件，而不显示实际的文本行。该搜索会找到包含文本 `peerdns`（不区分大小写）的文件。如下：
+
+```
+$ grep -rli peerdns /usr/share/doc/
+```
+
+下一个示例递归地在 `/etc/sysconfig` 目录中搜索关键字 `root`。它列出了包含该文本的目录下每个文件中的每一行。为了更容易让 `root` 在每一行中更显眼，你可以添加了 `--color` 选项。默认情况下，匹配的关键字显示为红色。
+
+```
+$ grep -ri --color root /etc/sysconfig/
+```
+
+要在命令的输出中搜索某个关键字，可以将输出通过管道（`|`）传递给 `grep` 命令。在此示例中，我知道 IP 地址列在 ip 命令的输出行中，其中包含字符串 `inet`，因此我使用 `grep` 仅显示这些行：
+
+```
+$ ip addr show | grep inet
+```
