@@ -86,7 +86,7 @@ Fedora 使用 Anaconda 作为系统安装器。
 |`/boot/efi`|独立的 [EFI](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface) 分区，推荐当 Fedora 需要与 Windows 共存时创建该分区，大小为 512MB，格式为 `vfat` 或 `fat32`。|
 |`/(root)`|这是根目录所在的位置。根目录是目录结构的顶层。默认情况下，所有文件都写入此分区，除非在写入的路径中安装了不同的分区（例如，`/boot` 或 `/home`）。</p>Fedora 现在已经使用 [Btrfs](https://wiki.archlinux.org/title/Btrfs) 卷作为根目录的默认文件系统。官方推荐大小为 25GB 及以上。实际上你只需要保证根目录大于 15GB 即可。|
 |`/home`|独立的用户目录，具体大小取决于你想要放入多少文件；不是必需的分区。分区格式为 `xfs`、`ext4` 或 `btrfs` 等你所偏好的分区格式。|
-|`biosboot`|如果你的电脑使用了 [MBR](https://wiki.archlinux.org/title/Partitioning#Master_Boot_Record_(bootstrap_code)) 而不是 [UEFI](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface) 作为启动模式，则你需要额外创建一个大小为 1MB，格式为 `biosboot` 的空白分区。|
+|`biosboot`|如果你的硬盘使用了 [MBR](https://wiki.archlinux.org/title/Partitioning#Master_Boot_Record_(bootstrap_code)) 分区表而不是 [GPT](https://wiki.archlinux.org/title/Partitioning#GUID_Partition_Table) 分区表作为启动盘的分区形式，则你需要额外创建一个大小为 1MB，格式为 `biosboot` 的空白分区。|
 |`swap`|[交换分区](https://wiki.archlinux.org/title/Swap)，Linux 将物理内存分为内存段，叫做页面。交换是指内存页面被复制到预先设定好的硬盘空间(叫做交换空间)的过程，目的是释放这份内存页面。物理内存和交换空间的总大小是可用的虚拟内存的总量。分区格式为 `swap`。|
 
 SWAP 分区推荐大小如下所示：
@@ -103,7 +103,7 @@ SWAP 分区推荐大小如下所示：
 
 综上，
 
-对于 MBR 用户：
+对于 BIOS/MBR 设备：
 
 - **/boot**：设备类型设置为**分区**，大小设置为 1GB，文件系统设置为 `ext4`，挂载点设置为 `/boot`。
 - **biosboot**：设备类型设置为**分区**，大小设置为 1~2MB，文件系统设置为 `BIOS Boot`。
@@ -111,7 +111,7 @@ SWAP 分区推荐大小如下所示：
 - **/(root)**：设备类型设置为 **Btrfs 卷**，大小设置为剩余空闲空间大小。
 - **/home**：*请根据实际需要创建该分区*。设备类型设置为**分区**，大小和文 件系统类型依照实际需要而定，挂载点为 `/home`。
 
-对于 UEFI 用户：
+对于 UEFI/GPT 设备：
 
 - **/boot**：设备类型设置为**分区**，大小设置为 1GB，文件系统设置为 `ext4`，挂载点设置为 `/boot`。
 - **/boot/efi**：设备类型设置为**分区**，大小设置为 512MB，文件系统设置为 `vfat` 或 `fat32`，挂载点为 `/boot/efi`。
