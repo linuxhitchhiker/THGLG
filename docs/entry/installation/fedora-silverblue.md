@@ -18,8 +18,8 @@ Fedora Silverblue 系统更新的速度非常快，无需等待安装，重启�
 Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在硬盘分区部分。  
 其它安装步骤也可以参考 [Fedora Workstation 安装指南](https://docs.fedoraproject.org/en-US/docs/)。
 
-> 💡️ 注意  
-> 无论是双系统还是手动分区都存在一定的风险，建议有相关的知识储备或经验时再做尝试。
+!!! attention  
+    无论是双系统还是手动分区都存在一定的风险，建议有相关的知识储备或经验时再做尝试。
 
 1. <span id="limitations">已知局限</span>  
 双系统引导和手动分区时 Fedora Silverblue 缺乏一定的灵活性。
@@ -40,7 +40,8 @@ Fedora Silverblue 的安装方式和 Fedora Workstation 几乎一致，差异在
 
 ## Fedora Silverblue 安装流程
 
-💡️ 安装前请注意做好资料备份。
+!!! attention
+    安装前请注意做好资料备份。
 
 Fedora Silverblue 桌面环境是 GNOME，如果希望安装 KDE 桌面环境请选择 [Fedora Kinoite](https://kinoite.fedoraproject.org/)，XFCE、LXQt、i3 正在构建中。除了 Fedora Silverblue 之外，其它基于 Fedora Silverblue 的桌面环境由社区特别兴趣小组（SIG）构建。
 
@@ -125,8 +126,8 @@ Fedora Silverblue 桌面环境是 GNOME，如果希望安装 KDE 桌面环境请
     - /var/log
     - /var/containers
 
-💡️ **注意**
-Anaconda 安装程序无法检测分区方案是否符合 Silverblue 的分区限制。也就是说，即使分区方案不兼容，安装程序也没有任何提示。
+!!! attention
+    Anaconda 安装程序无法检测分区方案是否符合 Silverblue 的分区限制。也就是说，即使分区方案不兼容，安装程序也没有任何提示。
 
 #### 进入手动分区界面
 点击安装信息摘要界面的“安装位置”，进入以下界面：
