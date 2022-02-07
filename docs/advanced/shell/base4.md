@@ -72,7 +72,7 @@ bh@localhost:~> ps -eo pid,user,group,gid,vsz,rss,comm --sort=-vsz | head
 
 是不是看着很繁琐，且你无法查看实时运行情况？
 
-### 使用 top 管理进程
+### 使用 top 列出和更改进程
 
 `top` 也是一个常用的命令，用于实时查看进程和系统概况：
 
@@ -86,16 +86,26 @@ bh@localhost:~> ps -eo pid,user,group,gid,vsz,rss,comm --sort=-vsz | head
 
 概况信息的下方是进程列表，该列表按每个进程使用的 CPU 百分比排序。默认情况下，所有这些信息每 5 秒重新刷新一次。按 h 键查看帮助选项，然后按 q 或 Esc 键返回 `top` 输出界面。
 
-### 使用 Htop 管理进程
+按下 k 键，然后输入进程的 PID 即可杀死（强制终止）该进程。
 
-`htop` 是一个类似 `top` 的进程管理器，不过更加友好，支持鼠标。
+### 使用 Htop 列出进程
+
+`htop` 是一个类似 `top` 的进程管理器，支持使用鼠标控制进程。
 
 ![htop](./assets/htop.png)
 
-在 openSUSE 上安装 `htop`：`$ sudo zypper in htop`
+- 在 openSUSE 上安装 `htop`：`$ sudo zypper in htop`
+- 在 Fedora 上安装 `htop`：`$ sudo dnf in htop`
 
-在 Fedora 上安装 `htop`：`$ sudo dnf in htop`
+要启动 htop，只需要输入命令：`htop` 即可。
 
-### 使用任务管理器管理进程
+你可以使用鼠标点击选中某个进程，然后再点击底栏的按钮（如 `Nice -`、`Nice +` 或 `Kill`）对进程进行管理。要退出 `htop`，点击底栏最右侧的 `Quit` 或按 q 键退出。
 
-每个桌面环境都用一个图形化任务管理器可以用于管理进程。
+### 使用系统监视器列出进程
+
+每个桌面环境都有一个图形化系统监视器用于管理进程。 KDE 桌面默认使用 `plasma-systemmonitor`，xfce4 桌面默认使用 `xfce4-taskmanager`，gnome 桌面环境默认使用 `gnome-system-monitor`。
+
+以 `plasma-systemmonitor` 为例，打开该应用程序，在左侧点击**进程**，进入进程页面。你可以点击顶栏，将进程按照某一要求（如进程名，内存使用量）进行升序或降序排序。然后鼠标右键点击你要控制的进程，然后**发送信号**（如待机、挂起或强制终止等）至进程。
+
+## 管理后台和前台进程
+
