@@ -81,6 +81,8 @@ Linux 可用的桌面环境非常多，流行的桌面环境主要有 KDE，Gnom
 
 如果你想提高 U 盘的利用率或想一个 U 盘容纳多个操作系统的安装文件，你可以访问 [ventoy](https://www.ventoy.net/cn/index.html) 了解更多信息。
 
+如果你现在暂时不希望将 Linux 安装至硬盘，你可以阅读[使用虚拟机安装 Linux](./virtual-machine.md)获得更多信息。
+
 ## 划分未分配的磁盘空间
 
 !!! attention
