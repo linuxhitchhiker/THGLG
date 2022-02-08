@@ -127,12 +127,6 @@ Fedora 很快就会安装到你的设备上，这时你可以放松一下~
 
 ![User](./assets/fedora/config-aboutyou.png)
 
-### 网络和主机名
-
-在**网络和主机名**页面中，你可以为 Fedora 设置一个主机名。
-
-安装系统后，你可以使用 `hostnamectl` 进行[修改主机名](https://docs.fedoraproject.org/en-US/quick-docs/changing-hostname/)。
-
 - 用户全名是你的账户全称，用户名则是你的账户简称。建议设置一个简短的用户名。
 - 点击头像即可切换头像图片。
 
