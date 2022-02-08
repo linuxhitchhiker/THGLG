@@ -92,10 +92,33 @@ Linux 可用的桌面环境非常多，流行的桌面环境主要有 KDE，Gnom
 
 你需要查询一下你当前的设备如何在开机时手动重定向至 BIOS 界面，然后选择引导设备。
 
-## 校验和
+## 校验文件完整性
 
 虽然 ISO 文件损坏的情况很少发生，但是我们依然建议你计算 ISO 文件的校验和并与官方的校验和进行比对。
 
-Rufus 也可以用于校验文件（校验按钮位于选择镜像文件的按钮左侧）：
+### 下载校验和文件
+
+Linux ISO 文件的打包者通常会把记录有 ISO 文件的校验和写入一个纯文本文件，然后与 ISO 文件放置在同一个目录下。如：
+
+```
+Fedora-Workstation-35-1.2-x86_64-CHECKSUM
+Fedora-Workstation-Live-x86_64-35-1.2.iso
+
+openSUSE-Tumbleweed-DVD-x86_64-Current.iso
+openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256
+openSUSE-Tumbleweed-DVD-x86_64-Current.iso.sha256.asc
+```
+
+### 计算文件校验和
+
+在 Windows 10 中，你可以使用 Rufus 计算 ISO 文件的校验和。首先，先用 Rufus 打开要计算的 ISO 文件，然后点击**选择**按钮左侧的圆形图标，开始校验文件：
 
 ![Chek-Hash](./assets/misc/check-hash.png)
+
+或者，你可以使用 [7zip](https://www.7-zip.org/) 计算文件的校验和。首先鼠标右键点击要计算的文件，然后选择 `SHA-256`：
+
+![1](./assets/misc/check-hash-7z.PNG)
+
+![2](./assets/misc/chec-hash-7z-1.png)
+
+### 验证签名
