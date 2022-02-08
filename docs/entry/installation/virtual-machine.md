@@ -16,7 +16,8 @@ title: 在虚拟机中安装 Linux
 本文主要描述如何使用两种流行的虚拟机软件：
 
 - [Virtualbox](https://www.virtualbox.org/)：自由，开源，免费。
-- [VMware](https://www.vmware.com/products/workstation-pro.html)：历史悠久的企业级虚拟化产品，闭源，收费。
+- [VMware Workstation](https://www.vmware.com/products/workstation-pro.html)：历史悠久的企业级虚拟化产品，闭源，收费。
+- [VMWare Workstation Player](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)：VMware Workstation的免费版本，不支持多个虚拟机同时运行。
 
 ## Virtualbox
 
@@ -80,3 +81,7 @@ Virtualbox 会自动捕获用户的鼠标光标，你可以按 `右 Ctrl` 取消
 在“命名虚拟机”中指定你的虚拟机的名称和位置。点击“**下一步(N)**”，指定“**最大磁盘大小(GB)**”，你可以使用默认值，或者指定更大的容量。完成后点击“**下一步(N)**”。
 
 在“已准备好创建虚拟机”页面中，检查虚拟机硬件配置是否合乎要求。你可以在“**自定义硬件(C)**”中自行调整配置。完成后点击“**完成**”启动虚拟机。`Ctrl + Alt` 快捷键组合可以让 VMware 停止捕获你的鼠标。
+
+## VMWare Workstation Player
+
+请参考VMWare Workstation。
