@@ -75,7 +75,7 @@ Virtualbox 会自动捕获用户的鼠标光标，你可以按 `右 Ctrl` 取消
 
 ### 安装
 
-打开[VMware Workstation Pro](https://www.vmware.com/cn/products/workstation-pro.html)，点击 **试用 Workstation 16 Pro** 进入下载页面。下载完成后，打开安装程序，依照引导提示完成安装。有关 VMware Workstation Pro 的商业授权使用详见[此处](https://store-us.vmware.com/vmware-workstation-16-pro-5424176500.html)。
+打开 [VMware Workstation Pro](https://www.vmware.com/cn/products/workstation-pro.html)，点击 **试用 Workstation 16 Pro** 进入下载页面。下载完成后，打开安装程序，依照引导提示完成安装。有关 VMware Workstation Pro 的商业授权使用详见[此处](https://store-us.vmware.com/vmware-workstation-16-pro-5424176500.html)。
 
 如果你需要免费的 VMware 虚拟化产品，你可以选择使用 [VMware Workstation Player](https://www.vmware.com/cn/products/workstation-player.html)，此站点的 **比较** 页面分析了 Workstation Player 和 Workstation Pro 的差异，以及你适合哪一种产品。
 
@@ -86,7 +86,7 @@ Virtualbox 会自动捕获用户的鼠标光标，你可以按 `右 Ctrl` 取消
 ![Begain](./assets/vm/vm-begain.png)
 
 
-在弹出的新建虚拟机向导中，点击**下一步**，然后选择**安装程序光盘映像文件**，打开你下载好的 Fedora ISO 文件。点击**下一步**：
+在弹出的新建虚拟机向导中，点击**下一步**，然后选择**安装程序光盘映像文件**，打开你下载好的 Linux ISO 文件。点击**下一步**：
 
 ![new01](./assets/vm/vm-new01.png)
 
