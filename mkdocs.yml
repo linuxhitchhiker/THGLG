@@ -11,6 +11,7 @@ nav:
       - 序言:
           - 切换到 Linux: "entry/prologue/switch-to-linux.md"
           - Linux 发行版: "entry/prologue/choose-distro.md"
+          - 桌面环境简介: "entry/desktop/desktop-environment.md"
       - 安装系统:
           - 安装前准备: "entry/installation/pre-install.md"
           - 虚拟机: "entry/installation/virtual-machine.md"
@@ -19,7 +20,6 @@ nav:
           - openSUSE 安装指南: "entry/installation/opensuse.md"
           - Kubuntu 安装指南: "entry/installation/kubuntu.md"
       - 使用桌面环境:
-          - 桌面环境简介: "entry/desktop/desktop-environment.md"
           - 安装软件（图形化界面）: "entry/desktop/apps-gui.md"
   - 进阶教程:
       - 使用命令行:

@@ -17,7 +17,7 @@ title: 在虚拟机中安装 Linux
 
 - [Virtualbox](https://www.virtualbox.org/)：自由，开源，免费。
 - [VMware Workstation](https://www.vmware.com/products/workstation-pro.html)：历史悠久的企业级虚拟化产品，闭源，收费。
-- [VMWare Workstation Player](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)：VMware Workstation的免费版本，不支持多个虚拟机同时运行。
+- [VMWare Workstation Player](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)：VMware Workstation 的免费版本，不支持多个虚拟机同时运行。
 
 ## Virtualbox
 
