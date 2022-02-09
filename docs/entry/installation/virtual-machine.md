@@ -16,7 +16,8 @@ title: 在虚拟机中安装 Linux
 本文主要描述如何使用两种流行的虚拟机软件：
 
 - [Virtualbox](https://www.virtualbox.org/)：自由，开源，免费。
-- [VMware](https://www.vmware.com/products/workstation-pro.html)：历史悠久的企业级虚拟化产品，闭源，收费。
+- [VMware Workstation](https://www.vmware.com/products/workstation-pro.html)：历史悠久的企业级虚拟化产品，闭源，收费。
+- [VMWare Workstation Player](https://www.vmware.com/cn/products/workstation-player/workstation-player-evaluation.html)：VMware Workstation的免费版本，不支持多个虚拟机同时运行。
 
 ## Virtualbox
 
@@ -84,7 +85,6 @@ Virtualbox 会自动捕获用户的鼠标光标，你可以按 `右 Ctrl` 取消
 在安装好 VMWare Workstation 后，打开 VMware，点击左上方**文件**，选择**新建虚拟机**。
 
 ![Begain](./assets/vm/vm-begain.png)
-
 
 在弹出的新建虚拟机向导中，点击**下一步**，然后选择**安装程序光盘映像文件**，打开你下载好的 Linux ISO 文件。点击**下一步**：
 
