@@ -73,10 +73,35 @@ Virtualbox 会自动捕获用户的鼠标光标，你可以按 `右 Ctrl` 取消
 
 ## VMWare Workstation
 
-在安装好 VMWare Workstation 后，点击左上方“**文件(F)**” ，选择“**新建虚拟机(N)**”。
+### 安装
 
-在弹出的新建虚拟机向导中，点击“**下一步(N)**”，然后选择“**安装程序光盘映像文件(iso)**”，打开你下载好的 Fedora ISO 文件。点击“**下一步(N)**”。
+打开[VMware Workstation Pro](https://www.vmware.com/cn/products/workstation-pro.html)，点击 **试用 Workstation 16 Pro** 进入下载页面。下载完成后，打开安装程序，依照引导提示完成安装。有关 VMware Workstation Pro 的商业授权使用详见[此处](https://store-us.vmware.com/vmware-workstation-16-pro-5424176500.html)。
 
-在“命名虚拟机”中指定你的虚拟机的名称和位置。点击“**下一步(N)**”，指定“**最大磁盘大小(GB)**”，你可以使用默认值，或者指定更大的容量。完成后点击“**下一步(N)**”。
+如果你需要免费的 VMware 虚拟化产品，你可以选择使用 [VMware Workstation Player](https://www.vmware.com/cn/products/workstation-player.html)，此站点的 **比较** 页面分析了 Workstation Player 和 Workstation Pro 的差异，以及你适合哪一种产品。
 
-在“已准备好创建虚拟机”页面中，检查虚拟机硬件配置是否合乎要求。你可以在“**自定义硬件(C)**”中自行调整配置。完成后点击“**完成**”启动虚拟机。`Ctrl + Alt` 快捷键组合可以让 VMware 停止捕获你的鼠标。
+### 新建虚拟机
+
+在安装好 VMWare Workstation 后，打开 VMware，点击左上方**文件**，选择**新建虚拟机**。
+
+![Begain](./assets/vm/vm-begain.png)
+
+
+在弹出的新建虚拟机向导中，点击**下一步**，然后选择**安装程序光盘映像文件**，打开你下载好的 Fedora ISO 文件。点击**下一步**：
+
+![new01](./assets/vm/vm-new01.png)
+
+在“命名虚拟机”中指定你的虚拟机的名称和虚拟机保存的位置。点击**下一步**：
+
+![new02](./assets/vm/vm-new02.png)
+
+在此页面，你可以指定虚拟机的**最大磁盘大小**，你可以使用默认值，或者指定更大的容量。完成后点击**下一步**：
+
+![new03](./assets/vm/vm-new03.png)
+
+在“已准备好创建虚拟机”页面中，检查虚拟机硬件配置是否合乎要求。你可以点击**自定义硬件**，自行调整配置。
+
+![new04](./assets/vm/vm-new04.png)
+
+![new05](./assets/vm/vm-new05.png)
+
+完成后点击**完成**启动虚拟机。`Ctrl + Alt` 快捷键组合可以让 VMware 停止捕获你的鼠标。
