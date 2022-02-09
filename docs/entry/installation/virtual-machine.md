@@ -111,8 +111,8 @@ Virtualbox 会自动捕获用户的鼠标光标，你可以按 `右 Ctrl` 取消
 一般而言，Fedora 和 openSUSE 都默认预置了 `open-vm-tools`，你也可以手动安装该扩展包。
 
 ```
-$ sudo zypper in open-vm-tools
-$ sudo dnf in open-vm-tools
+sudo zypper in open-vm-tools  #适用于 openSUSE
+sudo dnf in open-vm-tools     #适用于 Fedora
 ```
 
 安装完成后，重启系统。
