@@ -102,6 +102,8 @@ Flatpak、Toolbx 等容器化技术弱化了发行版之间的鸿沟，为应用
 
 <div markdown class="feat-block feat-block--right">
 
+![Linux DE](assets/image/linux-de.webp)
+
 ## 易于理解
 
 本文档面向所有桌面用户，致力于提高可读性与可操作性，以降低 Linux 桌面使用门槛。
