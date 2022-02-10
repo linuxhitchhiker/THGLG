@@ -102,7 +102,7 @@ Flatpak、Toolbx 等容器化技术弱化了发行版之间的鸿沟，为应用
 
 <div markdown class="feat-block feat-block--right">
 
-![Linux DE](assets/image/linux-de.webp)
+![Linux DE](assets/images/linux-de.webp)
 
 ## 易于理解
 
