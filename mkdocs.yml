@@ -37,8 +37,8 @@ nav:
           - 软件源与镜像源: "advanced/re-entry/repo-and-mirror.md"
           - 安装软件（命令行界面）: "advanced/re-entry/apps-cli.md"
           - 扩展阅读: "advanced/re-entry/extend.md"
-      - 打包:
-          - "advanced/packaging/flatpak.md"
+  - 高级教程:
+      - 打包: "poweruser/packaging/flatpak.md"
   - 解决方案:
       - 系统美化: "solution/eyecandy/index.md"
       - 软件:
