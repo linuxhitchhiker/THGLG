@@ -213,6 +213,24 @@ Linux Kernel 的一项工作是将计算机资源（CPU、RAM）分配给各个�
 
 `nice` 命令只能设置单一进程的优先级，而 Linux 系统或应用程序要正常运作是由大量进程所组成的。所以此时你需要使用 `cgroup` 命令。
 
-Cgroups 可用于将进程标识为属于特定的控制组的任务。可以在层次结构中设置任务，例如，可能有一个称为守护进程的任务，它为所有守护进程服务器进程设置默认限制，然后是子任务，可以为 FTP 服务守护进程设置 Web 服务器守护进程 (httpd) 的特定限制 ( vsftpd)
+Cgroups 可用于将进程标识为属于特定的控制组的任务。你可以设置具有层次结构的任务 (Tasks)，例如，可能有一个称为守护进程的任务，它为所有守护进程服务器的进程设置默认限制，然后是子任务 (subtasks)，可以为 FTP 服务守护进程 (`vsftpd`) 的 Web 服务器守护进程 (`httpd`) 设置特定限制。
 
-当一个任务启动一个进程时，初始进程启动的其他进程（称为子进程）继承为父进程设置的限制。这些限制可能表明控制组中的所有进程只能访问特定的处理器和某些 RAM 集。 或者他们可能只允许访问最多 30% 的机器总处理能力。
+当一个任务启动一个进程时，初始进程启动的其他进程（称为子进程）会继承父进程具有的限制。这些限制可能表明控制组中的所有进程只能访问特定的处理器和某些 RAM 集，或者他们可能只允许访问最多 30% 的机器总处理能力。
+
+cgroup 可以设置限制的资源类型如下：
+
+- 储存（`blkio`）：限制对存储设备（如硬盘、USB 驱动器等）的总输入和输出访问。
+- 处理器调度（`cpu`）：指定一个 cgroup 任务的访问量，以安排处理能力。
+- 进程会计（`cpuacct`）：CPU 使用情况报告。可以利用此信息向客户收取他们使用的处理能力的费用。
+- CPU 分配（`cpuset`）：在具有多个 CPU 内核的系统上，将任务分配给一组特定的处理器和相关的内存。
+- 设备访问（`devices`）：允许 cgroup 中的任务打开或创建 (mknod) 选定的设备类型。
+- 暂停/恢复（`freezer`）：暂停或恢复 cgroup 任务。
+- 内存使用（`memory`）：按任务限制内存使用。它还创建有关使用的内存资源的报告。
+- 网络带宽（`net_cls`）：限制对选定 cgroup 任务的网络访问。这是通过标记网络数据包来识别发起数据包的 cgroup 任务并让 Linux 流量控制器监控和限制来自每个 cgroup 的数据包来完成的。
+- 网络流量（`net_prio`）：设置来自选定 cgroup 的网络流量的优先级，并允许管理员动态更改这些优先级。
+- 名字空间（`ns`）：将 cgroup 分隔为名字空间，因此一个 cgroup 中的进程只能看到与该 cgroup 关联的名字空间。命名空间可以包括单独的进程表、挂载表和网络接口。
+
+有关于 cgroup 更深入的内容，详见：
+
+- [Red Hat Enterprise Linux Resource Management and Linux Containers Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/resource_management_guide/index)
+- 内核文档：`/usr/share/doc/kernel-doc-*/Documentation/cgroups`（你需要先安装 `kernel-doc` 以获取这些文档。）
