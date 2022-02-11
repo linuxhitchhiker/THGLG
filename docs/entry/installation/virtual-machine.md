@@ -203,7 +203,11 @@ sudo dnf in open-vm-tools     #适用于 Fedora
     ```
     ![end](./assets/vm/vm-share-end.png)
 
-### 其他
+### UEFI 和 BIOS
+
+如果你需要将虚拟机的启动模式设置为 UEFI，而非 VMware 默认的 BIOS。则你应该在新建虚拟机的时候，在第一步选择**稍后安装系统**，然后将**客户机操作系统**的版本设置为**其他 Linux 5.x 内核 64 位**。然后再在虚拟机的设置页面的 CD\DVD (IDE) 选项中添加用于安装系统的 ISO 文件。
+
+### 官方文档
 
 有关 Workstation 更多的使用指南详见：
 

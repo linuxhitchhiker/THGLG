@@ -6,7 +6,7 @@ title: "Linux 发行版"
 
 !!! info
     如果想要了解关于其他发行版的信息，请参阅[再次入门：发行版](../../advanced/re-entry/distro.md)。<br />
-    如果你想要了解 Linux 常用的桌面环境，请参阅 [Linux 桌面环境](.././desktop/desktop-environment.md)。
+    如果你想要了解 Linux 常用的桌面环境，请参阅 [Linux 桌面环境](./desktop-environment.md)。
 
 为了教程简单起见，我们在此推荐以下几个发行版作为桌面日常使用：
 
