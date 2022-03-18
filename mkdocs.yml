@@ -48,6 +48,7 @@ nav:
           - HiDPI: solution/config/hidpi.md
   - 寻求帮助:
       - 常见问题: "help/faq.md"
+      - 如何提问: "help/howto-ask-for-help.md"
       - 联系我们: "help/contact.md"
   - 关于:
       - 简介: "about/index.md"
