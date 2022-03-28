@@ -40,7 +40,9 @@ nav:
   - 高级教程:
       - 打包: "poweruser/packaging/flatpak.md"
   - 解决方案:
-      - 系统美化: "solution/eyecandy/index.md"
+      - 系统美化: 
+          - 综述: solution/eyecandy/index.md
+          - KDE 美化: solution/eyecandy/eyecandy-kde.md
       - 软件:
           - 浏览器: solution/software/browser.md
           - 即时通讯: solution/software/instant-messaging.md
