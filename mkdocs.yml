@@ -33,7 +33,7 @@ nav:
           - "advanced/systemctl/index.md"
           - "advanced/systemctl/update-sys.md"
       - 再次入门:
-          - 综述: "advanced/re-entry/index.md"
+          - 概述: "advanced/re-entry/index.md"
           - 选择发行版: "advanced/re-entry/distro.md"
           - 软件源与镜像源: "advanced/re-entry/repo-and-mirror.md"
           - 扩展阅读: "advanced/re-entry/extend.md"
@@ -41,12 +41,15 @@ nav:
       - 打包: "poweruser/packaging/flatpak.md"
   - 解决方案:
       - 系统美化: 
-          - 综述: solution/eyecandy/index.md
+          - 概述: solution/eyecandy/index.md
           - KDE 美化: solution/eyecandy/eyecandy-kde.md
       - 软件:
+          - 概述: solution/software/index.md
           - 浏览器: solution/software/browser.md
           - 即时通讯: solution/software/instant-messaging.md
+          - Appimage: solution/software/appimage-base.md
       - 系统配置:
+          - 概述: solution/config/index.md
           - HiDPI: solution/config/hidpi.md
   - 寻求帮助:
       - 常见问题: "help/faq.md"
