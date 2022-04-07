@@ -49,6 +49,7 @@ nav:
           - 浏览器: solution/software/browser.md
           - 即时通讯: solution/software/instant-messaging.md
           - Appimage: solution/software/appimage-base.md
+          - Flatpak: solution/software/flatpak-get-start.md
       - 系统配置:
           - 概述: solution/config/index.md
           - HiDPI: solution/config/hidpi.md
