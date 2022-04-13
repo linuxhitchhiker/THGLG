@@ -36,7 +36,7 @@ sudo dnf in gh  #在 Fedora 上安装 gh-cli
 $ gh auth login
 ```
 
-在登陆的时候，gh-cli 会询问你是否托管 git，建议选择 `yes`。授权方式建议选择 `Paste an authentication token`。官方文档详见[此处]()。
+在登陆的时候，gh-cli 会询问你是否托管 git，建议选择 `yes`。授权方式建议选择 `Paste an authentication token`。官方文档详见[此处](https://cli.github.com/manual/)。
 
 ## Python 的必要配置
 
