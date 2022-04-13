@@ -34,7 +34,7 @@ Kubuntu：
 
 ## 选择桌面环境
 
-Linux 可用的桌面环境非常多，流行的桌面环境主要有 KDE，Gnome 和 Xfce。有关这三个桌面的介绍详见[此处](./../desktop/desktop-environment.md)。
+Linux 可用的桌面环境非常多，流行的桌面环境主要有 KDE，Gnome 和 Xfce。有关这三个桌面的介绍详见[此处](./../prologue/desktop-environment.md)。
 ## 下载可启动镜像
 
 为了简化流程，我们推荐使用从镜像站下载的 DVD 或 LiveDVD 离线镜像安装系统（2020 年后生产的桌面设备最常见的系统架构为 `x86_64`）。
