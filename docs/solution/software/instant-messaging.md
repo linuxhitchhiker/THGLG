@@ -1,15 +1,20 @@
 ---
 title: "即时通讯"
-description: "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
-lead: "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
-date: 2020-10-06T08:48:57+00:00
-lastmod: 2020-10-06T08:48:57+00:00
-draft: false
-images: []
-menu:
-  docs:
-    parent: "software"
-weight: 300
-toc: true
 ---
 
+## QQ
+
+## 微信
+
+## 钉钉
+
+## telegram
+
+```
+sudo dnf in telegram-desktop #在 Fedora 上安装 telegram
+sudo zypper in telegram-desktop #在 openSUSE 上安装 telegram
+```
+
+## matrix
+
+## IRC
