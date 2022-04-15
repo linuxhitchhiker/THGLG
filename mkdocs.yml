@@ -49,6 +49,8 @@ nav:
           - 浏览器: solution/software/browser.md
           - 即时通讯: solution/software/instant-messaging.md
           - 文档办公: solution/software/office-and-email.md
+          - 多媒体相关: solution/software/multimedia-editing.md
+          - 下载器: solution/software/download-manager.md
           - Appimage: solution/software/appimage-base.md
           - Flatpak: solution/software/flatpak-get-start.md
       - 系统配置:

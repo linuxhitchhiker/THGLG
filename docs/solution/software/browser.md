@@ -44,7 +44,7 @@ title: "网络浏览器"
     ```
 3. 导入公钥：  
     ```
-     sudo rpm --import linux_signing_key.pub
+    sudo rpm --import linux_signing_key.pub
     ```
 4. 安装 Google chrome 稳定版。
     ```

@@ -69,3 +69,22 @@ sudo dnf in evolution
 ```
 
 或者你可以使用浏览器使用在线的网页邮件客户端。
+
+## 思维导图
+
+开源的在线思维导图工具：[draw.io](https://app.diagrams.net/#)。draw.io 还支持 Linux 平台。
+
+## 字典
+
+[Goldendict](http://goldendict.org/) 是一个功能强大，支持诸多字典格式的字典查词软件。
+
+```
+sudo zypper in goldendict goldendict-lang
+sudo dnf in goldendict
+```
+
+- [FreeMdict Forum](https://forum.freemdict.com/) 是一个聚焦于各类字典与使用的爱好者论坛。
+
+[欧陆词典](https://dict.eudic.net/) 也是一个流行的字典软件，但 Linux 版不支持屏幕取词。
+
+[Bing 在线词典](https://www4.bing.com/dict?FORM=HDRSC6) 是一个简单易用的在线网络词典。
