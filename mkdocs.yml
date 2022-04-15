@@ -51,6 +51,7 @@ nav:
           - 文档办公: solution/software/office-and-email.md
           - 多媒体相关: solution/software/multimedia-editing.md
           - 下载器: solution/software/download-manager.md
+          - 游戏: solution/software/linux-game.md
           - Appimage: solution/software/appimage-base.md
           - Flatpak: solution/software/flatpak-get-start.md
       - 系统配置:
@@ -59,7 +60,6 @@ nav:
   - 寻求帮助:
       - 常见问题: "help/faq.md"
       - 如何提问: "help/howto-ask-for-help.md"
-      - 联系我们: "help/contact.md"
   - 关于:
       - 简介: "about/index.md"
       - 许可协议: "about/license/index.md"
