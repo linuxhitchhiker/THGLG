@@ -32,6 +32,7 @@ nav:
       - 配置系统:
           - "advanced/systemctl/index.md"
           - "advanced/systemctl/update-sys.md"
+          - "advanced/systemctl/package-manager.md"
       - 再次入门:
           - 概述: "advanced/re-entry/index.md"
           - 选择发行版: "advanced/re-entry/distro.md"
