@@ -47,6 +47,63 @@ sudo zypper refresh && sudo zypper install wps-office
     * 它足够自由，你不必担忧未来出现你无法读取你的文档或者有人宣布你的文档格式不受支持的情况。  
     * 它足够开放，有大量的工具支持编辑纯文本文件，可以提供远比微软 notepad 之类的元老级文本编辑器更好的使用体验。
 
+### VScode
+
+[Vscode](https://code.visualstudio.com/) 是一个非常流行的免费源代码编辑器。
+
+>Visual Studio Code（简称 VS Code）是一款由微软开发且跨平台的免费源代码编辑器。该软件支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构功能，并且内置了命令行工具和 Git 版本控制系统。用户可以更改主题和键盘快捷方式实现个性化设置，也可以通过内置的扩展程序商店安装扩展以拓展软件功能。
+>在2019年的 Stack Overflow 组织的开发者调查中，Visual Studio Code 被认为是最受开发者欢迎的开发环境。据调查，87317名受访者中有50.7%的受访者声称正在使用 Visual Studio Code[^1]。
+
+![preview](./image/vscode-previw.png)
+
+#### 安装
+
+- 在 Fedora 上安装：  
+    添加软件源：
+    ```
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+    ```
+    然后检查更新，并安装 vscode：
+    ```
+    sudo dnf check-update && sudo dnf install code
+    ```
+- 在 openSUSE 上安装：  
+    添加软件源：
+    ```
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/vscode.repo'
+    ```
+    刷新软件源，并安装 vscode：  
+    ```
+    sudo zypper ref && sudo zypper in code
+    ```
+
+或者通过 Flatpak 安装：
+
+```
+flatpak install flathub com.visualstudio.code
+```
+
+#### VScode 插件
+
+推荐安装的扩展有
+
+- Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code - Microsoft
+- GitLens — Git supercharged - GitKraken  
+    多合一的 git 工具箱  
+- Markdown All in One - Yu Zhang  
+    多合一的 md 文档插件  
+- Material Icon Theme - Philipp Kief  
+    显示效果更清晰的图标主题  
+    ![01](./image/icon-themes.png)
+- Project Manager - Alessandro Fragnani  
+    git 项目管理器（便捷地在多个 git 项目间切换） 
+
+### Kate
+
+[Kate](https://apps.kde.org/kate/) 是 KDE 预置的文本编辑器，也支持非常多的功能。
+
 ## E-mail
 
 [Thunderbird](https://www.thunderbird.net/en-US/) 和 [evolution](https://wiki.gnome.org/Apps/Evolution) 都是流行的 Linux 邮件客户端。你可以任选一个安装至你的电脑。
@@ -88,3 +145,7 @@ sudo dnf in goldendict
 [欧陆词典](https://dict.eudic.net/) 也是一个流行的字典软件，但 Linux 版不支持屏幕取词。
 
 [Bing 在线词典](https://www4.bing.com/dict?FORM=HDRSC6) 是一个简单易用的在线网络词典。
+
+[DeepL](https://www.deepl.com/translator)：免费的在线翻译引擎，由人工神经网络驱动。
+
+[^1]: https://zh.wikipedia.org/wiki/Visual_Studio_Code
