@@ -370,6 +370,12 @@ sudo zypper remove --dry-run MozillaFirefox
 zypper search <关键字>
 ```
 
+要查询某个软件包的信息，请使用：
+
+```
+zypper info <软件包包名>
+```
+
 #### 安装，删除软件包
 
 你可以使用下列命令安装或移除特定的软件包（参数是软件包包名 `PACKAGE_NAME`）：
@@ -502,3 +508,22 @@ sudo zypper removerepo REPO_ALIAS
 |-p|设置软件源的优先级。|
 
 要查看完整的选项信息，你可以键入 `$ sudo zypper help modifyrepo`。
+
+### zypper 配置
+
+Zypper 现在附带一个配置文件，允许你永久更改 Zypper 的行为（系统范围或用户特定）。 对于系统范围的更改，编辑 `/etc/zypp/zypper.conf`。对于特定于用户的更改，请编辑 `~/.zypper.conf`。如果 `~/.zypper.conf` 尚不存在，你可以使用 `/etc/zypp/zypper.conf` 作为模板，将其复制到 `~/.zypper.conf` 并根据自己的喜好进行调整。 有关可用选项的帮助，请参阅文件中的注释。
+
+### 更多信息
+
+更多信息详见 `zypper help` 和 `zypper help COMMAND` 或者 `man zypper(8)`
+
+- https://en.opensuse.org/SDB:Zypper_usage
+- https://en.opensuse.org/openSUSE:Zypper_versions
+
+## RPM 软件包管理器
+
+<del>你已经是个成熟的 Linux 用户了，要学会自己看文档：</del>
+
+```
+$ rpm --help
+```
