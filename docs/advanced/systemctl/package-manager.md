@@ -137,7 +137,7 @@ $ dnf repoquery -h
 dnf install <软件包包名>
 ```
 
-上述命令可以安装匹配指定包名的软件包。你也可以一次性安装多个软件包，比如 `$ sudo dnf in smplayer smplayer-themes deadbeef`。软件包包名是 `dnf in` 的选项，而这个命令支持元字符和 glob 表达式。
+上述命令可以安装匹配指定包名的软件包。你也可以一次性安装多个软件包，比如 `$ sudo dnf in smplayer smplayer-themes deadbeef`。软件包包名是 `dnf in` 的选项，而这个命令支持元字符和 [glob 表达式](https://rgb-24bit.github.io/blog/2018/glob.html)。
 
 软件包组和单一的软件包很相似，你无法单独使用软件包组的某一个软件包，它们需要全部安装后才能正常工作。如果你尝试安装其中的一个软件包，dnf 会自动安装同一个组内的其他软件包。每一个软件包组都有一个组名称（group_name）和组 ID（groupid, GID）。`dnf group list -v` 命令可以列举出所有的软件包组的名称和它们的 GID
 
@@ -300,3 +300,205 @@ dnf config-manager --set-disabled repository
 - `dnf.conf(8)` — DNF 配置参考手册页。
 
 ## Zypper
+
+!!! note
+    完整的使用指南详见[此处](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html)。
+
+zypper 是 openSUSE 默认的软件包管理器，可以用于管理软件包、软件仓库和升级更新系统。
+
+### 管理软件包
+
+#### 一般使用
+
+zypper 的命令格式如下：
+
+```
+zypper [--global-options] COMMAND  [--command-options] [arguments]
+```
+
+使用 `[]` 包围起来的部分不是必须使用的。你可以键入 `$ zypper --help` 查看通用选项（`--global-options`）和命令（`COMMAND`）的完整列表。你也可以使用 `$ zypper help COMMAND` 查看特定的命令的帮助信息。
+
+- Zypper command  
+    执行 zypper 最简单的方式是直接键入命令的名字，例如应用全部可用的更新补丁：  
+    ```
+    sudo zypper patch
+    ```
+- 全局选项（`--global-options`）  
+    你可以在 zypper 后直接添加一个或多个选项，来实现额外的功能，例如：  
+    ```
+    sudo zypper --non-interactive patch
+    ```
+    如上，`--non-interactive` 选项表示命令会直接运行而不询问用户的意见（即自动以默认的答案回答命令执行过程中出现的问题）。注意，如果你不清楚 zypper 的工作流程和相关的默认配置，请不要跳过手动处理阶段。  
+- 命令特定选项（`--command-options`）   
+    要使用命令特定的选项，你需要将这些选项直接放置在命令的后面，例如：  
+    ```
+    sudo zypper patch --auto-agree-with-licenses
+    ```
+    如上，`--auto-agree-with-licenses` 选项会自动确认并接受补丁包的许可证信息。如果你没有添加该选项，你需要阅读并接受许可证（比如 NVIDIA 私有驱动的最终用户使用协议）。    
+- 参数（`Arguments`）  
+    一些命令需要用户提供一个或多个参数。例如，使用 zypper 安装软件包时，你需要声明要安装哪些软件包，如下：  
+    ```
+    sudo zypper install smplayer
+    ```
+    有些命令特定选项也需要额外的参数，例如列出全部已知的模组：  
+    ```
+    sudo zypper search -t pattern
+    ```
+
+你也可以将上面的用法同时堆叠在一起，写出一个很长的命令。例如，下列命令会从 `factory` 仓库安装 `vim` 和 `mc` 软件包，并显示冗余信息：
+
+```
+sudo zypper -v install --from factory mc vim
+```
+
+如果没有特别声明，`--from` 选项默认从全部已启用的软件仓库检索软件包。你也可以使用 `--repo` ，她是 `--from` 的别名。
+
+大多数 zypper 命令都具有 `dry-run` 选项，可以模拟运行给定的命令。该选项可以用于测试用途。例如：
+
+```
+sudo zypper remove --dry-run MozillaFirefox
+```
+
+#### 搜索软件包
+
+你可以使用下述命令查询符合关键字的软件包：
+
+!!! note
+    更多信息详见：[2.1.7 Querying repositories and packages with Zypper](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-query)
+
+```
+zypper search <关键字>
+```
+
+#### 安装，删除软件包
+
+你可以使用下列命令安装或移除特定的软件包（参数是软件包包名 `PACKAGE_NAME`）：
+
+!!! warning
+    请不要使用 zypper 删除重要的系统软件包（比如 `glic`、`zypper` 和 `kernel` 等软件包），这可能会导致系统崩溃。
+
+```
+sudo zypper install PACKAGE_NAME
+sudo zypper remove PACKAGE_NAME
+```
+
+!!! note
+    关于 `zypper install` 和 `zypper remove` 命令更多详细用法，详见 [2.1.3 Installing and removing software with Zypper](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-softman)。
+
+#### 更新软件包
+
+你可以使用下列命令更新软件包：
+
+```
+sudo zypper dup                  #更新全部的软件包，即更新系统
+sudo zypper update PACKAGE_NAME  #更新特定的软件包
+```
+
+你可以使用下述命令查看当前系统需要更新的软件包：
+
+!!! note
+    * 这个命令只能列举出没有发生供应商变更的软件包的更新版本。即已安装的软件包和要安装的新版本必须来自于同一个软件源。
+    * 要安装的软件包所属的仓库的优先级必须与已安装的软件包所属的仓库的优先级至少相同。  
+    * 必须可安装。（满足所有的依赖关系）
+
+你可以使用下述命令查看全部可获得的软件包更新（不论是否可安装）：
+
+```
+sudo zypper list-updates --all
+```
+
+要查看某个软件包不能安装的原因，你可以使用 `zypper install` 或 `zypper update` 命令查看详细信息。
+
+#### 识别孤立包
+
+当你删除某些仓库或者升级你的系统后，某些软件包可能进入 `orphaned`（孤立）状态。这些孤立包不属于任何已启用的软件仓库。你可以使用下列命令查看这些软件包：
+
+```
+sudo zypper packages --orphaned
+```
+
+#### 识别使用已删除文件的进程或程序
+
+你可以使用下列命令输出仍然在使用已删除文件的进程或程序的 PID、UID、所属的用户和命令等相关信息。
+
+!!! note
+    详细信息详见：[2.1.5 Identifying processes and services using deleted files](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-ps)
+
+```
+zypper ps-s
+```
+
+在更新后，你需要手动重启这些程序或进程以应用更新，但你可以直接重启系统。
+
+### 管理软件仓库
+
+zypper 可以用于管理软件仓库：
+
+键入以下命令查看你当前使用的软件仓库概况，例如：
+
+```
+bh@c004-h0:~> zypper repos
+软件源优先级已生效：                                                                               (细节请参考 'zypper lr -P')
+      90 (更高的优先级) :  1 个软件源
+      99 (默认优先级)   :  6 个软件源
+
+#  | Alias                    | Name                        | Enab-> | GPG Ch-> | Re->
+---+--------------------------+-----------------------------+--------+----------+-----
+ 1 | NVIDIA                   | NVIDIA                      | 是     | (r ) 是  | 是
+ 2 | OPEN-TUNA:TW:NON-OSS     | OPEN-TUNA:TW:NON-OSS        | 是     | (r ) 是  | 是
+ 3 | OPEN-TUNA:TW:OSS         | OPEN-TUNA:TW:OSS            | 是     | (r ) 是  | 是
+ 4 | code                     | Visual Studio Code          | 是     | (r ) 是  | 是
+ 5 | google-chrome            | google-chrome               | 是     | (r ) 是  | 是
+ 6 | home_fusionfuture_office | home:fusionfuture:office    | 是     | (r ) 是  | 是
+ 7 | packman                  | packman                     | 是     | (r ) 是  | 是
+ 8 | repo-debug               | openSUSE-Tumbleweed-Debug   | 否     | ----     | ----
+ 9 | repo-non-oss             | openSUSE-Tumbleweed-Non-Oss | 否     | ----     | ----
+10 | repo-oss                 | openSUSE-Tumbleweed-Oss     | 否     | ----     | ----
+11 | repo-source              | openSUSE-Tumbleweed-Source  | 否     | ----     | ----
+12 | repo-update              | openSUSE-Tumbleweed-Update  | 否     | ----     | ----
+```
+
+如上，这是一个禁用了官方软件源，使用镜像源和多个第三方软件源的 tumbleweed 系统。在与软件仓库相关的一系列命令和选项中，建议使用使用仓库的别名 `Alias` 作为参数。
+
+#### 添加软件仓库
+
+要添加一个新的软件仓库，你使用下列命令：
+
+```
+sudo zypper addrepo URL ALIAS
+```
+
+URL 是仓库的地址，ALIAS 是仓库的别名。你可以随意指定仓库的别名，但是请保持新添加的仓库的别名是独有的，不与其他已有的仓库别名重复。
+
+#### 刷新软件仓库
+
+你可以使用下列命令刷新软件仓库:
+
+!!! note
+    一些命令会自动刷新软件仓库，你不需要特意去执行这个命令。
+
+```
+sudo zypper refresh
+```
+
+#### 移除软件仓库
+
+你可以使用下列命令移除匹配指定的仓库别名的仓库：
+
+```
+sudo zypper removerepo REPO_ALIAS
+```
+
+#### 编辑仓库
+
+你可以使用 `zypper modifyrepo` 命令编辑仓库的属性。
+
+|选项|用途|
+|---|---|
+|-e|启用已禁用的软件源。|
+|-d|禁用但不移除软件源。|
+|-a|应用修改到全部软件源。|
+|-F|禁用软件源的自动刷新。|
+|-p|设置软件源的优先级。|
+
+要查看完整的选项信息，你可以键入 `$ sudo zypper help modifyrepo`。
