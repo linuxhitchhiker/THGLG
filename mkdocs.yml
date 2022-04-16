@@ -51,13 +51,16 @@ nav:
           - 即时通讯: solution/software/instant-messaging.md
           - 文档办公: solution/software/office-and-email.md
           - 多媒体相关: solution/software/multimedia-editing.md
-          - 下载器: solution/software/download-manager.md
+          - 下载器: solutio n/software/download-manager.md
           - 游戏: solution/software/linux-game.md
           - Appimage: solution/software/appimage-base.md
           - Flatpak: solution/software/flatpak-get-start.md
       - 系统配置:
           - 概述: solution/config/index.md
           - HiDPI: solution/config/hidpi.md
+          - 双系统: "solution/config/dual-boot.md"
+      = 跨系统兼容:
+          = 关于: "solution/compatibility/about.md"
   - 寻求帮助:
       - 常见问题: "help/faq.md"
       - 如何提问: "help/howto-ask-for-help.md"
