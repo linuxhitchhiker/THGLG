@@ -2,8 +2,13 @@
 title: 包管理器
 ---
 
+!!! bug
+    本条目还缺少 `apt` 包管理器的使用指南，欢迎补充。
+
 !!! note
-    `repository` 一词的完整原意是软件仓库。但它也可以被翻译成软件源，储存库或仓库。
+    * `repository` 一词的完整原意是软件仓库。但它也可以被翻译成软件源，储存库或仓库。
+    * 有关 Flatpak 包管理器的使用详见[此处](./../../solution/software/flatpak-get-start.md)。
+    * 有关 rpm 包管理器的使用详见：`$ man rpm` 或 `$ rpm --help`
 
 ## DNF
 
@@ -519,11 +524,3 @@ Zypper 现在附带一个配置文件，允许你永久更改 Zypper 的行为�
 
 - https://en.opensuse.org/SDB:Zypper_usage
 - https://en.opensuse.org/openSUSE:Zypper_versions
-
-## RPM 软件包管理器
-
-<del>你已经是个成熟的 Linux 用户了，要学会自己看文档：</del>
-
-```
-$ rpm --help
-```
