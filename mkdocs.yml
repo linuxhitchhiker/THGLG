@@ -34,6 +34,7 @@ nav:
           - "advanced/systemctl/update-sys.md"
           - "advanced/systemctl/package-manager.md"
           - "advanced/systemctl/firewall.md"
+          - "advanced/systemctl/systemctl.md"
       - 再次入门:
           - 概述: "advanced/re-entry/index.md"
           - 选择发行版: "advanced/re-entry/distro.md"

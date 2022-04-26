@@ -18,6 +18,27 @@ title: 包管理器
 
 如果软件包 A 要发挥额外的功能，需要用户安装软件包 C，则我们称软件包 C 是软件包 A 的推荐依赖（`recommend`）。不安装软件包 C 不影响软件包 A 的正常工作，但会让软件包 A 无法发挥完整的功能。例如，汽车如果没有车载收音机，则用户无法收听交通广播。但没有车载收音机并不影响汽车正常行驶。此时车载收音机就是一种"推荐"安装的部件。
 
+### 推荐的软件获取来源
+
+!!! note
+    优先值越小，优先级越高。请尽量使用优先级高的途径获取软件包。  
+    OBS 软件源查询辅助工具：`sudo zypper in opi`  
+    Fedora COPR 软件源查询辅助工具：[Sourcegraph](https://fedoramagazine.org/using-sourcegraph-to-search-34000-fedora-repositories/)  
+    OBS 和 COPR 也是一个较安全的，可选的软件包获取途径。  
+
+|名称|优先值|备注|
+|---|---|---|
+|发行版官方仓库|1|请相信你使用的发行版的官方打包和维护人员。你所需要的大部分软件包都来源于此。|
+|发行版官方认可的第三方仓库|1|比如 [rpmfusion](https://rpmfusion.org/) 和 [packman](https://en.opensuse.org/Additional_package_repositories)。此类第三方仓库通常包含因为许可证问题不能纳入官方仓库的软件包。|
+|Flatpak|2|[Flatpak Remote](https://flathub.org) 是一个受许多发行版维护者信任的第三方软件源。|
+|开发者自建的软件源|2|比如 Google 自建的 chrome 软件源。这类由开发者维护的上游软件源是可信任的，但请注意配置正确的软件源。|
+|开发者发布的第一方 Appimage/rpm/deb 软件包|2|你可以信任由软件主要维护者或开发者打包发布的第一方软件包。虽然你需要手动更新软件，并可能需要自行处理依赖问题。|
+|[Open Build Service](https://build.opensuse.org/)|3|请确保选择合适的，你信任的第三方打包者发布的 OBS 源。|
+|[Fedora COPR](https://copr.fedorainfracloud.org/)|3|请确保选择合适的，你信任的第三方打包者发布的 COPR 源。|
+|开发者发布的第一方预编译的二进制文件包|4|并不建议大量使用预编译的二进制文件，一是难以轻松地进行版本管理，二是可能会出现版本依赖问题。|
+|从源码编译安装|5|除非你很清楚地知道你在干什么，否则我们并不建议从源码编译安装一个软件。|
+|第三方打包者自行维护的第三方软件源，或发布的 Appimage/deb/rpm/二进制文件|6|请注意安全，请确保这是你信任的打包者发布的软件包。|
+
 ## DNF
 
 !!! note
