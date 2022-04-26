@@ -5,43 +5,43 @@ copyright: "© 2022 Linux 银河漫游指南贡献者，在 CC-BY-SA 4.0 下提�
 
 nav:
   - 主页:
-      - 欢迎: "index.md"
-      - 简介: "intro.md"
+      - 欢迎: index.md
+      - 简介: intro.md
   - 入门指南:
       - 序言:
-          - 切换到 Linux: "entry/prologue/switch-to-linux.md"
-          - Linux 发行版: "entry/prologue/choose-distro.md"
-          - 桌面环境简介: "entry/prologue/desktop-environment.md"
+          - 切换到 Linux: entry/prologue/switch-to-linux.md
+          - Linux 发行版: entry/prologue/choose-distro.md
+          - 桌面环境简介: entry/prologue/desktop-environment.md
       - 安装系统:
-          - 安装前准备: "entry/installation/pre-install.md"
-          - 虚拟机: "entry/installation/virtual-machine.md"
-          - Fedora 安装指南: "entry/installation/fedora.md"
-          - Fedora Silverblue 安装指南: "entry/installation/fedora-silverblue.md"
-          - openSUSE 安装指南: "entry/installation/opensuse.md"
-          - Kubuntu 安装指南: "entry/installation/kubuntu.md"
+          - 安装前准备: entry/installation/pre-install.md
+          - 虚拟机: entry/installation/virtual-machine.md
+          - Fedora 安装指南: entry/installation/fedora.md
+          - Fedora Silverblue 安装指南: entry/installation/fedora-silverblue.md
+          - openSUSE 安装指南: entry/installation/opensuse.md
+          - Kubuntu 安装指南: entry/installation/kubuntu.md
       - 使用桌面环境:
-          - 安装软件（图形化界面）: "entry/desktop/apps-gui.md"
+          - 安装软件（图形化界面）: entry/desktop/apps-gui.md
   - 进阶教程:
       - 使用命令行:
-          - "advanced/shell/index.md"
-          - "advanced/shell/base1.md"
-          - "advanced/shell/base2.md"
-          - "advanced/shell/base3.md"
-          - "advanced/shell/base4.md"
-          - "advanced/shell/base5.md"
+          - advanced/shell/index.md
+          - advanced/shell/base1.md
+          - advanced/shell/base2.md
+          - advanced/shell/base3.md
+          - advanced/shell/base4.md
+          - advanced/shell/base5.md
       - 配置系统:
-          - "advanced/systemctl/index.md"
-          - "advanced/systemctl/update-sys.md"
-          - "advanced/systemctl/package-manager.md"
-          - "advanced/systemctl/firewall.md"
-          - "advanced/systemctl/systemctl.md"
+          - advanced/systemctl/index.md
+          - advanced/systemctl/update-sys.md
+          - advanced/systemctl/package-manager.md
+          - advanced/systemctl/firewall.md
+          - advanced/systemctl/systemctl.md
       - 再次入门:
-          - 概述: "advanced/re-entry/index.md"
-          - 选择发行版: "advanced/re-entry/distro.md"
-          - 软件源与镜像源: "advanced/re-entry/repo-and-mirror.md"
-          - 扩展阅读: "advanced/re-entry/extend.md"
+          - 概述: advanced/re-entry/index.md
+          - 选择发行版: advanced/re-entry/distro.md
+          - 软件源与镜像源: advanced/re-entry/repo-and-mirror.md
+          - 扩展阅读: advanced/re-entry/extend.md
   - 高级教程:
-      - 打包: "poweruser/packaging/flatpak.md"
+      - 打包: poweruser/packaging/flatpak.md
   - 解决方案:
       - 系统美化: 
           - 概述: solution/eyecandy/index.md
@@ -60,20 +60,25 @@ nav:
       - 系统配置:
           - 概述: solution/config/index.md
           - HiDPI: solution/config/hidpi.md
-          - 双系统: "solution/config/dual-boot.md"
+          - 双系统: solution/config/dual-boot.md
       - 跨系统兼容:
-          - 关于: "solution/compatibility/about.md"
+          - 概述: solution/compatibility/about.md
+          - Wine: solution/compatibility/wine.md
+          - Toolbx: solution/compatibility/toolbx.md
+          - Docker: solution/compatibility/docker.md
+          - Distrobox: solution/compatibility/distrobox.md
+          - 搭建虚拟机: solution/compatibility/virtual-machine.md
   - 寻求帮助:
-      - 常见问题: "help/faq.md"
-      - 如何提问: "help/howto-ask-for-help.md"
+      - 常见问题: help/faq.md
+      - 如何提问: help/howto-ask-for-help.md
   - 关于:
-      - 简介: "about/index.md"
-      - 许可协议: "about/license/index.md"
+      - 简介: about/index.md
+      - 许可协议: about/license/index.md
       - 贡献指南: 
-          - 长版: "about/contributing/index.md"
-          - 简约 lite 版: "about/contributing/about.md"
-          - 慢速开始 1: "about/contributing/base-01.md"
-          - 慢速开始 2: "about/contributing/base-02.md"
+          - 长版: about/contributing/index.md
+          - 简约 lite 版: about/contributing/about.md
+          - 慢速开始 1: about/contributing/base-01.md
+          - 慢速开始 2: about/contributing/base-02.md
 
 theme:
   name: material
