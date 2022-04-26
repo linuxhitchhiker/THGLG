@@ -78,3 +78,4 @@ Gentoo 官方站点：
 ### 杂项
 
 - [提问的智慧](https://lug.ustc.edu.cn/wiki/doc/smart-questions/)
+- [软件替代品查询](https://alternativeto.net/)
