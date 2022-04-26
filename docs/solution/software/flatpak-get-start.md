@@ -63,7 +63,10 @@ flatpak run org.freefilesync.FreeFileSync #运行 FreeFileSync
 
 ## 简易使用[^3]
 
-内置的用户手册：
+!!! note
+    请不要使用 `sudo` 命令运行 `flatpak`。以免导致一些预期之外的问题。
+
+查看用户手册：
 
 ```
 flatpak --help
@@ -97,6 +100,12 @@ flatpak list
 
 ```
 flatpak uninstall [软件名称]
+```
+
+更新软件：
+
+```
+flatpak update [软件名称]
 ```
 
 ### 注意事项
