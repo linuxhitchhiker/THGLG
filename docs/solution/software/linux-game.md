@@ -31,24 +31,43 @@ sudo hwinfo --gfxcard | grep Model
 sudo hwinfo --arch
 ```
 
-然后查阅支持你的硬件的驱动型号：
-
-- [Geforce 600 系列以及之后的显卡](https://www.nvidia.com/Download/driverResults.aspx/145182/en-us)：`x11-video-nvidiaG05`
-- [Geforce 400 系列以及之后的显卡](https://www.nvidia.com/Download/driverResults.aspx/142567/en-us)：`x11-video-nvidiaG04`
-
-使用最新 NVIDIA 显卡的用户（Geforce 版本号>600，比如 MX450, 630，1080，2060，3090）[支持的型号列表](https://www.nvidia.cn/Download/driverResults.aspx/165210/cn).
+NVIDIA 为 openSUSE 用户提供了三种显卡驱动：
 
 ```
-sudo zypper in x11-video-nvidiaG05
+bh@c004-h0:~> zypper se x11-video-*
+正在加载软件源数据...
+正在读取已安装的软件包...
+
+S | Name                | Summary                                                 | Type
+--+---------------------+---------------------------------------------------------+-------
+  | x11-video-nvidiaG04 | NVIDIA graphics driver for GeForce 400 series and newer | 软件包
+  | x11-video-nvidiaG05 | NVIDIA graphics driver for GeForce 600 series and newer | 软件包
+  | x11-video-nvidiaG06 | NVIDIA graphics driver for GeForce 700 series and newer | 软件包
+```
+
+你需要在 [NVIDIA 的官网](https://www.nvidia.com/Download/index.aspx?lang=en-us)查阅支持你的硬件的驱动型号。在 Product Type 中，将类型选择为 GeForce，然后点击 Product Series 选择框，即可看到所有的 GeForce 显卡系列：
+
+![01](./image/nvidia-driver-list.png)
+
+使用新款 NVIDIA 显卡的用户（Geforce 版本号>600，比如 MX450, 630，1080，2060，3090）[支持的型号列表](https://www.nvidia.cn/Download/driverResults.aspx/165210/cn)，可以执行下列命令：
+
+```
+sudo zypper in x11-video-nvidiaG06
 ```
 
 使用老旧 NVIDIA 显卡的用户（ Geforce 版本号<600）[支持的型号列表](https://www.nvidia.cn/Download/driverResults.aspx/160312/cn)
 
 ```
-sudo zypper in x11-video-nvidiaG04
+sudo zypper in x11-video-nvidiaG04 #或者其他型号的驱动也可。
 ```
 
-最后，重启电脑，以使用新的显卡驱动。
+最后，重启电脑，以使用新的显卡驱动。期间，你可能需要[手动导入 MOK 密钥](https://zh.opensuse.org/SDB:NVIDIA_%E9%A9%B1%E5%8A%A8#.E5.AE.89.E5.85.A8.E5.90.AF.E5.8A.A8)。
+
+如果要利用 OpenGL 加速，你必须安装一个附加包，选择与驱动程序对应的包：
+
+```
+$ zypper se nvidia-glG0*
+```
 
 #### 故障排除
 
