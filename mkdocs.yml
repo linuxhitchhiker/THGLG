@@ -33,6 +33,8 @@ nav:
           - advanced/systemctl/index.md
           - advanced/systemctl/update-sys.md
           - advanced/systemctl/package-manager.md
+          - advanced/systemctl/setup-proxy.md
+          - advanced/systemctl/nvidia-driver.md
           - advanced/systemctl/firewall.md
           - advanced/systemctl/systemctl.md
       - 再次入门:
@@ -61,7 +63,6 @@ nav:
           - 概述: solution/config/index.md
           - HiDPI: solution/config/hidpi.md
           - 双系统: solution/config/dual-boot.md
-          - 网络代理: solution/config/setup-proxy.md
       - 跨系统兼容:
           - 概述: solution/compatibility/about.md
           - Wine: solution/compatibility/wine.md
