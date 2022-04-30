@@ -2,9 +2,6 @@
 title: 包管理器
 ---
 
-!!! bug
-    本条目还缺少 `apt` 包管理器的使用指南，欢迎补充。
-
 !!! note
     * `repository` 一词的完整原意是软件仓库。但它也可以被翻译成软件源，储存库或仓库。
     * 有关 Flatpak 包管理器的使用详见[此处](./../../solution/software/flatpak-get-start.md)。
@@ -18,12 +15,13 @@ title: 包管理器
 
 如果软件包 A 要发挥额外的功能，需要用户安装软件包 C，则我们称软件包 C 是软件包 A 的推荐依赖（`recommend`）。不安装软件包 C 不影响软件包 A 的正常工作，但会让软件包 A 无法发挥完整的功能。例如，汽车如果没有车载收音机，则用户无法收听交通广播。但没有车载收音机并不影响汽车正常行驶。此时车载收音机就是一种"推荐"安装的部件。
 
+而将开发者的应用程序拆解成零散的软件包，然后再通过软件源分发给最终用户的人则叫**打包者**。
+
 ### 推荐的软件获取来源
 
 !!! note
     优先值越小，优先级越高。请尽量使用优先级高的途径获取软件包。  
     OBS 软件源查询辅助工具：`sudo zypper in opi`  
-    Fedora COPR 软件源查询辅助工具：[Sourcegraph](https://fedoramagazine.org/using-sourcegraph-to-search-34000-fedora-repositories/)  
     OBS 和 COPR 也是一个较安全的，可选的软件包获取途径。  
 
 |名称|优先值|备注|

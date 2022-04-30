@@ -70,5 +70,3 @@ sudo usermod -aG vboxusers $USER
 3. 首次打开 VirtualBox 会提示用户是否启用 USB 功能（这可能会带来安全风险，但是它带来的便利值得这么做），个人建议可以使用该功能。
 
 有关 virtualbox 的使用，可以参考 [VirtualBox#通用步骤 -- openSUSE Wiki](https://zh.opensuse.org/Virtualbox#.E9.80.9A.E7.94.A8.E6.AD.A5.E9.AA.A4)
-
-## VMware Plyaer&Workstation

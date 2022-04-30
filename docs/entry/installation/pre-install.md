@@ -52,21 +52,8 @@ Linux 可用的桌面环境非常多，流行的桌面环境主要有 KDE，Gnom
 
     * 安装镜像：[Fedora 35 (x86_64, Workstation)](https://opentuna.cn/fedora/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) [约 2GB]
 
-=== "Kubuntu"
-
-    * 安装镜像：[Kubuntu 21.10 (x86_64, DVD)](https://opentuna.cn/ubuntu-cdimage/kubuntu/releases/21.10/release/kubuntu-21.10-desktop-amd64.iso) [约 3GB]
-
-=== "其他发行版"
-
-    以 OpenTUNA 源为例，下载的方法如下：
-
-    1. 打开 [OpenTUNA](https://opentuna.cn/) 页面。点击页面右侧的”获取下载链接“。
-    2. 选择你要下载的镜像文件。
-    3. 点击对应链接直接下载或者右键另存为。也可以右键复制链接用迅雷之类的下载器下载。
-
 !!! attention
     许多 Linux 发行版会有多种不同的镜像。这些镜像会针对不同的 CPU 或者带有不同的软件，同时也有一种专门用于试用的 Live 镜像。请按照自己的需求下载。
-
 
 ## 创建可启动镜像
 

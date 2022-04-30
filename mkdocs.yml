@@ -16,11 +16,10 @@ nav:
           - 安装前准备: entry/installation/pre-install.md
           - 虚拟机: entry/installation/virtual-machine.md
           - Fedora 安装指南: entry/installation/fedora.md
-          - Fedora Silverblue 安装指南: entry/installation/fedora-silverblue.md
+          #- Fedora Silverblue 安装指南: entry/installation/fedora-silverblue.md
           - openSUSE 安装指南: entry/installation/opensuse.md
-          - Kubuntu 安装指南: entry/installation/kubuntu.md
-      - 使用桌面环境:
-          - 安装软件（图形化界面）: entry/desktop/apps-gui.md
+      #- 使用桌面环境:
+          #- 安装软件（图形化界面）: entry/desktop/apps-gui.md
   - 进阶教程:
       - 使用命令行:
           - advanced/shell/index.md
@@ -43,7 +42,7 @@ nav:
           - 软件源与镜像源: advanced/re-entry/repo-and-mirror.md
           - 扩展阅读: advanced/re-entry/extend.md
   - 高级教程:
-      - 打包: poweruser/packaging/flatpak.md
+      - 概述: poweruser/index.md
   - 解决方案:
       - 系统美化: 
           - 概述: solution/eyecandy/index.md
@@ -65,16 +64,17 @@ nav:
           - 双系统: solution/config/dual-boot.md
       - 跨系统兼容:
           - 概述: solution/compatibility/about.md
-          - Wine: solution/compatibility/wine.md
-          - Toolbx: solution/compatibility/toolbx.md
-          - Docker: solution/compatibility/docker.md
-          - Distrobox: solution/compatibility/distrobox.md
+          #- Wine: solution/compatibility/wine.md
+          #- Toolbx: solution/compatibility/toolbx.md
+          #- Docker: solution/compatibility/docker.md
+          #- Distrobox: solution/compatibility/distrobox.md
           - 搭建虚拟机: solution/compatibility/virtual-machine.md
   - 寻求帮助:
       - 常见问题: help/faq.md
       - 如何提问: help/howto-ask-for-help.md
   - 关于:
       - 简介: about/index.md
+      - about/2022-04-30.md
       - 许可协议: about/license/index.md
       - 贡献指南: 
           - 长版: about/contributing/index.md

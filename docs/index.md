@@ -67,8 +67,8 @@ toc_depth: 0
 
 ---
 
-!!! warning
-    您阅读是文档的早期版本，本文档还在建设当中，许多内容并不完全，敬请留意
+!!! bug
+    您阅读是文档的早期版本，本文档还在建设当中，许多内容并不完全，敬请留意。
 
 <div markdown class="feat-block feat-block--left">
 
