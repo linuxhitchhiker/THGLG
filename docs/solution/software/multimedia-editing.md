@@ -106,3 +106,41 @@ sudo zypper in deadbeef
 sudo dnf in audacious
 sudo zypper in audacious
 ```
+
+### 流媒体播放器
+
+开源的 Apple Music 播放器：
+
+```
+flatpak install flathub sh.cider.Cider
+```
+
+网易云音乐：
+
+```
+flatpak install flathub com.netease.CloudMusic
+```
+
+网易云音乐 GTK 版：
+
+```
+flatpak install flathub com.github.gmg137.netease-cloud-music-gtk
+```
+
+QQ 音乐：
+
+```
+flatpak install flathub com.qq.QQmusic
+```
+
+Sportily：
+
+```
+flatpak install flathub com.spotify.Client
+```
+
+Google Play Music：
+
+```
+flatpak install flathub com.googleplaymusicdesktopplayer.GPMDP
+```
