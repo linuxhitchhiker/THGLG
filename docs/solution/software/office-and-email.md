@@ -16,6 +16,9 @@ $ sudo rpm -i wps-office-*.rpm
 
 ### Flatpak
 
+!!! bug
+    现有的 Flatpak 版是 wps 国际版，不包含中文语言包。
+
 ```
 flatpak install flathub com.wps.Office
 ```
