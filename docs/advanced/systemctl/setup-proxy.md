@@ -246,3 +246,11 @@ $ google-chrome-stable --proxy-server=http://example.com:proxy_port
 
 SwitchyOmega 等浏览器插件可为浏览器提供代理服务。你可以在 [chrome](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif) 和 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/switchyomega/) 的扩展商店里面找到它们。
 
+## 其他
+
+以下是两个富有实践价值的指南：
+
+- [Thanks-Mirror](https://github.com/eryajf/Thanks-Mirror)  
+    * 分享的是包管理器直接可用，质量好，速度快的镜像，以及一些其他常用软件，系统镜像的国内镜像。 
+- [package manager proxy settings](https://github.com/comwrg/package-manager-proxy-settings)  
+    * 记录各个包管理器代理设置坑点。 
