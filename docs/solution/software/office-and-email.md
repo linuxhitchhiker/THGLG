@@ -57,7 +57,7 @@ sudo zypper refresh && sudo zypper install wps-office
 >Visual Studio Code（简称 VS Code）是一款由微软开发且跨平台的免费源代码编辑器。该软件支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构功能，并且内置了命令行工具和 Git 版本控制系统。用户可以更改主题和键盘快捷方式实现个性化设置，也可以通过内置的扩展程序商店安装扩展以拓展软件功能。  
 >在2019年的 Stack Overflow 组织的开发者调查中，Visual Studio Code 被认为是最受开发者欢迎的开发环境。据调查，87317名受访者中有50.7%的受访者声称正在使用 Visual Studio Code[^1]。
 
-![preview](./image/vscode-previw.png)
+![preview](./images/vscode-preview.png)
 
 #### 安装
 
@@ -99,7 +99,7 @@ flatpak install flathub com.visualstudio.code
     多合一的 md 文档插件  
 - Material Icon Theme - Philipp Kief  
     显示效果更清晰的图标主题  
-    ![01](./image/icon-themes.png)
+    ![01](./images/icon-themes.png)
 - Project Manager - Alessandro Fragnani  
     git 项目管理器（便捷地在多个 git 项目间切换） 
 

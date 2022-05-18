@@ -4,6 +4,9 @@ title: "使用 Flatpak"
 
 ## 简介
 
+!!! note
+    有关 Flatpak 的一些误解（如下载的软件包体积巨大，是否有安全隐患或其他一些疑惑）详见：[Response to "Flatpak Is Not the Future"](https://theevilskeleton.gitlab.io/2022/05/16/response-to-flatpak-is-not-the-future.html)（[中文译文](https://hanjingxue-boling.github.io/Whiteboard/translation/2022-05-17-theevilskeleton/)）
+
 [Flatpak](https://www.flatpak.org/) 是一个用于 Linux 软件部署和包管理的实用程序。 它被宣传为提供沙盒环境，用户可以在其中运行应用程序软件，与系统的其余部分隔离。Flatpak 是作为 freedesktop.org 项目（以前称为 X Desktop Group 或 XDG）的一部分开发的，最初称为 xdg-app[^1]。
 
 ## 部署
@@ -112,7 +115,7 @@ flatpak update [软件名称]
 
 **请先搜索软件，然后再安装软件，以免安装错误的包名类似的软件。**需要注意 `flatpak search` 的输出结果中，你所需软件对应的应用 ID（如，Atom 的应用 ID 是 `io.atom.Atom`，所以在 `flatpak install` 的输出类似搜索结果列表中，应当选择 `4）app/io.atom.Atom/x86_64/stable`，而不是其他包名不相符的选项。如下：
 
-![样例](./image/Flatpak_Install.png)
+![样例](./images/Flatpak_Install.png)
 
 ## 外部链接
 
