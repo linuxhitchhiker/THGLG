@@ -40,6 +40,7 @@ nav:
           - 概述: advanced/re-entry/index.md
           - 选择发行版: advanced/re-entry/distro.md
           - 软件源与镜像源: advanced/re-entry/repo-and-mirror.md
+          - 硬盘与文件系统: advanced/re-entry/disk-and-fs.md
           - 扩展阅读: advanced/re-entry/extend.md
   - 高级教程:
       - 概述: poweruser/index.md
