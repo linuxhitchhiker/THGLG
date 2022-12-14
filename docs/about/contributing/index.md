@@ -40,10 +40,10 @@ python3 -m venv ./venv
 source ./venv/bin/activate
 ```
 
-安装 MkDocs 与主题：
+安装 Python 依赖，主要是 MkDocs 与主题：
 
 ```
-pip install mkdocs[i18n] mkdocs-material
+pip install --requirement requirements.txt
 ```
 
 本地预览：
