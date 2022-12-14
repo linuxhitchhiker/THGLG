@@ -2,6 +2,7 @@
 title: "切换到 Linux"
 description: "切换到Linux之前应当了解的一些事项。"
 lead: "在开始非凡的 GNU/Linux 之旅之前，您应当了解这些。"
+comments: true
 ---
 
 ## 什么是 Linux ？

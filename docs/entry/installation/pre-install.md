@@ -1,5 +1,6 @@
 ---
 title: 安装前准备
+comments: true
 ---
 
 # 安装前准备

@@ -1,5 +1,6 @@
 ---
 title: 在虚拟机中安装 Linux
+comments: true
 ---
 
 # 在虚拟机中安装 Linux

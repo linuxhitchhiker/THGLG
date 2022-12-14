@@ -2,6 +2,7 @@
 title: "简介"
 description: "简介"
 lead: "面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档。"
+comments: true
 ---
 
 # 简介

@@ -1,5 +1,6 @@
 ---
 title: "openSUSE 安装指南"
+comments: true
 ---
 
 # 安装 openSUSE
