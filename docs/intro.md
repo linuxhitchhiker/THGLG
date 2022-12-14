@@ -7,7 +7,8 @@ lead: "面向普通桌面用户的、开源的、人类可读的 Linux 桌面文
 # 简介
 
 !!! note
-    有关此项目的变更信息，请阅读 [2022-04-30](about/2022-04-30.md)
+    这个项目很缺乏维护者和贡献者，也缺乏来自读者的反馈。我们鼓励读者在 Github [讨论区](https://github.com/linuxhitchhiker/THGLG/discussions)提供反馈，如果读者觉得有需要改进的地方，我们也欢迎读者直接提交 Pull Request。
+    更多信息，请阅读 [来自贡献者的留言](about/words-from-contributor.md)
 
 《Linux 银河漫游指南》面向所有桌面用户，不论你是初探 Linux 世界的新手，还是经验丰富的资深老鸟，我们都希望你能在这里找到有价值的信息。
 

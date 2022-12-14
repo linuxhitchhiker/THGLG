@@ -74,7 +74,6 @@ nav:
       - 如何提问: help/howto-ask-for-help.md
   - 关于:
       - 简介: about/index.md
-      - about/2022-04-30.md
       - 许可协议: about/license/index.md
       - 贡献指南: 
           - 长版: about/contributing/index.md
