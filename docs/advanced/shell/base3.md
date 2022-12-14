@@ -1,5 +1,6 @@
 ---
 title: "运用文本文件"
+comments: true
 ---
 
 # 运用文本文件

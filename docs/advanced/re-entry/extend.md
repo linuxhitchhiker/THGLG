@@ -1,5 +1,6 @@
 ---
 title: 扩展阅读
+comments: true
 ---
 
 # 扩展阅读

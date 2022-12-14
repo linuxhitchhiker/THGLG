@@ -1,5 +1,6 @@
 ---
 title: "概述"
+comments: true
 ---
 
 # 概述

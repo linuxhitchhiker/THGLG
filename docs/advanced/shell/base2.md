@@ -1,5 +1,6 @@
 ---
 title: "Linux 文件系统"
+comments: true
 ---
 
 # Linux 文件系统

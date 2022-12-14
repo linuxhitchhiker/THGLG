@@ -1,5 +1,6 @@
 ---
 title: "更新系统"
+comments: true
 ---
 
 # 更新系统

@@ -29,13 +29,13 @@ nav:
           - advanced/shell/base4.md
           - advanced/shell/base5.md
       - 配置系统:
-          - advanced/systemctl/index.md
-          - advanced/systemctl/update-sys.md
-          - advanced/systemctl/package-manager.md
-          - advanced/systemctl/setup-proxy.md
-          - advanced/systemctl/nvidia-driver.md
-          - advanced/systemctl/firewall.md
-          - advanced/systemctl/systemctl.md
+          - advanced/system-admin/index.md
+          - advanced/system-admin/update-sys.md
+          - advanced/system-admin/package-manager.md
+          - advanced/system-admin/setup-proxy.md
+          - advanced/system-admin/nvidia-driver.md
+          - advanced/system-admin/firewall.md
+          - advanced/system-admin/systemctl.md
       - 再次入门:
           - 概述: advanced/re-entry/index.md
           - 选择发行版: advanced/re-entry/distro.md

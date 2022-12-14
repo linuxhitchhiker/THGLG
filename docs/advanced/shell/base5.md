@@ -1,5 +1,6 @@
 ---
 title: "编写简单的 Shell 脚本"
+comments: true
 ---
 
 # 编写简单的 Shell 脚本

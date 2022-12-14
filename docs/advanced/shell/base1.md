@@ -1,5 +1,6 @@
 ---
 title: "使用 shell"
+comments: true
 ---
 
 # 使用 Shell

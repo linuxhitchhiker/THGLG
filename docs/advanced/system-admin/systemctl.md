@@ -1,5 +1,6 @@
 ---
 title: "使用 systemctl 管理服务"
+comments: true
 ---
 
 ## 简介

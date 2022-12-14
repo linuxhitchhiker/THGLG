@@ -1,5 +1,6 @@
 ---
 title: 防火墙
+comments: true
 ---
 
 ## 简介

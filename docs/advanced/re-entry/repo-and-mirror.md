@@ -1,5 +1,6 @@
 ---
 title: 软件源与镜像源
+comments: true
 ---
 
 !!! note
