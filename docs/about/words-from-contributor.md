@@ -1,6 +1,5 @@
 ---
 title: 贡献者的留言
-comments: true
 ---
 
 我叫 [Hanjingxue](https://github.com/Hanjingxue-Boling)，是这个项目的主要贡献者。如你所见，这个项目很缺乏维护者和贡献者。

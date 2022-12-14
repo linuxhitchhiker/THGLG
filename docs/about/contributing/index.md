@@ -52,3 +52,6 @@ pip install --requirement requirements.txt
 mkdocs serve
 ```
 
+## 网站更新
+
+我们的官方网址是 [libhitchhiker.eu.org](https://libhitchhiker.eu.org)。贡献者对我们在 Github 仓库上所作的更改，首先会被 Github Action 编译，然后再拉取到 `libhitchhiker.eu.org` 所在的服务器上面。如果读者想要立刻看到更改，请访问我们的 [Github Pages](https://linuxhitchhiker.github.io/THGLG/)。

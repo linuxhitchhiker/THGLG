@@ -53,7 +53,7 @@ toc_depth: 0
 
 # Linux 银河漫游指南
 
-面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档。
+面向普通桌面用户的、开源的、人类可读的 Linux 桌面文档
 
 <div markdown>
 
@@ -61,7 +61,7 @@ toc_depth: 0
 
 </div>
 
-以 CC-BY-SA 协议开源于 GitHub。
+以 CC-BY-SA 协议开源于 GitHub
 
 </div>
 

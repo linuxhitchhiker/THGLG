@@ -1,5 +1,6 @@
 ---
 title: "Linux 桌面环境"
+comments: true
 ---
 
 ## 什么是桌面环境

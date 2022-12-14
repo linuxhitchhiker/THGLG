@@ -20,3 +20,4 @@ comments: true
 
 * 2022-01-13：提出创建一个社区指南的想法，项目正式开始。
 * 2022-03-28：从 GitHub Pages 迁移到 libhitchhiker.eu.org
+* 2022-12-14：添加讨论系统
