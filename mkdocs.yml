@@ -18,8 +18,8 @@ nav:
           - Fedora 安装指南: entry/installation/fedora.md
           #- Fedora Silverblue 安装指南: entry/installation/fedora-silverblue.md
           - openSUSE 安装指南: entry/installation/opensuse.md
-      #- 使用桌面环境:
-          #- 安装软件（图形化界面）: entry/desktop/apps-gui.md
+        #- 使用桌面环境:
+        #- 安装软件（图形化界面）: entry/desktop/apps-gui.md
   - 进阶教程:
       - 使用命令行:
           - advanced/shell/index.md
@@ -45,7 +45,7 @@ nav:
   - 高级教程:
       - 概述: poweruser/index.md
   - 解决方案:
-      - 系统美化: 
+      - 系统美化:
           - 概述: solution/eyecandy/index.md
           - KDE 美化: solution/eyecandy/eyecandy-kde.md
           - Xfce4 美化: solution/eyecandy/eyecandy-xfce4.md
@@ -76,7 +76,7 @@ nav:
   - 关于:
       - 简介: about/index.md
       - 许可协议: about/license/index.md
-      - 贡献指南: 
+      - 贡献指南:
           - 快速指南: about/contributing/index.md
           #- 简约 lite 版: about/contributing/about.md
           - 慢速开始 1: about/contributing/base-01.md
@@ -97,7 +97,8 @@ theme:
 
 plugins:
   - git-revision-date-localized:
-      type: iso_date
+      locale: en
+      type: iso_datetime
       enable_creation_date: true
       exclude:
         - index.md
@@ -116,15 +117,15 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - attr_list
   - def_list
   - toc:
       permalink: true
-      slugify: !!python/name:pymdownx.slugs.uslugify #保证中文链接
-
-
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
 # extra_css:
 #   - assets/stylesheets/extra.css
