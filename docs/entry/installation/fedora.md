@@ -9,7 +9,7 @@ comments: true
 
 Fedora 是一个流行的发行版，它有很多的分支，本文只描述使用 LiveDVD 镜像安装 Fedora Workstation 以及物理机双系统（Windows 10 & Fedora）所需要注意的事项。
 
-- 参考：[Fedora 35 - Installation Guide](https://docs.fedoraproject.org/en-US/fedora/f35/install-guide/)
+- 参考：[Fedora - Installation Guide](https://docs.fedoraproject.org/en-US/quick-docs/creating-and-using-a-live-installation-image/)
 
 ## 安装前准备
 

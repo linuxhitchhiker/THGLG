@@ -23,7 +23,7 @@ openSUSE 项目每 8 个月发布一个 Leap 的新版本，每个版本有 18 �
 
 对于想要尝试一下 Leap 的用户，点击下方连接下载 Leap 的镜像：
 
-- [openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso | openTUNA](https://opentuna.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.3-2-DVD-x86_64-Current.iso)
+- [openSUSE-Leap-15.4-DVD-x86_64-Media.iso | openTUNA](https://opentuna.cn/opensuse/distribution/openSUSE-current/iso/openSUSE-Leap-15.4-DVD-x86_64-Media.iso)
 
 ### 制作安装介质
 
