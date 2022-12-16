@@ -51,7 +51,7 @@ Linux 可用的桌面环境非常多，流行的桌面环境主要有 KDE，Gnom
 
 === "Fedora"
 
-    * 安装镜像：[Fedora 35 (x86_64, Workstation)](https://opentuna.cn/fedora/releases/35/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-35-1.2.iso) [约 2GB]
+    * 安装镜像：[Fedora 37 (x86_64, Workstation)](https://opentuna.cn/fedora/releases/37/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-37-1.7.iso) [约 2GB]
 
 !!! attention
     许多 Linux 发行版会有多种不同的镜像。这些镜像会针对不同的 CPU 或者带有不同的软件，同时也有一种专门用于试用的 Live 镜像。请按照自己的需求下载。
