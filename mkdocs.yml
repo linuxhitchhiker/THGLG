@@ -14,9 +14,10 @@ nav:
           - 桌面环境简介: entry/prologue/desktop-environment.md
       - 安装系统:
           - 安装前准备: entry/installation/pre-install.md
+          - 校验文件: entry/installation/verify.md
           - 虚拟机: entry/installation/virtual-machine.md
           - Fedora 安装指南: entry/installation/fedora.md
-          #- Fedora Silverblue 安装指南: entry/installation/fedora-silverblue.md
+          - Fedora Silverblue 安装指南: entry/installation/fedora-silverblue.md
           - openSUSE 安装指南: entry/installation/opensuse.md
         #- 使用桌面环境:
         #- 安装软件（图形化界面）: entry/desktop/apps-gui.md
