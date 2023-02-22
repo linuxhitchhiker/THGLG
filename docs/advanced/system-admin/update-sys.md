@@ -121,6 +121,8 @@ sudo zypper ref
 sudo zypper dup -y
 ```
 
+在 Tumbleweed 更新系统完成后，请重启电脑。
+
 ## 多媒体解码器
 
 为了正常使用多媒体应用程序，你需要安装完整的多媒体解码器。
