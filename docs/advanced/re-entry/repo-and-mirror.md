@@ -12,36 +12,36 @@ comments: true
 
 ### 镜像站列表
 
-- **延伸阅读：[请给清华镜像站减压 - 竹林里有冰的博客](https://blog.zhullyb.top/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/)**
+- **延伸阅读：[请给清华镜像站减压 - 竹林里有冰的博客](https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/)**
 - 更多镜像站信息请点击[此处](https://gitee.com/gsls200808/chinese-opensource-mirror-site)
 
 |镜像站名称|类型|地址|
 |---|---|---|
-|清华大学开源软件镜像站|大学镜像源|https://mirrors.tuna.tsinghua.edu.cn/|
-|北京交通大学自由与开源软件镜像站|大学镜像源|https://mirror.bjtu.edu.cn/|
-|北京理工大学开源软件镜像服务|大学镜像源|https://mirror.bit.edu.cn/|
-|北京外国语大学开源软件镜像站|大学镜像源|https://mirrors.bfsu.edu.cn/|
-|北京大学开源镜像站|大学镜像源|https://mirrors.pku.edu.cn/|
-|中国科学技术大学开源软件镜像|大学镜像源|https://mirrors.ustc.edu.cn/|
-|浙江大学开源镜像站|大学镜像源|https://mirrors.zju.edu.cn/|
-|重庆大学开源软件镜像站|大学镜像源|https://mirrors.cqu.edu.cn/|
-|兰州大学开源社区镜像站|大学镜像源|https://mirror.lzu.edu.cn/|
-|上海交通大学 Linux 用户组软件源镜像服务|大学镜像源|https://mirrors.sjtug.sjtu.edu.cn/|
-|哈尔滨工业大学开源软件镜像|大学镜像源|https://mirrors.hit.edu.cn/|
-|南京大学开源软件镜像|大学镜像源|http://mirrors.nju.edu.cn/|
-|南方科技大学开源软件镜像|大学镜像源|https://mirrors.sustech.edu.cn/|
-|OpenTUNA 开源软件镜像站|大学镜像源|https://opentuna.cn/|
+|清华大学开源软件镜像站|大学镜像源|<https://mirrors.tuna.tsinghua.edu.cn/>|
+|北京交通大学自由与开源软件镜像站|大学镜像源|<https://mirror.bjtu.edu.cn/>|
+|北京理工大学开源软件镜像服务|大学镜像源|<https://mirror.bit.edu.cn/>|
+|北京外国语大学开源软件镜像站|大学镜像源|<https://mirrors.bfsu.edu.cn/>|
+|北京大学开源镜像站|大学镜像源|<https://mirrors.pku.edu.cn/>|
+|中国科学技术大学开源软件镜像|大学镜像源|<https://mirrors.ustc.edu.cn/>|
+|浙江大学开源镜像站|大学镜像源|<https://mirrors.zju.edu.cn/>|
+|重庆大学开源软件镜像站|大学镜像源|<https://mirrors.cqu.edu.cn/>|
+|兰州大学开源社区镜像站|大学镜像源|<https://mirror.lzu.edu.cn/>|
+|上海交通大学 Linux 用户组软件源镜像服务|大学镜像源|<https://mirrors.sjtug.sjtu.edu.cn/>|
+|哈尔滨工业大学开源软件镜像|大学镜像源|<https://mirrors.hit.edu.cn/>|
+|南京大学开源软件镜像|大学镜像源|<http://mirrors.nju.edu.cn/>|
+|南方科技大学开源软件镜像|大学镜像源|<https://mirrors.sustech.edu.cn/>|
+|OpenTUNA 开源软件镜像站|大学镜像源|<https://opentuna.cn/>|
 |---|---|---|
-|腾讯软件源|企业镜像源|https://mirrors.cloud.tencent.com|
-|腾讯软件源（腾讯云内网）|企业镜像源|https://mirrors.tencentyun.com|
-|阿里巴巴开源镜像站|企业镜像源|https://mirrors.aliyun.com/|
-|阿里巴巴开源镜像站（阿里云内网）|企业镜像源|https://mirrors.aliyuncs.com/|
-|网易开源镜像站|企业镜像源|https://mirrors.163.com/|
-|平安云开源镜像站|企业镜像源|https://mirrors.pinganyun.com/|
-|华为开源镜像站|企业镜像源|https://mirrors.huaweicloud.com|
-|首都在线镜像站|企业镜像源|http://mirrors.yun-idc.com/|
-|搜狐|企业镜像源|http://mirrors.sohu.com/|
-|开源社/Azure 中国|企业镜像源|http://mirror.kaiyuanshe.cn/|
+|腾讯软件源|企业镜像源|<https://mirrors.cloud.tencent.com>|
+|腾讯软件源（腾讯云内网）|企业镜像源|<https://mirrors.tencentyun.com>|
+|阿里巴巴开源镜像站|企业镜像源|<https://mirrors.aliyun.com/>|
+|阿里巴巴开源镜像站（阿里云内网）|企业镜像源|<https://mirrors.aliyuncs.com/>|
+|网易开源镜像站|企业镜像源|<https://mirrors.163.com/>|
+|平安云开源镜像站|企业镜像源|<https://mirrors.pinganyun.com/>|
+|华为开源镜像站|企业镜像源|<https://mirrors.huaweicloud.com>|
+|首都在线镜像站|企业镜像源|<http://mirrors.yun-idc.com/>|
+|搜狐|企业镜像源|<http://mirrors.sohu.com/>|
+|开源社/Azure 中国|企业镜像源|<http://mirror.kaiyuanshe.cn/>|
 
 
 [^wikipedia-mirror]: 来自维基百科
