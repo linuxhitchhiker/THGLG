@@ -13,6 +13,10 @@ comments: true
 
 ## openSUSE Tumbleweed
 
+!!! note "风滚草快讯"
+
+    选择 Tumbleweed 的用户请务必留意一下 [openSUSE 中文社区](https://suse.org.cn/)的每周更新的新闻译文。这有助于你了解风滚草在过去一周的动态。一些重要的信息（如本地化资讯、紧急通告、社区活动、聚会、会议、Leap 新闻动态等）都会在此发布。
+
 [openSUSE Tumbleweed](https://www.opensuse.org/#Tumbleweed)（也叫：openSUSE 风滚草）是 **滚动** 的 Linux 发行版。滚动发行意味着没有固定的发行周期，一般每周都会收到 1-3 次更新。openSUSE 针对桌面环境进行了一系列的优化，并具有一整套图形化系统管理工具，是一个对 Linux 系统管理新学者友好的 Linux 发行版。openSUSE 是 [SUSE](https://www.suse.com/zh-cn/) 的[企业级 Linux](https://www.suse.com/zh-cn/products/server/) 的技术上游，同时也从企业级技术中受益颇多。
 
 ## Fedora Workstation
