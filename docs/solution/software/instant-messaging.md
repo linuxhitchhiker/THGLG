@@ -58,3 +58,6 @@ sudo zypper in telegram-desktop #在 openSUSE 上安装 telegram
 |名称|ID|
 |---|---|
 |Fedora 中文 IRC|`#fedora-zh@libera.chat`|
+
+- [Fedora IRC 列表](https://fedoraproject.org/wiki/Communicating_and_getting_help#IRC)
+- [openSUSE IRC 列表](https://en.opensuse.org/openSUSE:IRC_list)
