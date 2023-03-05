@@ -5,7 +5,7 @@ title: "使用 Flatpak"
 ## 简介
 
 !!! note
-    有关 Flatpak 的一些误解（如下载的软件包体积巨大，是否有安全隐患或其他一些疑惑）详见：[Response to "Flatpak Is Not the Future"](https://theevilskeleton.gitlab.io/2022/05/16/response-to-flatpak-is-not-the-future.html)（[中文译文](https://hanjingxue-boling.github.io/Whiteboard/translation/2022-05-17-theevilskeleton/)）
+    有关 Flatpak 的一些误解（如下载的软件包体积巨大，是否有安全隐患或其他一些疑惑）详见：[Response to "Flatpak Is Not the Future"](https://theevilskeleton.gitlab.io/2022/05/16/response-to-flatpak-is-not-the-future.html)（[中文译文](https://whiteboard-ui8.pages.dev/translation/2022-05-17-theevilskeleton/)）
 
 [Flatpak](https://www.flatpak.org/) 是一个用于 Linux 软件部署和包管理的实用程序。 它被宣传为提供沙盒环境，用户可以在其中运行应用程序软件，与系统的其余部分隔离。Flatpak 是作为 freedesktop.org 项目（以前称为 X Desktop Group 或 XDG）的一部分开发的，最初称为 xdg-app[^1]。
 
