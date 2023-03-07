@@ -14,6 +14,7 @@ comments: true
 
 - **延伸阅读：[请给清华镜像站减压 - 竹林里有冰的博客](https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/)**
 - 更多镜像站信息请点击[此处](https://gitee.com/gsls200808/chinese-opensource-mirror-site)
+- [校园网联合镜像站](https://mirrors.cernet.edu.cn/list)（提供对许多校园网镜像站的元数据的索引和跳转服务。）
 
 |镜像站名称|类型|地址|
 |---|---|---|
