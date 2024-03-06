@@ -1,0 +1,2882 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>包管理器 - Linux 银河漫游指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#软件包与依赖关系" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-header__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux 银河漫游指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              包管理器
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        主页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../entry/prologue/switch-to-linux/" class="md-tabs__link">
+        入门指南
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../shell/" class="md-tabs__link md-tabs__link--active">
+        进阶教程
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../poweruser/" class="md-tabs__link">
+        高级教程
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../solution/eyecandy/" class="md-tabs__link">
+        解决方案
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../help/faq/" class="md-tabs__link">
+        寻求帮助
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        关于
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-nav__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Linux 银河漫游指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          主页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="主页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        欢迎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          入门指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          入门指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          序言
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="序言" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          序言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/switch-to-linux/" class="md-nav__link">
+        切换到 Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/choose-distro/" class="md-nav__link">
+        Linux 发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/desktop-environment/" class="md-nav__link">
+        桌面环境简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          安装系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安装系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/pre-install/" class="md-nav__link">
+        安装前准备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/verify/" class="md-nav__link">
+        校验文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/virtual-machine/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/fedora/" class="md-nav__link">
+        Fedora 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/fedora-silverblue/" class="md-nav__link">
+        Fedora Silverblue 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/opensuse/" class="md-nav__link">
+        openSUSE 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          进阶教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进阶教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          进阶教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          使用命令行
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="使用命令行" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          使用命令行
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/base1/" class="md-nav__link">
+        使用 shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/base2/" class="md-nav__link">
+        Linux 文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/base3/" class="md-nav__link">
+        运用文本文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/base4/" class="md-nav__link">
+        管理运行进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shell/base5/" class="md-nav__link">
+        编写简单的 Shell 脚本
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          配置系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="配置系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          配置系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-sys/" class="md-nav__link">
+        更新系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          包管理器
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        包管理器
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#软件包与依赖关系" class="md-nav__link">
+    软件包与依赖关系
+  </a>
+  
+    <nav class="md-nav" aria-label="软件包与依赖关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#推荐的软件获取来源" class="md-nav__link">
+    推荐的软件获取来源
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    DNF
+  </a>
+  
+    <nav class="md-nav" aria-label="DNF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#检查更新" class="md-nav__link">
+    检查更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更新软件包" class="md-nav__link">
+    更新软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#查找软件包" class="md-nav__link">
+    查找软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#列举软件包" class="md-nav__link">
+    列举软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#显示软件包的信息" class="md-nav__link">
+    显示软件包的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安装软件包" class="md-nav__link">
+    安装软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#移除软件包" class="md-nav__link">
+    移除软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用事务历史" class="md-nav__link">
+    使用事务历史
+  </a>
+  
+    <nav class="md-nav" aria-label="使用事务历史">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#还原和重复事务" class="md-nav__link">
+    还原和重复事务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnf-配置文件" class="md-nav__link">
+    DNF 配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#管理软件仓库" class="md-nav__link">
+    管理软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#额外信息" class="md-nav__link">
+    额外信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zypper" class="md-nav__link">
+    Zypper
+  </a>
+  
+    <nav class="md-nav" aria-label="Zypper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#管理软件包" class="md-nav__link">
+    管理软件包
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一般使用" class="md-nav__link">
+    一般使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#搜索软件包" class="md-nav__link">
+    搜索软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安装删除软件包" class="md-nav__link">
+    安装，删除软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更新软件包_1" class="md-nav__link">
+    更新软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#识别孤立包" class="md-nav__link">
+    识别孤立包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#识别使用已删除文件的进程或程序" class="md-nav__link">
+    识别使用已删除文件的进程或程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#管理软件仓库_1" class="md-nav__link">
+    管理软件仓库
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件仓库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#添加软件仓库" class="md-nav__link">
+    添加软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#刷新软件仓库" class="md-nav__link">
+    刷新软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#移除软件仓库" class="md-nav__link">
+    移除软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#编辑仓库" class="md-nav__link">
+    编辑仓库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zypper-配置" class="md-nav__link">
+    zypper 配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更多信息" class="md-nav__link">
+    更多信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-proxy/" class="md-nav__link">
+        设置网络代理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvidia-driver/" class="md-nav__link">
+        独显驱动
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firewall/" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemctl/" class="md-nav__link">
+        使用 systemctl 管理服务
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          再次入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="再次入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          再次入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/distro/" class="md-nav__link">
+        选择发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/repo-and-mirror/" class="md-nav__link">
+        软件源与镜像源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/disk-and-fs/" class="md-nav__link">
+        硬盘与文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/extend/" class="md-nav__link">
+        扩展阅读
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          高级教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高级教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../poweruser/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          解决方案
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="解决方案" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          解决方案
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          系统美化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统美化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          系统美化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-kde/" class="md-nav__link">
+        KDE 美化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-xfce4/" class="md-nav__link">
+        Xfce4 美化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          软件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="软件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          软件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/browser/" class="md-nav__link">
+        浏览器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/instant-messaging/" class="md-nav__link">
+        即时通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/office-and-email/" class="md-nav__link">
+        文档办公
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/multimedia-editing/" class="md-nav__link">
+        多媒体相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/download-manager/" class="md-nav__link">
+        下载器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/linux-game/" class="md-nav__link">
+        游戏
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/appimage-base/" class="md-nav__link">
+        Appimage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/flatpak-get-start/" class="md-nav__link">
+        Flatpak
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          系统配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统配置" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          系统配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/hidpi/" class="md-nav__link">
+        HiDPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/dual-boot/" class="md-nav__link">
+        双系统
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          跨系统兼容
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="跨系统兼容" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          跨系统兼容
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/about/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/virtual-machine/" class="md-nav__link">
+        搭建虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          寻求帮助
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="寻求帮助" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          寻求帮助
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/howto-ask-for-help/" class="md-nav__link">
+        如何提问
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          关于
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="关于" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          关于
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        许可协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_3">
+          贡献指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="贡献指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          贡献指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/" class="md-nav__link">
+        快速指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-01/" class="md-nav__link">
+        慢速开始 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-02/" class="md-nav__link">
+        慢速开始 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#软件包与依赖关系" class="md-nav__link">
+    软件包与依赖关系
+  </a>
+  
+    <nav class="md-nav" aria-label="软件包与依赖关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#推荐的软件获取来源" class="md-nav__link">
+    推荐的软件获取来源
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dnf" class="md-nav__link">
+    DNF
+  </a>
+  
+    <nav class="md-nav" aria-label="DNF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#检查更新" class="md-nav__link">
+    检查更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更新软件包" class="md-nav__link">
+    更新软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#查找软件包" class="md-nav__link">
+    查找软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#列举软件包" class="md-nav__link">
+    列举软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#显示软件包的信息" class="md-nav__link">
+    显示软件包的信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安装软件包" class="md-nav__link">
+    安装软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#移除软件包" class="md-nav__link">
+    移除软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用事务历史" class="md-nav__link">
+    使用事务历史
+  </a>
+  
+    <nav class="md-nav" aria-label="使用事务历史">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#还原和重复事务" class="md-nav__link">
+    还原和重复事务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnf-配置文件" class="md-nav__link">
+    DNF 配置文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#管理软件仓库" class="md-nav__link">
+    管理软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#额外信息" class="md-nav__link">
+    额外信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zypper" class="md-nav__link">
+    Zypper
+  </a>
+  
+    <nav class="md-nav" aria-label="Zypper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#管理软件包" class="md-nav__link">
+    管理软件包
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件包">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#一般使用" class="md-nav__link">
+    一般使用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#搜索软件包" class="md-nav__link">
+    搜索软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安装删除软件包" class="md-nav__link">
+    安装，删除软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更新软件包_1" class="md-nav__link">
+    更新软件包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#识别孤立包" class="md-nav__link">
+    识别孤立包
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#识别使用已删除文件的进程或程序" class="md-nav__link">
+    识别使用已删除文件的进程或程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#管理软件仓库_1" class="md-nav__link">
+    管理软件仓库
+  </a>
+  
+    <nav class="md-nav" aria-label="管理软件仓库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#添加软件仓库" class="md-nav__link">
+    添加软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#刷新软件仓库" class="md-nav__link">
+    刷新软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#移除软件仓库" class="md-nav__link">
+    移除软件仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#编辑仓库" class="md-nav__link">
+    编辑仓库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zypper-配置" class="md-nav__link">
+    zypper 配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更多信息" class="md-nav__link">
+    更多信息
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/linuxhitchhiker/THGLG/edit/main/docs/advanced/system-admin/package-manager.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>包管理器</h1>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><code>repository</code> 一词的完整原意是软件仓库。但它也可以被翻译成软件源，储存库或仓库。</li>
+<li>有关 Flatpak 包管理器的使用详见<a href="../../../solution/software/flatpak-get-start/">此处</a>。</li>
+<li>有关 rpm 包管理器的使用详见：<code>$ man rpm</code> 或 <code>$ rpm --help</code></li>
+</ul>
+</div>
+<h2 id="软件包与依赖关系">软件包与依赖关系<a class="headerlink" href="#软件包与依赖关系" title="Permanent link">&para;</a></h2>
+<p>在 Linux 上，通过统一的软件源分发的应用程序都被打包成软件包（package）的形式。一个完整的应用程序，常常会被拆分成多个小部件，即子包（subpackage），并且有很多软件子包是共享的。</p>
+<p>如果将一个功能完整的应用程序类比为一辆汽车，则子包是需要组装在一起的部件（例如车身、引擎、传动等）。如果一个软件包 A 要正常发挥基本功能需要用户安装软件包 B，则我们将软件包 B 称之为软件包 A 的依赖（<code>dependencies</code>）或者软件包 A 需要（<code>require</code>）软件包 B。例如，汽车要能够跑起来，必然需要发动机正常工作，则发动机是汽车的"依赖"。</p>
+<p>如果软件包 A 要发挥额外的功能，需要用户安装软件包 C，则我们称软件包 C 是软件包 A 的推荐依赖（<code>recommend</code>）。不安装软件包 C 不影响软件包 A 的正常工作，但会让软件包 A 无法发挥完整的功能。例如，汽车如果没有车载收音机，则用户无法收听交通广播。但没有车载收音机并不影响汽车正常行驶。此时车载收音机就是一种"推荐"安装的部件。</p>
+<p>而将开发者的应用程序拆解成零散的软件包，然后再通过软件源分发给最终用户的人则叫<strong>打包者</strong>。</p>
+<h3 id="推荐的软件获取来源">推荐的软件获取来源<a class="headerlink" href="#推荐的软件获取来源" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>优先值越小，优先级越高。请尽量使用优先级高的途径获取软件包。<br />
+OBS 软件源查询辅助工具：<code>sudo zypper in opi</code><br />
+OBS 和 COPR 也是一个较安全的，可选的软件包获取途径。  </p>
+</div>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优先值</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>发行版官方仓库</td>
+<td>1</td>
+<td>请相信你使用的发行版的官方打包和维护人员。你所需要的大部分软件包都来源于此。</td>
+</tr>
+<tr>
+<td>发行版官方认可的第三方仓库</td>
+<td>1</td>
+<td>比如 <a href="https://rpmfusion.org/">rpmfusion</a> 和 <a href="https://en.opensuse.org/Additional_package_repositories">packman</a>。此类第三方仓库通常包含因为许可证问题不能纳入官方仓库的软件包。</td>
+</tr>
+<tr>
+<td>Flatpak</td>
+<td>2</td>
+<td><a href="https://flathub.org">Flatpak Remote</a> 是一个受许多发行版维护者信任的第三方软件源。</td>
+</tr>
+<tr>
+<td>开发者自建的软件源</td>
+<td>2</td>
+<td>比如 Google 自建的 chrome 软件源。这类由开发者维护的上游软件源是可信任的，但请注意配置正确的软件源。</td>
+</tr>
+<tr>
+<td>开发者发布的第一方 Appimage/rpm/deb 软件包</td>
+<td>2</td>
+<td>你可以信任由软件主要维护者或开发者打包发布的第一方软件包。虽然你需要手动更新软件，并可能需要自行处理依赖问题。</td>
+</tr>
+<tr>
+<td><a href="https://build.opensuse.org/">Open Build Service</a></td>
+<td>3</td>
+<td>请确保选择合适的，你信任的第三方打包者发布的 OBS 源。</td>
+</tr>
+<tr>
+<td><a href="https://copr.fedorainfracloud.org/">Fedora COPR</a></td>
+<td>3</td>
+<td>请确保选择合适的，你信任的第三方打包者发布的 COPR 源。</td>
+</tr>
+<tr>
+<td>开发者发布的第一方预编译的二进制文件包</td>
+<td>4</td>
+<td>并不建议大量使用预编译的二进制文件，一是难以轻松地进行版本管理，二是可能会出现版本依赖问题。</td>
+</tr>
+<tr>
+<td>从源码编译安装</td>
+<td>5</td>
+<td>除非你很清楚地知道你在干什么，否则我们并不建议从源码编译安装一个软件。</td>
+</tr>
+<tr>
+<td>第三方打包者自行维护的第三方软件源，或发布的 Appimage/deb/rpm/二进制文件</td>
+<td>6</td>
+<td>请注意安全，请确保这是你信任的打包者发布的软件包。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dnf">DNF<a class="headerlink" href="#dnf" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>官方手册详见<a href="https://docs.fedoraproject.org/en-US/fedora/latest/">此处</a>。</p>
+</div>
+<p>DNF 是 Fedora 项目包管理器，它能用于管理软件包，软件源和更新系统。</p>
+<h3 id="检查更新">检查更新<a class="headerlink" href="#检查更新" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dnf upgrade #检查系统更新
+</code></pre></div>
+<p>注意，dnf 只会安装可用的更新，存在问题（如被锁定、依赖存在问题等）的软件包会被自动跳过。</p>
+<p>你可以使用 <code>dnf check-update</code> 检查当前可用的更新包</p>
+<div class="highlight"><pre><span></span><code>~]# dnf check-update
+Using metadata from Mon Apr 20 16:34:10 2015 (2:42:10 hours old)
+
+python.x86_64                     2.7.9-6.fc22          updates
+python-cryptography.x86_64        0.8.2-1.fc22          updates
+python-libs.x86_64                2.7.9-6.fc22          updates
+</code></pre></div>
+<p>如上，可更新的软件包都会被列举出来，其中：</p>
+<ul>
+<li><code>python</code> 是软件包的名称</li>
+<li><code>x86_64</code> 是软件包构建的 CPU 架构类型  <ul>
+<li><code>noarch</code> 表示软件包没有为特定的 CPU 架构进行构建  </li>
+</ul>
+</li>
+<li><code>2.7.9</code> 是软件包的版本</li>
+<li><code>6.fc22</code> 是软件包的更新版本</li>
+<li><code>updates</code> 是软件包所属的软件源</li>
+</ul>
+<h3 id="更新软件包">更新软件包<a class="headerlink" href="#更新软件包" title="Permanent link">&para;</a></h3>
+<p>你可以使用 <code>dnf upgrade</code> 命令更新软件包。或者将某个软件包的名称作为参数放置到末尾，让 dnf 更新特定的某个软件包。</p>
+<div class="highlight"><pre><span></span><code># dnf upgrade package_name
+</code></pre></div>
+<p>在更新过程中，dnf 会询问你一些问题（比如是否接受更新），如果你熟悉 dnf 的工作流程，你可以将 <code>-y</code> 作为选项放置到命令的默认，提示 dnf 自动接受所有问题的默认值。</p>
+<h3 id="查找软件包">查找软件包<a class="headerlink" href="#查找软件包" title="Permanent link">&para;</a></h3>
+<p>你可以使用 <code>dnf search</code> 检索相关软件包名称和概述。</p>
+<div class="highlight"><pre><span></span><code>dnf search &lt;关键字&gt;
+</code></pre></div>
+<p>搜索的关键字支持元字符，比如 <code>dnf search *nvidia*</code> 可以检索任何匹配 <code>nvidia</code> 字符的软件包。</p>
+<h3 id="列举软件包">列举软件包<a class="headerlink" href="#列举软件包" title="Permanent link">&para;</a></h3>
+<p><code>dnf list</code> 和相关的命令可以列举软件包、软件包组（package groups）和软件源（repositories）。</p>
+<div class="highlight"><pre><span></span><code>dnf list &lt;关键字&gt;
+</code></pre></div>
+<p>上述命令可以列举匹配关键字的软件包</p>
+<div class="highlight"><pre><span></span><code>dnf list all
+</code></pre></div>
+<p>上述命令可以列举出所有已安装和可用的软件包。</p>
+<div class="highlight"><pre><span></span><code>dnf list installed &lt;关键字&gt;
+</code></pre></div>
+<p>上述命令可以列举匹配关键字，已安装的软件包。</p>
+<div class="highlight"><pre><span></span><code>dnf list available &lt;关键字&gt;
+</code></pre></div>
+<p>上述命令可以列举出所有已启用的软件仓库中，匹配关键字的，可获得的软件包。</p>
+<div class="highlight"><pre><span></span><code>dnf group list
+</code></pre></div>
+<p>上述命令可以列举出所有的软件包组（一个软件包组包含了用于某一特定目的的全部软件包）</p>
+<div class="highlight"><pre><span></span><code>~]# dnf repolist
+Last metadata expiration check performed 0:48:29 ago on Mon May 25 23:38:13 2015.
+repo id                             repo name                           status
+*fedora                             Fedora 22 - x86_64                  44,762
+*updates                            Fedora 22 - x86_64 - Updates             0
+</code></pre></div>
+<p>上述命令可以列举出<strong>已启用</strong>的仓库的 ID、名称和提供的软件包数量。</p>
+<div class="highlight"><pre><span></span><code>dnf repository-packages repo_id list [option]
+</code></pre></div>
+<p>上述命令的默认行为是列举出特定的软件仓库的软件包。你需要将 <code>repo_id</code> 替换成特定软件仓库的 ID。可用的选项是 <code>available</code> 和 <code>installed</code>，用于提示 dnf 应该列举哪种软件包（已安装还是可获得）。</p>
+<h3 id="显示软件包的信息">显示软件包的信息<a class="headerlink" href="#显示软件包的信息" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dnf info &lt;软件包包名&gt;
+</code></pre></div>
+<p>上述命令可以显示指定的软件包的详细信息（包名、架构、版本、开发者链接、许可证信息等内容）。</p>
+<div class="highlight"><pre><span></span><code>dnf repoquery &lt;软件包包名&gt; --info
+</code></pre></div>
+<p>要显示有关所有可用软件包的信息，包括已安装的和可从存储库获得的，请使用如上命令。</p>
+<p>更多帮助信息请使用：</p>
+<div class="highlight"><pre><span></span><code>$ dnf repoquery -h
+</code></pre></div>
+<h3 id="安装软件包">安装软件包<a class="headerlink" href="#安装软件包" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dnf install &lt;软件包包名&gt;
+</code></pre></div>
+<p>上述命令可以安装匹配指定包名的软件包。你也可以一次性安装多个软件包，比如 <code>$ sudo dnf in smplayer smplayer-themes deadbeef</code>。软件包包名是 <code>dnf in</code> 的选项，而这个命令支持元字符和 <a href="https://rgb-24bit.github.io/blog/2018/glob.html">glob 表达式</a>。</p>
+<p>软件包组和单一的软件包很相似，你无法单独使用软件包组的某一个软件包，它们需要全部安装后才能正常工作。如果你尝试安装其中的一个软件包，dnf 会自动安装同一个组内的其他软件包。每一个软件包组都有一个组名称（group_name）和组 ID（groupid, GID）。<code>dnf group list -v</code> 命令可以列举出所有的软件包组的名称和它们的 GID</p>
+<div class="highlight"><pre><span></span><code># dnf -v group list kde\*
+cachedir: /var/cache/dnf/x86_64/22
+Loaded plugins: builddep, config-manager, copr, playground, debuginfo-install, download, generate_completion_cache, kickstart, needs-restarting, noroot, protected_packages, Query, reposync, langpacks
+initialized Langpacks plugin
+DNF version: 0.6.5
+repo: using cache for: fedora
+not found deltainfo for: Fedora 22 - x86_64
+not found updateinfo for: Fedora 22 - x86_64
+repo: using cache for: updates-testing
+repo: using cache for: updates
+not found updateinfo for: Fedora 22 - x86_64 - Updates
+Using metadata from Thu Apr 16 13:41:45 2015 (4:37:51 hours old)
+Available environment groups:
+   KDE Plasma Workspaces (kde-desktop-environment)
+</code></pre></div>
+<p>比如 KDE 相关的软件包组叫 <code>KDE Plasma Workspaces</code>，它的 GID 是 <code>kde-desktop-environment</code>。</p>
+<p>你可以使用下列命令安装某个软件包组：</p>
+<div class="highlight"><pre><span></span><code>dnf group install group_name
+dnf group install groupid
+dnf install @group
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>并不建议使用在同一个系统上安装多个桌面环境，这可能会造成一些未知的问题，以及大量难以清理的依赖软件包。</p>
+</div>
+<p>对于软件包组名称存在多个单词的软件包组，你需要使用引号将其包裹起来，比如</p>
+<div class="highlight"><pre><span></span><code># dnf group install &quot;KDE Plasma Workspaces&quot;
+# dnf group install kde-desktop-environment
+# dnf install @kde-desktop-environment
+</code></pre></div>
+<h3 id="移除软件包">移除软件包<a class="headerlink" href="#移除软件包" title="Permanent link">&para;</a></h3>
+<p>你可以使用下列命令删除特定的软件包。相似地，你可以同时删除多个软件包：</p>
+<div class="highlight"><pre><span></span><code># dnf remove package_name
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dnf group remove group
+dnf remove @group
+</code></pre></div>
+<p>上述命令可以删除某一个软件包组。</p>
+<h3 id="使用事务历史">使用事务历史<a class="headerlink" href="#使用事务历史" title="Permanent link">&para;</a></h3>
+<p>dnf history 命令允许用户查看有关 DNF 事务（Transaction）的时间线、它们发生的日期和时间、受影响的包数、事务是成功还是中止以及事务之间是否更改了 RPM 数据库的信息。此外，此命令可用于撤消或重做某些事务。</p>
+<div class="highlight"><pre><span></span><code># dnf history list
+</code></pre></div>
+<p>上述命令可以列出全部的事务历史（transaction history）。</p>
+<div class="highlight"><pre><span></span><code>dnf history list start_id..end_id
+</code></pre></div>
+<p>上述命令可以指定显示特定范围的事务历史。</p>
+<p>你还可以仅列出有关特定软件包或软件包的事务历史。为此，请使用带有软件包包名或 glob 表达式的命令：</p>
+<div class="highlight"><pre><span></span><code>dnf history list &lt;选项&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>~]# dnf history list 1..4
+Using metadata from Thu Apr 16 13:41:45 2015 (5:47:31 hours old)
+ID     | Login user               | Date a | Action | Altere
+-------------------------------------------------------------------------------
+     4 | root &lt;root&gt;              | 2015-04-16 18:35 | Erase          |    1
+     3 | root &lt;root&gt;              | 2015-04-16 18:34 | Install        |    1
+     2 | root &lt;root&gt;              | 2015-04-16 17:53 | Install        |    1
+     1 | System &lt;unset&gt;           | 2015-04-16 14:14 | Install        |  668 E
+</code></pre></div>
+<p>dnf history list 命令生成表格输出，每行由以下列组成：</p>
+<ul>
+<li><code>ID</code> —— 标识特定事务的整数值。</li>
+<li><code>Login user</code> —— 启动事务的用户的用户名，此信息通常以 <em><code>Full Name &lt;username&gt;</code></em> 形式显示，但有时会显示用于执行事务的命令。 对于不是由用户发出的事务（例如自动系统更新），使用 <code>System &lt;unset&gt;</code> 代替。</li>
+<li><code>Date and time</code> —— 事务的发生日期和时间。</li>
+<li><code>Action(s)</code> —— 事务期间执行的操作列表，如操作字段的可能值中所述。</li>
+<li><code>Altered</code> —— 受事务影响的软件包数量，后面可能还有其他信息。</li>
+</ul>
+<p>Action(s) 字段的可能值如下：</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>缩写</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Downgrade</code></td>
+<td><code>D</code></td>
+<td>至少有一个软件包已降级为旧版本。</td>
+</tr>
+<tr>
+<td><code>Erase</code></td>
+<td><code>E</code></td>
+<td>至少一个包裹已被移除。</td>
+</tr>
+<tr>
+<td><code>Install</code></td>
+<td><code>I</code></td>
+<td>至少安装了一个新软件包。</td>
+</tr>
+<tr>
+<td><code>Obsoleting</code></td>
+<td><code>O</code></td>
+<td>至少有一个软件包被标记为过时。</td>
+</tr>
+<tr>
+<td><code>Reinstall</code></td>
+<td><code>R</code></td>
+<td>至少已重新安装一个软件包。</td>
+</tr>
+<tr>
+<td><code>Update</code></td>
+<td><code>U</code></td>
+<td>至少有一个软件包已更新到较新的版本。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="还原和重复事务">还原和重复事务<a class="headerlink" href="#还原和重复事务" title="Permanent link">&para;</a></h4>
+<p>除了查看事务历史，<code>dnf history</code> 命令还提供了撤销或重复选定事务的方法。请在 shell 提示符下以 <code>root</code> 身份键入以下内容：</p>
+<div class="highlight"><pre><span></span><code>dnf history undo id #撤销某个事务
+dnf history redo id #重复某个事务
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>请注意，<code>dnf history undo</code> 和 <code>dnf history redo</code> 命令都只是撤销或重复在事务期间执行的步骤，如果所需的包不可用，则会失败。例如，如果事务安装了一个新包，<code>dnf history undo</code> 命令将卸载它并尝试将所有更新的包降级到以前的版本，但如果所需的包不可用，该命令将失败。</p>
+</div>
+<p>这两个命令都支持使用 <code>last</code> 作为参数，来撤销或重复最新一次的事务。</p>
+<h3 id="dnf-配置文件">DNF 配置文件<a class="headerlink" href="#dnf-配置文件" title="Permanent link">&para;</a></h3>
+<p>有关 dnf 配置文件和 dnf 仓库的指南信息，请阅读<a href="https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide/package-management/DNF/#sec-Configuring_DNF_and_DNF_Repositories">官方指南</a>。</p>
+<h3 id="管理软件仓库">管理软件仓库<a class="headerlink" href="#管理软件仓库" title="Permanent link">&para;</a></h3>
+<p><code>dnf config-manager</code> 命令可以用于添加、启用/禁用和移除软件仓库。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>记录有仓库信息和配置的文件都存放在 <code>/etc/yum.repos.d</code> 文件夹中。在禁用了仓库后，你可以手动删除一些弃用仓库的配置文件。</p>
+</div>
+<p>使用下述命令添加新仓库：</p>
+<div class="highlight"><pre><span></span><code>dnf config-manager --add-repo repository_url
+</code></pre></div>
+<p><code>repository_url</code> 应该包含 <code>.repo</code> 文件或者指向 <code>.repo</code> 文件。</p>
+<p>使用下述命令启用仓库：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>此处的 repository 指的是仓库的 repository ID</p>
+</div>
+<div class="highlight"><pre><span></span><code>dnf config-manager --set-enabled repository
+</code></pre></div>
+<p>使用下述命令禁用仓库：</p>
+<div class="highlight"><pre><span></span><code>dnf config-manager --set-disabled repository
+</code></pre></div>
+<h3 id="额外信息">额外信息<a class="headerlink" href="#额外信息" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>dnf(8)</code> — DNF 命令参考手册页。</li>
+<li><code>dnf.conf(8)</code> — DNF 配置参考手册页。</li>
+</ul>
+<h2 id="zypper">Zypper<a class="headerlink" href="#zypper" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>完整的使用指南详见<a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html">此处</a>。</p>
+</div>
+<p>zypper 是 openSUSE 默认的软件包管理器，可以用于管理软件包、软件仓库和升级更新系统。</p>
+<h3 id="管理软件包">管理软件包<a class="headerlink" href="#管理软件包" title="Permanent link">&para;</a></h3>
+<h4 id="一般使用">一般使用<a class="headerlink" href="#一般使用" title="Permanent link">&para;</a></h4>
+<p>zypper 的命令格式如下：</p>
+<div class="highlight"><pre><span></span><code>zypper [--global-options] COMMAND  [--command-options] [arguments]
+</code></pre></div>
+<p>使用 <code>[]</code> 包围起来的部分不是必须使用的。你可以键入 <code>$ zypper --help</code> 查看通用选项（<code>--global-options</code>）和命令（<code>COMMAND</code>）的完整列表。你也可以使用 <code>$ zypper help COMMAND</code> 查看特定的命令的帮助信息。</p>
+<ul>
+<li>Zypper command<br />
+    执行 zypper 最简单的方式是直接键入命令的名字，例如应用全部可用的更新补丁：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper patch
+</code></pre></div></li>
+<li>全局选项（<code>--global-options</code>）<br />
+    你可以在 zypper 后直接添加一个或多个选项，来实现额外的功能，例如：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper --non-interactive patch
+</code></pre></div>
+    如上，<code>--non-interactive</code> 选项表示命令会直接运行而不询问用户的意见（即自动以默认的答案回答命令执行过程中出现的问题）。注意，如果你不清楚 zypper 的工作流程和相关的默认配置，请不要跳过手动处理阶段。  </li>
+<li>命令特定选项（<code>--command-options</code>） <br />
+    要使用命令特定的选项，你需要将这些选项直接放置在命令的后面，例如：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper patch --auto-agree-with-licenses
+</code></pre></div>
+    如上，<code>--auto-agree-with-licenses</code> 选项会自动确认并接受补丁包的许可证信息。如果你没有添加该选项，你需要阅读并接受许可证（比如 NVIDIA 私有驱动的最终用户使用协议）。    </li>
+<li>参数（<code>Arguments</code>）<br />
+    一些命令需要用户提供一个或多个参数。例如，使用 zypper 安装软件包时，你需要声明要安装哪些软件包，如下：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper install smplayer
+</code></pre></div>
+    有些命令特定选项也需要额外的参数，例如列出全部已知的模组：<br />
+    <div class="highlight"><pre><span></span><code>sudo zypper search -t pattern
+</code></pre></div></li>
+</ul>
+<p>你也可以将上面的用法同时堆叠在一起，写出一个很长的命令。例如，下列命令会从 <code>factory</code> 仓库安装 <code>vim</code> 和 <code>mc</code> 软件包，并显示冗余信息：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper -v install --from factory mc vim
+</code></pre></div>
+<p>如果没有特别声明，<code>--from</code> 选项默认从全部已启用的软件仓库检索软件包。你也可以使用 <code>--repo</code> ，她是 <code>--from</code> 的别名。</p>
+<p>大多数 zypper 命令都具有 <code>dry-run</code> 选项，可以模拟运行给定的命令。该选项可以用于测试用途。例如：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper remove --dry-run MozillaFirefox
+</code></pre></div>
+<h4 id="搜索软件包">搜索软件包<a class="headerlink" href="#搜索软件包" title="Permanent link">&para;</a></h4>
+<p>你可以使用下述命令查询符合关键字的软件包：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>更多信息详见：<a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-query">2.1.7 Querying repositories and packages with Zypper</a></p>
+</div>
+<div class="highlight"><pre><span></span><code>zypper search &lt;关键字&gt;
+</code></pre></div>
+<p>要查询某个软件包的信息，请使用：</p>
+<div class="highlight"><pre><span></span><code>zypper info &lt;软件包包名&gt;
+</code></pre></div>
+<h4 id="安装删除软件包">安装，删除软件包<a class="headerlink" href="#安装删除软件包" title="Permanent link">&para;</a></h4>
+<p>你可以使用下列命令安装或移除特定的软件包（参数是软件包包名 <code>PACKAGE_NAME</code>）：</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>请不要使用 zypper 删除重要的系统软件包（比如 <code>glic</code>、<code>zypper</code> 和 <code>kernel</code> 等软件包），这可能会导致系统崩溃。</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo zypper install PACKAGE_NAME
+sudo zypper remove PACKAGE_NAME
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>关于 <code>zypper install</code> 和 <code>zypper remove</code> 命令更多详细用法，详见 <a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-softman">2.1.3 Installing and removing software with Zypper</a>。</p>
+</div>
+<h4 id="更新软件包_1">更新软件包<a class="headerlink" href="#更新软件包_1" title="Permanent link">&para;</a></h4>
+<p>你可以使用下列命令更新软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper dup                  #更新全部的软件包，即更新系统
+sudo zypper update PACKAGE_NAME  #更新特定的软件包
+</code></pre></div>
+<p>你可以使用下述命令查看当前系统需要更新的软件包：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>这个命令只能列举出没有发生供应商变更的软件包的更新版本。即已安装的软件包和要安装的新版本必须来自于同一个软件源。</li>
+<li>要安装的软件包所属的仓库的优先级必须与已安装的软件包所属的仓库的优先级至少相同。  </li>
+<li>必须可安装。（满足所有的依赖关系）</li>
+</ul>
+</div>
+<p>你可以使用下述命令查看全部可获得的软件包更新（不论是否可安装）：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper list-updates --all
+</code></pre></div>
+<p>要查看某个软件包不能安装的原因，你可以使用 <code>zypper install</code> 或 <code>zypper update</code> 命令查看详细信息。</p>
+<h4 id="识别孤立包">识别孤立包<a class="headerlink" href="#识别孤立包" title="Permanent link">&para;</a></h4>
+<p>当你删除某些仓库或者升级你的系统后，某些软件包可能进入 <code>orphaned</code>（孤立）状态。这些孤立包不属于任何已启用的软件仓库。你可以使用下列命令查看这些软件包：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper packages --orphaned
+</code></pre></div>
+<h4 id="识别使用已删除文件的进程或程序">识别使用已删除文件的进程或程序<a class="headerlink" href="#识别使用已删除文件的进程或程序" title="Permanent link">&para;</a></h4>
+<p>你可以使用下列命令输出仍然在使用已删除文件的进程或程序的 PID、UID、所属的用户和命令等相关信息。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>详细信息详见：<a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-sw-cl.html#sec-zypper-ps">2.1.5 Identifying processes and services using deleted files</a></p>
+</div>
+<div class="highlight"><pre><span></span><code>zypper ps-s
+</code></pre></div>
+<p>在更新后，你需要手动重启这些程序或进程以应用更新，但你可以直接重启系统。</p>
+<h3 id="管理软件仓库_1">管理软件仓库<a class="headerlink" href="#管理软件仓库_1" title="Permanent link">&para;</a></h3>
+<p>zypper 可以用于管理软件仓库：</p>
+<p>键入以下命令查看你当前使用的软件仓库概况，例如：</p>
+<div class="highlight"><pre><span></span><code>bh@c004-h0:~&gt; zypper repos
+软件源优先级已生效：                                                                               (细节请参考 &#39;zypper lr -P&#39;)
+      90 (更高的优先级) :  1 个软件源
+      99 (默认优先级)   :  6 个软件源
+
+#  | Alias                    | Name                        | Enab-&gt; | GPG Ch-&gt; | Re-&gt;
+---+--------------------------+-----------------------------+--------+----------+-----
+ 1 | NVIDIA                   | NVIDIA                      | 是     | (r ) 是  | 是
+ 2 | OPEN-TUNA:TW:NON-OSS     | OPEN-TUNA:TW:NON-OSS        | 是     | (r ) 是  | 是
+ 3 | OPEN-TUNA:TW:OSS         | OPEN-TUNA:TW:OSS            | 是     | (r ) 是  | 是
+ 4 | code                     | Visual Studio Code          | 是     | (r ) 是  | 是
+ 5 | google-chrome            | google-chrome               | 是     | (r ) 是  | 是
+ 6 | home_fusionfuture_office | home:fusionfuture:office    | 是     | (r ) 是  | 是
+ 7 | packman                  | packman                     | 是     | (r ) 是  | 是
+ 8 | repo-debug               | openSUSE-Tumbleweed-Debug   | 否     | ----     | ----
+ 9 | repo-non-oss             | openSUSE-Tumbleweed-Non-Oss | 否     | ----     | ----
+10 | repo-oss                 | openSUSE-Tumbleweed-Oss     | 否     | ----     | ----
+11 | repo-source              | openSUSE-Tumbleweed-Source  | 否     | ----     | ----
+12 | repo-update              | openSUSE-Tumbleweed-Update  | 否     | ----     | ----
+</code></pre></div>
+<p>如上，这是一个禁用了官方软件源，使用镜像源和多个第三方软件源的 tumbleweed 系统。在与软件仓库相关的一系列命令和选项中，建议使用使用仓库的别名 <code>Alias</code> 作为参数。</p>
+<h4 id="添加软件仓库">添加软件仓库<a class="headerlink" href="#添加软件仓库" title="Permanent link">&para;</a></h4>
+<p>要添加一个新的软件仓库，你使用下列命令：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper addrepo URL ALIAS
+</code></pre></div>
+<p>URL 是仓库的地址，ALIAS 是仓库的别名。你可以随意指定仓库的别名，但是请保持新添加的仓库的别名是独有的，不与其他已有的仓库别名重复。</p>
+<h4 id="刷新软件仓库">刷新软件仓库<a class="headerlink" href="#刷新软件仓库" title="Permanent link">&para;</a></h4>
+<p>你可以使用下列命令刷新软件仓库:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>一些命令会自动刷新软件仓库，你不需要特意去执行这个命令。</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo zypper refresh
+</code></pre></div>
+<h4 id="移除软件仓库">移除软件仓库<a class="headerlink" href="#移除软件仓库" title="Permanent link">&para;</a></h4>
+<p>你可以使用下列命令移除匹配指定的仓库别名的仓库：</p>
+<div class="highlight"><pre><span></span><code>sudo zypper removerepo REPO_ALIAS
+</code></pre></div>
+<h4 id="编辑仓库">编辑仓库<a class="headerlink" href="#编辑仓库" title="Permanent link">&para;</a></h4>
+<p>你可以使用 <code>zypper modifyrepo</code> 命令编辑仓库的属性。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-e</td>
+<td>启用已禁用的软件源。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>禁用但不移除软件源。</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>应用修改到全部软件源。</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>禁用软件源的自动刷新。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>设置软件源的优先级。</td>
+</tr>
+</tbody>
+</table>
+<p>要查看完整的选项信息，你可以键入 <code>$ sudo zypper help modifyrepo</code>。</p>
+<h3 id="zypper-配置">zypper 配置<a class="headerlink" href="#zypper-配置" title="Permanent link">&para;</a></h3>
+<p>Zypper 现在附带一个配置文件，允许你永久更改 Zypper 的行为（系统范围或用户特定）。 对于系统范围的更改，编辑 <code>/etc/zypp/zypper.conf</code>。对于特定于用户的更改，请编辑 <code>~/.zypper.conf</code>。如果 <code>~/.zypper.conf</code> 尚不存在，你可以使用 <code>/etc/zypp/zypper.conf</code> 作为模板，将其复制到 <code>~/.zypper.conf</code> 并根据自己的喜好进行调整。 有关可用选项的帮助，请参阅文件中的注释。</p>
+<h3 id="更多信息">更多信息<a class="headerlink" href="#更多信息" title="Permanent link">&para;</a></h3>
+<p>更多信息详见 <code>zypper help</code> 和 <code>zypper help COMMAND</code> 或者 <code>man zypper(8)</code></p>
+<ul>
+<li>https://en.opensuse.org/SDB:Zypper_usage</li>
+<li>https://en.opensuse.org/openSUSE:Zypper_versions</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-12-14 11:17:13</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-04-15 13:42:39</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+  data-repo="linuxhitchhiker/THGLG"
+  data-repo-id="R_kgDOGrdtuw"
+  data-category="giscus"
+  data-category-id="DIC_kwDOGrdtu84CTEdX"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+
+
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../update-sys/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 更新系统" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              更新系统
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../setup-proxy/" class="md-footer__link md-footer__link--next" aria-label="下一页: 设置网络代理" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              设置网络代理
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2022 Linux 银河漫游指南贡献者，在 CC-BY-SA 4.0 下提供。
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

@@ -1,0 +1,2387 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Fedora 安装指南 - Linux 银河漫游指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#安装-fedora" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-header__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux 银河漫游指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fedora 安装指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        主页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../prologue/switch-to-linux/" class="md-tabs__link md-tabs__link--active">
+        入门指南
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../advanced/shell/" class="md-tabs__link">
+        进阶教程
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../poweruser/" class="md-tabs__link">
+        高级教程
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../solution/eyecandy/" class="md-tabs__link">
+        解决方案
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../help/faq/" class="md-tabs__link">
+        寻求帮助
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        关于
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-nav__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Linux 银河漫游指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          主页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="主页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        欢迎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          入门指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          入门指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          序言
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="序言" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          序言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prologue/switch-to-linux/" class="md-nav__link">
+        切换到 Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prologue/choose-distro/" class="md-nav__link">
+        Linux 发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prologue/desktop-environment/" class="md-nav__link">
+        桌面环境简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          安装系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安装系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pre-install/" class="md-nav__link">
+        安装前准备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verify/" class="md-nav__link">
+        校验文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../virtual-machine/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Fedora 安装指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Fedora 安装指南
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#概述" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#安装前准备" class="md-nav__link">
+    安装前准备
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用-anaconda-安装系统" class="md-nav__link">
+    使用 Anaconda 安装系统
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 Anaconda 安装系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#语言" class="md-nav__link">
+    语言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#键盘" class="md-nav__link">
+    键盘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时间和日期" class="md-nav__link">
+    时间和日期
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安装目的地" class="md-nav__link">
+    安装目的地
+  </a>
+  
+    <nav class="md-nav" aria-label="安装目的地">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#自动分区" class="md-nav__link">
+    自动分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#手动分区" class="md-nav__link">
+    手动分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#安装后初次启动" class="md-nav__link">
+    安装后初次启动
+  </a>
+  
+    <nav class="md-nav" aria-label="安装后初次启动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#隐私" class="md-nav__link">
+    隐私
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第三方软件源" class="md-nav__link">
+    第三方软件源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#在线账户" class="md-nav__link">
+    在线账户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#创建用户" class="md-nav__link">
+    创建用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#收尾工作" class="md-nav__link">
+    收尾工作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#进阶内容" class="md-nav__link">
+    进阶内容
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-blivet-gui-进行手动分区" class="md-nav__link">
+    使用 Blivet-GUI 进行手动分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fedora-silverblue/" class="md-nav__link">
+        Fedora Silverblue 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opensuse/" class="md-nav__link">
+        openSUSE 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          进阶教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进阶教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          进阶教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          使用命令行
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="使用命令行" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          使用命令行
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/shell/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/shell/base1/" class="md-nav__link">
+        使用 shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/shell/base2/" class="md-nav__link">
+        Linux 文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/shell/base3/" class="md-nav__link">
+        运用文本文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/shell/base4/" class="md-nav__link">
+        管理运行进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/shell/base5/" class="md-nav__link">
+        编写简单的 Shell 脚本
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          配置系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="配置系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          配置系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/update-sys/" class="md-nav__link">
+        更新系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/package-manager/" class="md-nav__link">
+        包管理器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/setup-proxy/" class="md-nav__link">
+        设置网络代理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/nvidia-driver/" class="md-nav__link">
+        独显驱动
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/firewall/" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/system-admin/systemctl/" class="md-nav__link">
+        使用 systemctl 管理服务
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          再次入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="再次入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          再次入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/re-entry/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/re-entry/distro/" class="md-nav__link">
+        选择发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/re-entry/repo-and-mirror/" class="md-nav__link">
+        软件源与镜像源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/re-entry/disk-and-fs/" class="md-nav__link">
+        硬盘与文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/re-entry/extend/" class="md-nav__link">
+        扩展阅读
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          高级教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高级教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../poweruser/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          解决方案
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="解决方案" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          解决方案
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          系统美化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统美化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          系统美化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-kde/" class="md-nav__link">
+        KDE 美化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-xfce4/" class="md-nav__link">
+        Xfce4 美化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          软件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="软件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          软件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/browser/" class="md-nav__link">
+        浏览器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/instant-messaging/" class="md-nav__link">
+        即时通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/office-and-email/" class="md-nav__link">
+        文档办公
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/multimedia-editing/" class="md-nav__link">
+        多媒体相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/download-manager/" class="md-nav__link">
+        下载器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/linux-game/" class="md-nav__link">
+        游戏
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/appimage-base/" class="md-nav__link">
+        Appimage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/flatpak-get-start/" class="md-nav__link">
+        Flatpak
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          系统配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统配置" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          系统配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/hidpi/" class="md-nav__link">
+        HiDPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/dual-boot/" class="md-nav__link">
+        双系统
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          跨系统兼容
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="跨系统兼容" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          跨系统兼容
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/about/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/virtual-machine/" class="md-nav__link">
+        搭建虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          寻求帮助
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="寻求帮助" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          寻求帮助
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/howto-ask-for-help/" class="md-nav__link">
+        如何提问
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          关于
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="关于" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          关于
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        许可协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_3">
+          贡献指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="贡献指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          贡献指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/" class="md-nav__link">
+        快速指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-01/" class="md-nav__link">
+        慢速开始 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-02/" class="md-nav__link">
+        慢速开始 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#概述" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#安装前准备" class="md-nav__link">
+    安装前准备
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用-anaconda-安装系统" class="md-nav__link">
+    使用 Anaconda 安装系统
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 Anaconda 安装系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#语言" class="md-nav__link">
+    语言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#键盘" class="md-nav__link">
+    键盘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#时间和日期" class="md-nav__link">
+    时间和日期
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安装目的地" class="md-nav__link">
+    安装目的地
+  </a>
+  
+    <nav class="md-nav" aria-label="安装目的地">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#自动分区" class="md-nav__link">
+    自动分区
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#手动分区" class="md-nav__link">
+    手动分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#安装后初次启动" class="md-nav__link">
+    安装后初次启动
+  </a>
+  
+    <nav class="md-nav" aria-label="安装后初次启动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#隐私" class="md-nav__link">
+    隐私
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#第三方软件源" class="md-nav__link">
+    第三方软件源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#在线账户" class="md-nav__link">
+    在线账户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#创建用户" class="md-nav__link">
+    创建用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#收尾工作" class="md-nav__link">
+    收尾工作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#进阶内容" class="md-nav__link">
+    进阶内容
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶内容">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-blivet-gui-进行手动分区" class="md-nav__link">
+    使用 Blivet-GUI 进行手动分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/linuxhitchhiker/THGLG/edit/main/docs/entry/installation/fedora.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="安装-fedora">安装 Fedora<a class="headerlink" href="#安装-fedora" title="Permanent link">&para;</a></h1>
+<h2 id="概述">概述<a class="headerlink" href="#概述" title="Permanent link">&para;</a></h2>
+<p>Fedora 是一个流行的发行版，它有很多的分支，本文只描述使用 LiveDVD 镜像安装 Fedora Workstation 以及物理机双系统（Windows 10 &amp; Fedora）所需要注意的事项。</p>
+<ul>
+<li>参考：<a href="https://docs.fedoraproject.org/en-US/quick-docs/creating-and-using-a-live-installation-image/">Fedora - Installation Guide</a></li>
+</ul>
+<h2 id="安装前准备">安装前准备<a class="headerlink" href="#安装前准备" title="Permanent link">&para;</a></h2>
+<p>请参照<a href="../pre-install/">前文</a>自行制作安装介质。</p>
+<ul>
+<li>如果你不喜欢 Workstation 的桌面环境（Gnome Desktop），你可以选择 <a href="https://spins.fedoraproject.org/">Fedora Spin</a>。</li>
+</ul>
+<h2 id="使用-anaconda-安装系统">使用 Anaconda 安装系统<a class="headerlink" href="#使用-anaconda-安装系统" title="Permanent link">&para;</a></h2>
+<p>将 U 盘插入电脑并重启，你就会看到 Fedora 的引导启动页面，选择 <strong>Test this media &amp; start Fedora-Workstation-Live 35</strong>，进入下一步。</p>
+<p><img alt="start" src="../assets/fedora/install_start.png" /></p>
+<p>在系统完成自检后，你就会进入到 Fedora Live 环境：</p>
+<p><img alt="Welcome" src="../assets/fedora/install_welcome.png" /></p>
+<p>你此时可以体验一下 Fedora 的图形界面（Gnome 桌面环境），你此时所作出的更改基本不会影响到电脑原有的文件和设备。如果你想要立即进行安装系统，请点击 <strong>Install To Hard Drive</strong></p>
+<p>然后你就会进入 Anaconda 的操作界面：</p>
+<p><img alt="Anaconda Begain" src="../assets/fedora/install_lang.png" /></p>
+<h3 id="语言">语言<a class="headerlink" href="#语言" title="Permanent link">&para;</a></h3>
+<p>启动 Anaconda 后，第一步是选择语言，找到<strong>中文</strong>，并选择<strong>简体中文</strong>（如果你已经连接到网络，Anaconda 会自动选择语言），然后进入下一步。</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>选择语言后，你无法更改语言，除非你停止并重新启动安装程序，才能再次选择语言。</p>
+</div>
+<p>然后你就会进入安装信息摘要页面：</p>
+<p><img alt="In short" src="../assets/fedora/install_inshort.png" /></p>
+<p>由于 workstation 的特点，此时你只能先配置语言、键盘、网络和安装位置。剩余内容需要等待安装完成后，初次启动系统才能配置。</p>
+<h3 id="键盘">键盘<a class="headerlink" href="#键盘" title="Permanent link">&para;</a></h3>
+<p>打开<strong>键盘</strong>页面，如果你发现当前键盘布局不正确，或你需要其他语言的键盘布局，请点击左下方的加号，进行添加：</p>
+<p><img alt="keyboard" src="../assets/fedora/install_keyboard.png" /></p>
+<p>减号按钮用于删除，上下箭头按钮用于排序键盘布局的优先级。</p>
+<h3 id="时间和日期">时间和日期<a class="headerlink" href="#时间和日期" title="Permanent link">&para;</a></h3>
+<p>打开<strong>时间和日期</strong>页面，检查时区和地区是否正确：</p>
+<p><img alt="location" src="../assets/fedora/install_timezone.png" /></p>
+<p>如果你发现时区不正确，在世界地图上点击你所在的位置。然后点击左上方的<strong>完成</strong>确认更改。</p>
+<h3 id="安装目的地">安装目的地<a class="headerlink" href="#安装目的地" title="Permanent link">&para;</a></h3>
+<p>你可以在<strong>安装目的地</strong>中，对 Fedora 安装位置进行设置。</p>
+<p>注意，此步需要对硬盘分区进行更改和读写，如果你不熟悉如何手动创建，挂载分区，请使用自动分区。</p>
+<h4 id="自动分区">自动分区<a class="headerlink" href="#自动分区" title="Permanent link">&para;</a></h4>
+<p>你可在<strong>本地标准磁盘</strong>中勾选提前划分的空闲磁盘空间，然后在存储配置中选择<strong>自动</strong>进行自动分区。最后点击两次左上方的 <strong>完成(D)</strong> 确认更改即可。</p>
+<p><img alt="auto partition" src="../assets/fedora/install_auto.png" /></p>
+<h4 id="手动分区">手动分区<a class="headerlink" href="#手动分区" title="Permanent link">&para;</a></h4>
+<ul>
+<li>有关使用 Blivet-GUI 进行分区的内容详见后文。</li>
+</ul>
+<p>要进行简单的手动分区：</p>
+<p>请在<strong>本地标准磁盘</strong>中勾选提前划分的空闲磁盘空间，然后在存储配置中选中<strong>自定义</strong>，然后点击左上方的 <strong>完成(D)</strong> 即可进入手动分区。</p>
+<p><img alt="手动分区" src="../assets/fedora/install_man01.png" /></p>
+<p>推荐使用默认的分区方案，然后点击上方的 <strong>点击这里自动创建它们</strong>，然后 Anaconda 就会自动创建分区表：</p>
+<p><img alt="手动分区2" src="../assets/fedora/install_man02.png" /></p>
+<p>点击两次左上方的 <strong>完成(D)</strong> 确认更改即可。</p>
+<p>最后回到安装信息摘要的首页，点击右下方的 <strong>开始安装(B)</strong> 开始安装 Fedora。</p>
+<p>Fedora 很快就会安装到你的设备上，这时你可以放松一下~</p>
+<p><img alt="" src="../assets/fedora/instal-final.png" /></p>
+<h2 id="安装后初次启动">安装后初次启动<a class="headerlink" href="#安装后初次启动" title="Permanent link">&para;</a></h2>
+<p>安装完成后，重启系统，系统会自动进入配置页面，你可以在此处完成剩余的配置。</p>
+<p><img alt="welcome" src="../assets/fedora/config-welcome.png" /></p>
+<h3 id="隐私">隐私<a class="headerlink" href="#隐私" title="Permanent link">&para;</a></h3>
+<p>请根据你个人情况和喜好进行选择：</p>
+<p><img alt="prav" src="../assets/fedora/config-pra.png" /></p>
+<h3 id="第三方软件源">第三方软件源<a class="headerlink" href="#第三方软件源" title="Permanent link">&para;</a></h3>
+<p>此时，你可以选择是否开启第三方<a href="https://rpmfusion.org">软件源</a>。</p>
+<p>如果你使用了非自由固件（如 NVIDIA 设计的独显，个别厂商生产的网卡）或非其他分发受限软件（一些私有固件驱动，多媒体解码器）。那么建议你开启第三方软件源：</p>
+<p><img alt="non-free-repo" src="../assets/fedora/config-repo.png" /></p>
+<h3 id="在线账户">在线账户<a class="headerlink" href="#在线账户" title="Permanent link">&para;</a></h3>
+<p>你可以在此处登录你的网络账户，或者跳过：</p>
+<p><img alt="online" src="../assets/fedora/config-online.png" /></p>
+<h3 id="创建用户">创建用户<a class="headerlink" href="#创建用户" title="Permanent link">&para;</a></h3>
+<p>你可以在此处创建你的系统账户，请输入用户全名和用户名</p>
+<p><img alt="User" src="../assets/fedora/config-aboutyou.png" /></p>
+<ul>
+<li>用户全名是你的账户全称，用户名则是你的账户简称。建议设置一个简短的用户名。</li>
+<li>点击头像即可切换头像图片。</li>
+</ul>
+<p>然后设置一个安全的，不低于 6 位的密码，注意保管好你的密码，一旦忘记密码是无法找回的。</p>
+<p><img alt="Keyword" src="../assets/fedora/config-keyword.png" /></p>
+<h3 id="收尾工作">收尾工作<a class="headerlink" href="#收尾工作" title="Permanent link">&para;</a></h3>
+<p><img alt="end" src="../assets/fedora/config-end.png" /></p>
+<p>最后，点击 <strong>开始使用 Fedora Linux</strong> 进入系统。</p>
+<p>祝你玩的愉快！(¬‿¬)</p>
+<hr />
+<h2 id="进阶内容">进阶内容<a class="headerlink" href="#进阶内容" title="Permanent link">&para;</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>以下内容要求操作者对于 Linux 具有一定的基础知识。</p>
+</div>
+<h3 id="使用-blivet-gui-进行手动分区">使用 Blivet-GUI 进行手动分区<a class="headerlink" href="#使用-blivet-gui-进行手动分区" title="Permanent link">&para;</a></h3>
+<p>要使用 Blivet-GUI 进行手动分区：</p>
+<p>首先点击选中你之前预留的未分配的磁盘空间（你可以同时选中多个硬盘）。然后在下方存储配置中选择<strong>高级自定义 (Blivet-GUI)</strong>，点击<strong>完成(D)</strong>进入配置页面：</p>
+<p><img alt="manual1" src="../assets/fedora/install-manual01.png" /></p>
+<p>选中右侧逻辑视图下方的 free space，点击上方工具栏的加号，添加一个新的分区：</p>
+<p><img alt="manual2" src="../assets/fedora/install-manual02.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>若磁盘没有分区表或者你打算删除原有系统进行一次全新的安装，Anaconda 会提示你选择新分区表类型（推荐设置为 GPT）。</p>
+</div>
+<p>为了安装 Fedora，你至少需要 <code>/</code> 和 <code>/boot</code> 两个基本的分区。</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/boot</code></td>
+<td>这个分区包含操作系统内核和在引导过程中使用的其他文件。推荐大小为 1GB。文件系统类型可设置为 <code>ext4</code>。</td>
+</tr>
+<tr>
+<td><code>/boot/efi</code></td>
+<td>独立的 <a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface">EFI</a> 分区，推荐当 Fedora 需要与 Windows 共存时创建该分区，大小为 512MB，格式为 <code>vfat</code> 或 <code>fat32</code>。</td>
+</tr>
+<tr>
+<td><code>/(root)</code></td>
+<td>这是根目录所在的位置。根目录是目录结构的顶层。默认情况下，所有文件都写入此分区，除非在写入的路径中安装了不同的分区（例如，<code>/boot</code> 或 <code>/home</code>）。</p>Fedora 现在已经使用 <a href="https://wiki.archlinux.org/title/Btrfs">Btrfs</a> 卷作为根目录的默认文件系统。官方推荐大小为 25GB 及以上。实际上你只需要保证根目录大于 15GB 即可。</td>
+</tr>
+<tr>
+<td><code>/home</code></td>
+<td>独立的用户目录，具体大小取决于你想要放入多少文件；不是必需的分区。分区格式为 <code>xfs</code>、<code>ext4</code> 或 <code>btrfs</code> 等你所偏好的分区格式。</td>
+</tr>
+<tr>
+<td><code>biosboot</code></td>
+<td>如果你的硬盘使用了 <a href="https://wiki.archlinux.org/title/Partitioning#Master_Boot_Record_(bootstrap_code)">MBR</a> 分区表而不是 <a href="https://wiki.archlinux.org/title/Partitioning#GUID_Partition_Table">GPT</a> 分区表作为启动盘的分区形式，则你需要额外创建一个大小为 1MB，格式为 <code>biosboot</code> 的空白分区。</td>
+</tr>
+<tr>
+<td><code>swap</code></td>
+<td><a href="https://wiki.archlinux.org/title/Swap">交换分区</a>，Linux 将物理内存分为内存段，叫做页面。交换是指内存页面被复制到预先设定好的硬盘空间(叫做交换空间)的过程，目的是释放这份内存页面。物理内存和交换空间的总大小是可用的虚拟内存的总量。分区格式为 <code>swap</code>。</td>
+</tr>
+</tbody>
+</table>
+<p>SWAP 分区推荐大小如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>系统物理内存（RAM）大小</th>
+<th>推荐的 swap 分区大小</th>
+<th>推荐的 swap 分区大小（如果需要休眠）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小于 2GB</td>
+<td>RAM 的两倍</td>
+<td>RAM 的三倍</td>
+</tr>
+<tr>
+<td>2GB - 8GB</td>
+<td>和 RAM 相同</td>
+<td>RAM 的两倍</td>
+</tr>
+<tr>
+<td>8GB - 64GB</td>
+<td>RAM 的 0.5 倍</td>
+<td>RAM 的 1.5 倍</td>
+</tr>
+<tr>
+<td>大于 64GB</td>
+<td>基于实际工作负载而定</td>
+<td>不推荐休眠</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>延伸阅读：<a href="https://zhuanlan.zhihu.com/p/26098509">MBR 与 GPT</a></p>
+</div>
+<p>综上，</p>
+<p>对于 BIOS 设备：</p>
+<ul>
+<li><strong>/boot</strong>：设备类型设置为<strong>分区</strong>，大小设置为 1GB，文件系统设置为 <code>ext4</code>，挂载点设置为 <code>/boot</code>。</li>
+<li><strong>biosboot</strong>：设备类型设置为<strong>分区</strong>，大小设置为 1~2MB，文件系统设置为 <code>BIOS Boot</code>。</li>
+<li><strong>swap</strong>：设备类型设置为<strong>分区</strong>，大小请参考上表而定，文件系统设置为 <code>swap</code>。</li>
+<li><strong>/(root)</strong>：设备类型设置为 <strong>Btrfs 卷</strong>，大小设置为剩余空闲空间大小。</li>
+<li><strong>/home</strong>：<em>请根据实际需要创建该分区</em>。设备类型设置为<strong>分区</strong>，大小和文 件系统类型依照实际需要而定，挂载点为 <code>/home</code>。</li>
+</ul>
+<p>对于 UEFI 设备：</p>
+<ul>
+<li><strong>/boot</strong>：设备类型设置为<strong>分区</strong>，大小设置为 1GB，文件系统设置为 <code>ext4</code>，挂载点设置为 <code>/boot</code>。</li>
+<li><strong>/boot/efi</strong>：设备类型设置为<strong>分区</strong>，大小设置为 512MB，文件系统设置为 <code>vfat</code> 或 <code>fat32</code>，挂载点为 <code>/boot/efi</code>。</li>
+<li><strong>swap</strong>：设备类型设置为<strong>分区</strong>，大小请参考上表而定，文件系统设置为 <code>swap</code>。</li>
+<li><strong>/(root)</strong>：设备类型设置为 <strong>Btrfs 卷</strong>，大小设置为剩余空闲空间大小。</li>
+<li><strong>/home</strong>：<em>请根据实际需要创建该分区</em>。设备类型设置为<strong>分区</strong>，大小和文件系统类型依照实际需要而定，挂载点为 <code>/home</code>。</li>
+</ul>
+<p>如果你创建了错误的分区，可以点击 “+” 右侧的 “X” 删除错误的分区，或者右下方的<strong>撤销上一次操作</strong>进行回退。完成创建分区后，点击两次右上角<strong>完成</strong>确认分区结果即可。</p>
+<p>小技巧：</p>
+<ul>
+<li>创建分区的时候，先创建小分区（如：<code>/boot</code>），再创建大分区（如：<code>/home</code>）。</li>
+<li>独立的 <code>/boot/efi</code> 可避免 Windows 更新 EFI 分区时导致损坏 Linux 的引导文件的可能情况（Windows Boot Manager 不是为多系统引导而设计的）。</li>
+<li>不创建 <code>swap</code> 分区也可安装 Fedora。</li>
+<li>独立的 <code>/home</code> 不是必须的，你也可以编辑现有的磁盘分区或创建一个新的大分区（用于储存大量个人文件），设置挂载点挂载到 <code>/</code> 或 <code>/home</code> 下（如果挂载的分区存储有重要文件，请勿格式化该分区）。</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-12-15 07:38:14</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-01-15 12:26:16</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+  data-repo="linuxhitchhiker/THGLG"
+  data-repo-id="R_kgDOGrdtuw"
+  data-category="giscus"
+  data-category-id="DIC_kwDOGrdtu84CTEdX"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+
+
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../virtual-machine/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 虚拟机" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              虚拟机
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../fedora-silverblue/" class="md-footer__link md-footer__link--next" aria-label="下一页: Fedora Silverblue 安装指南" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Fedora Silverblue 安装指南
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2022 Linux 银河漫游指南贡献者，在 CC-BY-SA 4.0 下提供。
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

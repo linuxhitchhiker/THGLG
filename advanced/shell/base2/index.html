@@ -1,0 +1,2533 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Linux 文件系统 - Linux 银河漫游指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-文件系统" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-header__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux 银河漫游指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux 文件系统
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        主页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../entry/prologue/switch-to-linux/" class="md-tabs__link">
+        入门指南
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        进阶教程
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../poweruser/" class="md-tabs__link">
+        高级教程
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../solution/eyecandy/" class="md-tabs__link">
+        解决方案
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../help/faq/" class="md-tabs__link">
+        寻求帮助
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        关于
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-nav__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Linux 银河漫游指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          主页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="主页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        欢迎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          入门指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          入门指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          序言
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="序言" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          序言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/switch-to-linux/" class="md-nav__link">
+        切换到 Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/choose-distro/" class="md-nav__link">
+        Linux 发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/desktop-environment/" class="md-nav__link">
+        桌面环境简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          安装系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安装系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/pre-install/" class="md-nav__link">
+        安装前准备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/verify/" class="md-nav__link">
+        校验文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/virtual-machine/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/fedora/" class="md-nav__link">
+        Fedora 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/fedora-silverblue/" class="md-nav__link">
+        Fedora Silverblue 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/opensuse/" class="md-nav__link">
+        openSUSE 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          进阶教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进阶教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          进阶教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          使用命令行
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="使用命令行" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          使用命令行
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base1/" class="md-nav__link">
+        使用 shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Linux 文件系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Linux 文件系统
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#了解-linux-文件系统" class="md-nav__link">
+    了解 Linux 文件系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用基本的文件系统命令" class="md-nav__link">
+    使用基本的文件系统命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用元字符和运算符" class="md-nav__link">
+    使用元字符和运算符
+  </a>
+  
+    <nav class="md-nav" aria-label="使用元字符和运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用元字符匹配文件" class="md-nav__link">
+    使用元字符匹配文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用元字符对文件重定向" class="md-nav__link">
+    使用元字符对文件重定向
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用花括号扩展字符" class="md-nav__link">
+    使用花括号扩展字符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#列出文件和路径" class="md-nav__link">
+    列出文件和路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#理解文件权限和所有权" class="md-nav__link">
+    理解文件权限和所有权
+  </a>
+  
+    <nav class="md-nav" aria-label="理解文件权限和所有权">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#更改文件权限" class="md-nav__link">
+    更改文件权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-umask-设置文件的默认权限" class="md-nav__link">
+    使用 umask 设置文件的默认权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更改文件所有权" class="md-nav__link">
+    更改文件所有权
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#移动复制和删除文件" class="md-nav__link">
+    移动、复制和删除文件
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base3/" class="md-nav__link">
+        运用文本文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base4/" class="md-nav__link">
+        管理运行进程
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base5/" class="md-nav__link">
+        编写简单的 Shell 脚本
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          配置系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="配置系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          配置系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/update-sys/" class="md-nav__link">
+        更新系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/package-manager/" class="md-nav__link">
+        包管理器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/setup-proxy/" class="md-nav__link">
+        设置网络代理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/nvidia-driver/" class="md-nav__link">
+        独显驱动
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/firewall/" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/systemctl/" class="md-nav__link">
+        使用 systemctl 管理服务
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          再次入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="再次入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          再次入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/distro/" class="md-nav__link">
+        选择发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/repo-and-mirror/" class="md-nav__link">
+        软件源与镜像源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/disk-and-fs/" class="md-nav__link">
+        硬盘与文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/extend/" class="md-nav__link">
+        扩展阅读
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          高级教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高级教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../poweruser/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          解决方案
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="解决方案" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          解决方案
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          系统美化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统美化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          系统美化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-kde/" class="md-nav__link">
+        KDE 美化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-xfce4/" class="md-nav__link">
+        Xfce4 美化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          软件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="软件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          软件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/browser/" class="md-nav__link">
+        浏览器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/instant-messaging/" class="md-nav__link">
+        即时通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/office-and-email/" class="md-nav__link">
+        文档办公
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/multimedia-editing/" class="md-nav__link">
+        多媒体相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/download-manager/" class="md-nav__link">
+        下载器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/linux-game/" class="md-nav__link">
+        游戏
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/appimage-base/" class="md-nav__link">
+        Appimage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/flatpak-get-start/" class="md-nav__link">
+        Flatpak
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          系统配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统配置" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          系统配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/hidpi/" class="md-nav__link">
+        HiDPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/dual-boot/" class="md-nav__link">
+        双系统
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          跨系统兼容
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="跨系统兼容" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          跨系统兼容
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/about/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/virtual-machine/" class="md-nav__link">
+        搭建虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          寻求帮助
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="寻求帮助" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          寻求帮助
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/howto-ask-for-help/" class="md-nav__link">
+        如何提问
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          关于
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="关于" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          关于
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        许可协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_3">
+          贡献指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="贡献指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          贡献指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/" class="md-nav__link">
+        快速指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-01/" class="md-nav__link">
+        慢速开始 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-02/" class="md-nav__link">
+        慢速开始 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#了解-linux-文件系统" class="md-nav__link">
+    了解 Linux 文件系统
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用基本的文件系统命令" class="md-nav__link">
+    使用基本的文件系统命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用元字符和运算符" class="md-nav__link">
+    使用元字符和运算符
+  </a>
+  
+    <nav class="md-nav" aria-label="使用元字符和运算符">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用元字符匹配文件" class="md-nav__link">
+    使用元字符匹配文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用元字符对文件重定向" class="md-nav__link">
+    使用元字符对文件重定向
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用花括号扩展字符" class="md-nav__link">
+    使用花括号扩展字符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#列出文件和路径" class="md-nav__link">
+    列出文件和路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#理解文件权限和所有权" class="md-nav__link">
+    理解文件权限和所有权
+  </a>
+  
+    <nav class="md-nav" aria-label="理解文件权限和所有权">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#更改文件权限" class="md-nav__link">
+    更改文件权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-umask-设置文件的默认权限" class="md-nav__link">
+    使用 umask 设置文件的默认权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更改文件所有权" class="md-nav__link">
+    更改文件所有权
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#移动复制和删除文件" class="md-nav__link">
+    移动、复制和删除文件
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/linuxhitchhiker/THGLG/edit/main/docs/advanced/shell/base2.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="linux-文件系统">Linux 文件系统<a class="headerlink" href="#linux-文件系统" title="Permanent link">&para;</a></h1>
+<h2 id="了解-linux-文件系统">了解 Linux 文件系统<a class="headerlink" href="#了解-linux-文件系统" title="Permanent link">&para;</a></h2>
+<p>Linux 系统中所有东西（数据、命令、符号连结、设备和文件夹）都是以文件夹或文件的形式储存在文件系统中，而整个文件系统就像一棵树一样。所有的主要文件夹都存储在根目录（<code>/</code>）的下方，所有的文件都分散在各个文件夹中。</p>
+<p>与 Windows 不同的一点，Linux 的不同层级的文件夹之间都是使用斜杠 <code>/</code> 进行区分，而不是 NTFS 文件系统常用的反斜杠，比如 <code>C:\Program Files (x86)\Microsoft</code>。这也是为什么当今所有的网页地址都是使用斜杠而非反斜杠的原因之一。且 Linux 中所有的绝对路径都是以 <code>/</code> 开头。</p>
+<p>同时，Linux 文件名是有分区大小写的。例如 Apple.c、APPLE.c、apple.C 和 ApplE.c 是四个不同的文件。</p>
+<p><img alt="file system" src="../assets/file-system.png" /></p>
+<p>如果你要确认某个文件或文件夹的位置，比如 <code>Applications</code> 文件夹中用户自己创建的 <code>Mount.sh</code>。你可以从 <code>/</code> 开始，将它的位置表示为 <code>/home/bh/Applications/Mount.sh</code>，这种表示形式称之为<strong>绝对路径</strong>，除此之外的表达都是<strong>相对路径</strong>。例如，从 <code>/home</code> 开始，该文件可以表示成 <code>~/Applications/Mount.sh</code>，如果你现在就在 <code>~</code> 文件夹中，你可以将它表示为 <code>Applications/Mount.sh</code>。</p>
+<p>对于 <code>/</code> 目录之下的文件的常见用途，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin</td>
+<td>包含普通的 Linux 用户命令，如 <code>ls</code>、<code>date</code> 等</td>
+</tr>
+<tr>
+<td>/boot</td>
+<td>具有可引导的 Linux 内核、初始 RAM 磁盘和引导加载程序配置文件 (GRUB)。</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>包含代表系统上设备访问点的文件。这些包括终端设备（tty<em>）、硬盘（hd</em> 或 sd<em>）、RAM（ram</em>）和 CD-ROM（cd*）。用户可以通过这些设备文件直接访问这些设备； 但是，应用程序通常会向最终用户隐藏实际的设备名称</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>包含管理配置文件。 这些文件中的大多数都是纯文本文件，只要用户有适当的权限，就可以使用任何文本编辑器对其进行编辑。</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>包含分配给每个具有登录帐户的普通用户的目录。（root 用户是一个例外，使用 /root 作为他的主目录。</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>为自动安装设备（尤其是可移动媒体）提供标准位置。 如果介质具有卷名，则该名称通常用作安装点。例如，卷名为 myusb 的 USB 驱动器将挂载到 <code>/media/myusb</code>。</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>包含 <code>/bin</code> 和 <code>/sbin</code> 中的应用程序启动系统所需的共享库</td>
+</tr>
+<tr>
+<td>/mnt</td>
+<td>在被标准 <code>/media</code> 目录取代之前，它是许多设备的通用挂载点。一些可引导的 Linux 系统仍然使用这个目录来挂载硬盘分区和远程文件系统。许多人仍然使用这个目录来临时挂载本地或远程文件系统，这些文件系统不是永久挂载的。</td>
+</tr>
+<tr>
+<td>/misc</td>
+<td>有时用于根据请求自动挂载文件系统的目录。</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>可用于存储附加应用软件的目录结构。</td>
+</tr>
+<tr>
+<td>/proc</td>
+<td>包含有关系统资源的信息。</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>root 用户的主目录</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>包含管理命令和守护进程。</td>
+</tr>
+<tr>
+<td>/sys</td>
+<td>包含调整块存储和管理 cgroup 等参数。</td>
+</tr>
+<tr>
+<td>/temp</td>
+<td>包含应用程序使用的临时文件。</td>
+</tr>
+<tr>
+<td>/usr</td>
+<td>包含用户文档、游戏、图形文件 (X11)、库 (lib) 以及引导过程中不需要的各种其他命令和文件。/usr 目录用于存放安装后不会更改的文件（理论上，/usr 可以只读方式挂载）</p>有关社区对于文件目录的调整（<a href="https://wiki.debian.org/UsrMerge">Usr Merge</a>），详见<a href="https://www.suse.org.cn/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/2021/04/28/%E9%87%87%E5%8F%96-UsrMerge-%E6%8E%AA%E6%96%BD%E7%9A%84%E7%90%86%E7%94%B1.html">此处</a>。</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>包含各种应用程序使用的数据目录。特别地，你可以在此处放置作为 FTP 服务器 (<code>/var/ftp</code>) 或 Web 服务器 (<code>/var/www</code>) 共享的文件。它还包含所有系统日志文件 (<code>/var/log</code>) 和 <code>/var/spool</code> 中的假脱机文件（例如 mail、cups 和 news）。<code>/var</code> 目录包含经常更改的目录和文件。在服务器上，通常使用可以轻松扩展的文件系统类型将 <code>/var</code> 目录创建为单独的文件系统。</td>
+</tr>
+</tbody>
+</table>
+<p>在 Linux 中，文件并不需要像 windows 那样的后缀名（.txt、.xls）。后缀名也没有实际意义，后缀名并不影响文件的功能，但它有助于帮助用户理解此文件的用途。此外，Linux 文件系统有着严格且明确的权限和所有权管理系统，这将在后文详述。</p>
+<h2 id="使用基本的文件系统命令">使用基本的文件系统命令<a class="headerlink" href="#使用基本的文件系统命令" title="Permanent link">&para;</a></h2>
+<p>要在命令行中与文件系统进行交互，你至少需要知道以下命令。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td>变更到另一个文件夹</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>将你当前所在的文件夹打印到屏幕上</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>创建一个文件夹</td>
+</tr>
+<tr>
+<td>chmod</td>
+<td>更改一个文件夹或文件的权限</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>列出指定目录的文件夹和文件</td>
+</tr>
+<tr>
+<td>touch</td>
+<td>用于创建纯文本文件</td>
+</tr>
+</tbody>
+</table>
+<p>一般地，当你打开一个终端后，你所在的文件夹是你的用户文件夹（<code>~</code>）。你可以使用 <code>cd</code> 命令移动到指定的目录（路径可以是绝对路径或相对路径），如：</p>
+<div class="highlight"><pre><span></span><code>[bh@c004-v1 ~]$ ls #列出当前目录的文件
+公共  模板  视频  图片  文档  下载  音乐  桌面  Applications  FolderA
+[bh@c004-v1 ~]$ cd Applications #移动到 Applications 子文件
+[bh@c004-v1 Applications]$ ls #列出当前目录的文件
+CFW  Icalingua-2.4.5.AppImage  mount.sh
+[bh@c004-v1 Applications]$ pwd #打印当前目录至输出
+/home/bh/Applications
+[bh@c004-v1 Applications]$ cd /usr/share/backgrounds #移动到 /usr/share/backgrounds
+[bh@c004-v1 backgrounds]$ ls #列出当前目录的文件
+default.png  default.xml  f35  images  wallhaven-967zyk.jpg  xfce
+[bh@c004-v1 backgrounds]$ pwd #打印当前目录至输出
+/usr/share/backgrounds
+[bh@c004-v1 backgrounds]$ cd ~ #回到用户主目录
+[bh@c004-v1 ~]$ pwd #打印当前目录至输出
+/home/bh
+</code></pre></div>
+<p>直接输入 <code>cd</code> 也可以立即回到用户主目录；你可以使用 <code>..</code> 表示上一级文件夹（相对路径），<code>.</code> 表示当前文件夹，如：</p>
+<div class="highlight"><pre><span></span><code>[bh@c004-v1 Applications]$ ls -lat
+总用量 111440
+drwx------. 1 bh bh       440  1月 18 16:22 ..
+-rwxrw-rw-. 1 bh bh       117  1月 12 11:35 mount.sh
+drwxr-xr-x. 1 bh bh        70  1月  8 14:54 .
+drwxr-xr-x. 1 bh bh       620  1月  8 13:47 CFW
+-rwxrwxrwx. 1 bh bh 114110270 12月 23 15:01 Icalingua-2.4.5.AppImage
+[bh@c004-v1 Applications]$ cd ..
+[bh@c004-v1 ~]$ pwd
+/home/bh
+
+[bh@c004-v1 Applications]$ cd ./CFW
+[bh@c004-v1 CFW]$ pwd
+/home/bh/Applications/CFW
+</code></pre></div>
+<p><code>mkdir</code> 用于创建文件夹，要在用户目录内新建一个名为 test 文件夹，只需要：</p>
+<div class="highlight"><pre><span></span><code>$ mkdir test #或者 mkdir ~/test
+</code></pre></div>
+<h2 id="使用元字符和运算符">使用元字符和运算符<a class="headerlink" href="#使用元字符和运算符" title="Permanent link">&para;</a></h2>
+<p>你可以使用元字符匹配一个或多个文件而无需输入完整的文件名。运算符可以帮助你将一个命令或文件的信息重定向至另一个文件或命令。</p>
+<h3 id="使用元字符匹配文件">使用元字符匹配文件<a class="headerlink" href="#使用元字符匹配文件" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>匹配任意数量的字母</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配任意一个字母</td>
+</tr>
+<tr>
+<td>[...]</td>
+<td>匹配括号之间的任何一个字符，可以包括连字符分隔的字母或数字范围</td>
+</tr>
+</tbody>
+</table>
+<p>例如，首先在 <code>~</code> 下创建一个文件夹 A1，然后移动至该文件夹，并使用 <code>touch</code> 创建一系列的纯文本文件：</p>
+<div class="highlight"><pre><span></span><code>[bh@c004-v1 A1]$ ls
+apple  banana  grape  grapefruit  watermelon
+[bh@c004-v1 A1]$ ls a*
+apple
+[bh@c004-v1 A1]$ ls g*t
+grapefruit
+[bh@c004-v1 A1]$ ls *e*
+apple  grape  grapefruit  watermelon
+</code></pre></div>
+<p>第二个命令会匹配以 a 开头的文件；第二个命令会匹配以 g 开头，t 结尾的文件，第二个命令会陪陪含有 e 字母的文件。</p>
+<div class="highlight"><pre><span></span><code>[bh@c004-v1 A1]$ ls ????e
+apple  grape
+[bh@c004-v1 A1]$ ls g???e*
+grape  grapefruit
+</code></pre></div>
+<p>第一个命令会匹配以 e 结尾，含有五个字母的文件；第二个则会匹配以 g 开头，以 e 作为第五个字母的文件。</p>
+<div class="highlight"><pre><span></span><code>[bh@c004-v1 A1]$ ls [abw]*
+apple  banana  watermelon
+[bh@c004-v1 A1]$ ls [agw]*[ne]
+apple  grape  watermelon
+[bh@c004-v1 A1]$ ls [a-g]*
+apple  banana  grape  grapefruit
+</code></pre></div>
+<p>第一个命令会匹配以括号内 a、b 或 w 开头的文件；第二个命令则会匹配以 a、g 或 w 开头，以 n 或 e 结尾的文件；第三个命令则会匹配以括号内 a 至 g 之间 7 个字母开头的文件。</p>
+<h3 id="使用元字符对文件重定向">使用元字符对文件重定向<a class="headerlink" href="#使用元字符对文件重定向" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>将文件的内容定向到命令。在大多数情况下，这是命令所期望的默认操作，字符的使用是可选的；使用 <code>less bigfile</code> 与 <code>less &lt; bigfile</code> 相同</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>将命令的标准输出定向到文件。如果文件存在，则覆盖该文件的内容。</td>
+</tr>
+<tr>
+<td>2&gt;</td>
+<td>将标准错误（错误消息）定向到文件。</td>
+</tr>
+<tr>
+<td>&amp;&gt;</td>
+<td>将标准输出和标准错误都指向文件。</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>将命令的输出定向到文件，并将输出添加到现有文件内容的末尾。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Linux 不仅所有东西都可以用文件夹或者文件表示，同时大量软件的配置文件、日志文件和错误日志都是纯文本。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; echo &quot;现在的时间是$(date)。&quot; &gt;&gt; ~/Test
+bh@localhost:~&gt; cat Test
+今天的天气非常好！
+现在的时间是2022年 01月 19日 星期三 13:26:07 CST。
+</code></pre></div>
+<p>如上，使用 <code>echo</code> 将 “现在的时间是 $(date)。” 打印到终端，然后使用 <code>&gt;&gt;</code> 将输出结果导入到 <code>~/Test</code> 文本文件的末尾（如果文件不存在，那命令会自动创建一个文件）。</p>
+<h3 id="使用花括号扩展字符">使用花括号扩展字符<a class="headerlink" href="#使用花括号扩展字符" title="Permanent link">&para;</a></h3>
+<p>通过使用花括号 (<code>{}</code>)，您可以在文件名、目录名或您提供命令的其他参数之间展开一组字符。例如，如果你想创建一组文件，例如 memo1 到 memo5，你可以这样做：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; mkdir TEST; cd TEST; touch sample{A,B,C,D}*{1,2,3,4}
+bh@localhost:~/TEST&gt; ls
+sampleA*1  sampleA*3  sampleB*1  sampleB*3  sampleC*1  sampleC*3  sampleD*1  sampleD*3
+sampleA*2  sampleA*4  sampleB*2  sampleB*4  sampleC*2  sampleC*4  sampleD*2  sampleD*4
+</code></pre></div>
+<p>如上，使用花括号可以创建一系列依照规定字符的文件。花括号也可以用于其他命令，比如查找具有特定特征的文件。要删除这些新建文件，可运行 <code>$ rm sample*</code>。</p>
+<h2 id="列出文件和路径">列出文件和路径<a class="headerlink" href="#列出文件和路径" title="Permanent link">&para;</a></h2>
+<p>你可以使用 <code>ls</code> 命令列举出当前所在目录的文件夹，如</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; ls -lat 
+总用量 48
+drwx------ 1 bh   bh    390  1月 19 13:39 .
+-rw-r--r-- 1 bh   bh      0  1月 19 13:39 test
+-rw------- 1 bh   bh     20  1月 19 13:18 .lesshst
+drwx------ 1 bh   bh    528  1月 19 13:17 .cache
+drwx------ 1 bh   bh   1482  1月 19 13:17 .config
+-rw-r--r-- 1 bh   bh    268  1月 19 13:17 .gtkrc-2.0
+-rw------- 1 bh   bh   1401  1月 19 11:21 .bash_history
+drwxr-xr-x 1 bh   bh    156  1月 19 11:19 图片
+drwxr-xr-x 1 bh   bh      0  1月 15 21:23 下载
+-rwxrwxrwx 1 bh   bh    117  1月 11 16:16 mount.sh
+... ...
+</code></pre></div>
+<p>第一列中类似 <code>drwx------</code> 这样一串的字符则表示了该项的属性。这一串字符由10个字符组成，第一个字符表示该项的属性，<code>d</code> 表示这是一个文件夹，<code>-</code> 表示这是一个文件，<code>l</code> 表示这个是一个符号链接。除此之外，你还可能会看到 <code>b</code>（表示块设备）、<code>c</code>（表示字符设备）、<code>s</code>（表示套接字）和 <code>p</code>（表示命名管道）。</p>
+<p>后九位表示该文件或文件夹的读取（read，<code>r</code>）、写入（write，<code>w</code>）、运行（execute，<code>x</code>）权限。如果没有权限，则相应的位置上会被 <code>-</code> 代替。例如文件所有者没有执行权限，则该串字符的前三个字符应该是 <code>rw-</code>。</p>
+<p>如果你是在终端应用程序中使用该命令，则文件、文件夹和符号链接会具有不同的颜色，其他的文件也可能会有不同于前三者的颜色以示区别。这是因为你在终端中使用的 <code>ls</code> 默认带有一个 <code>--color=auto</code> 的选项。</p>
+<p>第二列是连接到该文件夹或文件的硬连接数量，第三和第四列是该文件或文件夹所有者的用户名与主要的用户组名。第五列是文件或文件夹大小（以比特为单位，它并不能显示文件的准确大小，建议你还是直接打开文件管理器看看实际准确大小），第六列是最近一次修改文件夹或文件的时间和日期（时间和日期的显示方式会因为语言的不同而不同）。</p>
+<p>文件名和目录名显示在最后一列中。此外，<code>.</code> 表示当前文件夹，<code>..</code> 表示上一层的文件夹。以 <code>.</code> 开头的东西是隐藏的文件或文件夹。</p>
+<p>更多有关 <code>ls</code> 的内容，请翻阅 <code>$ man ls</code>。</p>
+<h2 id="理解文件权限和所有权">理解文件权限和所有权<a class="headerlink" href="#理解文件权限和所有权" title="Permanent link">&para;</a></h2>
+<p><code>ls -lat</code> 中显示的那一串 10 位字符的后九位定义了该文件或文件夹的权限，决定了用户对于该文件是否具有读写执行的权限。这九个字符的前三个定义了文件所有者的权限，中间三个字符定义了文件所属的用户组的权限，最后三个字符定了其他用户的权限。</p>
+<p>以下是三种权限的用途：</p>
+<table>
+<thead>
+<tr>
+<th>权限名</th>
+<th>文件</th>
+<th>文件夹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read（读取）</td>
+<td>浏览该文件的内容</td>
+<td>浏览该文件夹和其子文件夹</td>
+</tr>
+<tr>
+<td>Write（写入）</td>
+<td>更改文件的内容、名称或删除该文件</td>
+<td>向该文件夹添加子文件夹或文件，或删除文件和子文件夹</td>
+</tr>
+<tr>
+<td>Execute（执行）</td>
+<td>将该文件作为程序运行</td>
+<td>将目录更改为当前目录，搜索目录，或从目录执行程序。访问该目录中文件的文件元数据（文件大小、时间戳等）</td>
+</tr>
+</tbody>
+</table>
+<p>要查看特定文件夹或文件的权限，你可以使用 <code>ls -ld</code>，如：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; ls -ld Applications test
+drwxr-xr-x 1 bh bh 194  1月 15 20:53 Applications
+-rw-r--r-- 1 bh bh   0  1月 19 14:31 test
+</code></pre></div>
+<p>如上，Applications 文件夹归属于 <code>bh</code> 用户组，所有者是 <code>bh</code> 并具备完整的读写与执行权限；<code>bh</code> 用户组的用户只能读取或执行该文件夹，其他用户也只能读取和执行该文件夹。文件 test 归属于 <code>bh</code> 用户组，所有者是 <code>bh</code>，但只具有读写权限（这表示文件所有者不能将该文件作为程序运行）；<code>bh</code> 用户组的用户和其他用户均只能读取该文件，没有其他权限。</p>
+<h3 id="更改文件权限">更改文件权限<a class="headerlink" href="#更改文件权限" title="Permanent link">&para;</a></h3>
+<p>你可以使用 <code>chmod</code> 修改文件夹或文件的所有者、所属组和其他用户权限。<code>chmod</code> 有两个操作方式，一种是使用数字表示权限，一种是使用字母表示权限。如下：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; ls -ld test
+-rw-r--r-- 1 bh bh 0  1月 19 14:31 test
+bh@localhost:~&gt; chmod 666 test
+bh@localhost:~&gt; ls -ld test
+-rw-rw-rw- 1 bh bh 0  1月 19 14:31 test
+</code></pre></div>
+<p>如上，<code>666</code> 表示的权限就是 <code>rw-rw-rw-</code>，使用 <code>-R</code> 选项可以将这个命令的效果应用到整个文件夹及其子文件夹中，例如：<code>$ chmod -R 666 ~/下载</code>。具体的权限组合请查阅下表：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>数字</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>---</code></td>
+<td>0</td>
+<td>无权限</td>
+</tr>
+<tr>
+<td><code>--x</code></td>
+<td>1</td>
+<td>只执行</td>
+</tr>
+<tr>
+<td><code>-w-</code></td>
+<td>2</td>
+<td>只写</td>
+</tr>
+<tr>
+<td><code>r--</code></td>
+<td>4</td>
+<td>只读</td>
+</tr>
+<tr>
+<td><code>r-x</code></td>
+<td>5</td>
+<td>只读，只执行</td>
+</tr>
+<tr>
+<td><code>rw-</code></td>
+<td>6</td>
+<td>只读写</td>
+</tr>
+<tr>
+<td><code>rwx</code></td>
+<td>7</td>
+<td>完整权限</td>
+</tr>
+</tbody>
+</table>
+<p>第二种方式是使用字母，它的好处就是没有好处，因为人会健忘。要么你选择背权限数值，要么你得多记几个选项。(¬‿¬)</p>
+<p>第二种方法中，添加权限是 <code>+</code>，删除权限是 <code>-</code>。所有者是 user（<code>u</code>），用户组是 group（<code>g</code>），其他用户是 others（<code>o</code>），所有人则是 all（<code>a</code>）。</p>
+<p>然后就是“编辑对象 + 操作 + 权限”的组合结构。比如，<code>a-w</code> 的含义就是撤销所有人对于该文件或文件夹的写入权限。<code>go+x</code> 的含义就是赋予文件或文件夹所属的用户组和其他用户该文件夹的执行权限。</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; touch test; ls -ld test
+-rw-r--r-- 1 bh bh 0  1月 19 15:09 test
+bh@localhost:~&gt; chmod go+x test
+bh@localhost:~&gt; ls -ld test
+-rw-r-xr-x 1 bh bh 0  1月 19 15:09 test
+</code></pre></div>
+<p>如上，新建一个 <code>rw-r--r--</code> 的文件 test，然后赋予文件或文件夹所属的用户组和其他用户该文件夹的执行权限。此处的 test 是一个参数（相对路径），你也可以将其替换成绝对路径。</p>
+<ul>
+<li>注意，请不要随意更改你的用户文件夹（<code>~</code>）以外的任意文件夹的权限，除非你知道你在干什么，否则别瞎搞。</li>
+</ul>
+<h3 id="使用-umask-设置文件的默认权限">使用 umask 设置文件的默认权限<a class="headerlink" href="#使用-umask-设置文件的默认权限" title="Permanent link">&para;</a></h3>
+<p>当你创建一个文件夹或文件的时候，这个文件夹所具有的初始权限由 <code>umask</code> 的值定义。打开终端，输入 <code>$ umask</code> 你就能看到一串四位数。忽略掉第一个 0。剩下的数就是你的默认文件权限的相反数。例如：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; umask
+0022
+bh@localhost:~&gt; mkdir A1; ls -ld A1
+drwxr-xr-x 1 bh bh 0  1月 19 15:26 A1
+</code></pre></div>
+<p>此处显示的 umask 值是 022，一个所有人都具有完整权限的文件夹的权限值是 777。777 - 022 = 755，此时新建文件夹的权限就是 <code>rwxr-xr-x</code>。</p>
+<p>你可以使用 <code>$ umask &lt;数字&gt;&lt;数字&gt;&lt;数字&gt;&lt;数字&gt;</code> 的形式临时修改 umask 值，然后新建的文件夹都会遵循这个值的限制。要永久修改 umask 值，你需要将此命令写入到 <code>.bashrc</code> 文件中。</p>
+<h3 id="更改文件所有权">更改文件所有权<a class="headerlink" href="#更改文件所有权" title="Permanent link">&para;</a></h3>
+<p>你可以使用 <code>chown</code> 修改一个文件的所有者，所属的用户组。先确定用户名和用户组，然后指定文件或文件夹所在位置（可以使用相对路径，但请确保路径是正确的），如下：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; ls -ld test
+-rw-r--r-- 1 bh bh 0  1月 19 15:31 test
+bh@localhost:~&gt; sudo chown root:root /home/bh/test
+[sudo] root 的密码：
+bh@localhost:~&gt; ls -ld test
+-rw-r--r-- 1 root root 0  1月 19 15:31 test
+</code></pre></div>
+<p>类似地，你还可以使用 <code>-R</code> 选项将这个更改应用到此文件夹的子文件和子文件。</p>
+<h2 id="移动复制和删除文件">移动、复制和删除文件<a class="headerlink" href="#移动复制和删除文件" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mv</td>
+<td>移动文件至指定位置</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>复制文件至指定位置</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>读取文本文件</td>
+</tr>
+</tbody>
+</table>
+<p><code>mv</code> + 要移动的文件的路径 + 目的地的路径</p>
+<p><code>cp</code> + 要移动的文件的路径 + 目的地的路径</p>
+<p><code>rm -r</code> + 要删除的文件夹的路径</p>
+<p><code>cat</code> + 要读取的文本文件路径</p>
+<p>更多信息请使用 <code>man</code> 阅读用户手册，例如 <code>man cp</code></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-12-14 11:17:13</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-01-17 14:29:57</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+  data-repo="linuxhitchhiker/THGLG"
+  data-repo-id="R_kgDOGrdtuw"
+  data-category="giscus"
+  data-category-id="DIC_kwDOGrdtu84CTEdX"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+
+
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../base1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用 shell" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              使用 shell
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../base3/" class="md-footer__link md-footer__link--next" aria-label="下一页: 运用文本文件" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              运用文本文件
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2022 Linux 银河漫游指南贡献者，在 CC-BY-SA 4.0 下提供。
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

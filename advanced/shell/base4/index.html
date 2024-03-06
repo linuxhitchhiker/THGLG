@@ -1,0 +1,2323 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>管理运行进程 - Linux 银河漫游指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#2094f3">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#管理运行进程" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-header__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux 银河漫游指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              管理运行进程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        主页
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../entry/prologue/switch-to-linux/" class="md-tabs__link">
+        入门指南
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        进阶教程
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../poweruser/" class="md-tabs__link">
+        高级教程
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../solution/eyecandy/" class="md-tabs__link">
+        解决方案
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../help/faq/" class="md-tabs__link">
+        寻求帮助
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        关于
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Linux 银河漫游指南" class="md-nav__button md-logo" aria-label="Linux 银河漫游指南" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Linux 银河漫游指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/linuxhitchhiker/THGLG" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          主页
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="主页" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          主页
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        欢迎
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../intro/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          入门指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="入门指南" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          入门指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          序言
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="序言" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          序言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/switch-to-linux/" class="md-nav__link">
+        切换到 Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/choose-distro/" class="md-nav__link">
+        Linux 发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/prologue/desktop-environment/" class="md-nav__link">
+        桌面环境简介
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          安装系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安装系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/pre-install/" class="md-nav__link">
+        安装前准备
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/verify/" class="md-nav__link">
+        校验文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/virtual-machine/" class="md-nav__link">
+        虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/fedora/" class="md-nav__link">
+        Fedora 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/fedora-silverblue/" class="md-nav__link">
+        Fedora Silverblue 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../entry/installation/opensuse/" class="md-nav__link">
+        openSUSE 安装指南
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          进阶教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="进阶教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          进阶教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          使用命令行
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="使用命令行" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          使用命令行
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base1/" class="md-nav__link">
+        使用 shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base2/" class="md-nav__link">
+        Linux 文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base3/" class="md-nav__link">
+        运用文本文件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          管理运行进程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        管理运行进程
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#理解进程" class="md-nav__link">
+    理解进程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#列举进程" class="md-nav__link">
+    列举进程
+  </a>
+  
+    <nav class="md-nav" aria-label="列举进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-ps-列出进程" class="md-nav__link">
+    使用 ps 列出进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-top-列出和更改进程" class="md-nav__link">
+    使用 top 列出和更改进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-htop-列出进程" class="md-nav__link">
+    使用 Htop 列出进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用系统监视器列出进程" class="md-nav__link">
+    使用系统监视器列出进程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#管理后台和前台进程" class="md-nav__link">
+    管理后台和前台进程
+  </a>
+  
+    <nav class="md-nav" aria-label="管理后台和前台进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#运行后台进程" class="md-nav__link">
+    运行后台进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#将命令切换到前台" class="md-nav__link">
+    将命令切换到前台
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#强制终止和调整优先级" class="md-nav__link">
+    强制终止和调整优先级
+  </a>
+  
+    <nav class="md-nav" aria-label="强制终止和调整优先级">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-kill-和-killall-终止进程" class="md-nav__link">
+    使用 kill 和 killall 终止进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-nice-和-renice-设置进程优先级" class="md-nav__link">
+    使用 nice 和 renice 设置进程优先级
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用-cgroup-限制进程" class="md-nav__link">
+    使用 cgroup 限制进程
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base5/" class="md-nav__link">
+        编写简单的 Shell 脚本
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          配置系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="配置系统" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          配置系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/update-sys/" class="md-nav__link">
+        更新系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/package-manager/" class="md-nav__link">
+        包管理器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/setup-proxy/" class="md-nav__link">
+        设置网络代理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/nvidia-driver/" class="md-nav__link">
+        独显驱动
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/firewall/" class="md-nav__link">
+        防火墙
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-admin/systemctl/" class="md-nav__link">
+        使用 systemctl 管理服务
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          再次入门
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="再次入门" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          再次入门
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/distro/" class="md-nav__link">
+        选择发行版
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/repo-and-mirror/" class="md-nav__link">
+        软件源与镜像源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/disk-and-fs/" class="md-nav__link">
+        硬盘与文件系统
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../re-entry/extend/" class="md-nav__link">
+        扩展阅读
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          高级教程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高级教程" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          高级教程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../poweruser/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          解决方案
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="解决方案" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          解决方案
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          系统美化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统美化" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          系统美化
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-kde/" class="md-nav__link">
+        KDE 美化
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/eyecandy/eyecandy-xfce4/" class="md-nav__link">
+        Xfce4 美化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          软件
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="软件" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          软件
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/browser/" class="md-nav__link">
+        浏览器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/instant-messaging/" class="md-nav__link">
+        即时通讯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/office-and-email/" class="md-nav__link">
+        文档办公
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/multimedia-editing/" class="md-nav__link">
+        多媒体相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/download-manager/" class="md-nav__link">
+        下载器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/linux-game/" class="md-nav__link">
+        游戏
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/appimage-base/" class="md-nav__link">
+        Appimage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/software/flatpak-get-start/" class="md-nav__link">
+        Flatpak
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          系统配置
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="系统配置" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          系统配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/hidpi/" class="md-nav__link">
+        HiDPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/config/dual-boot/" class="md-nav__link">
+        双系统
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4">
+          跨系统兼容
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="跨系统兼容" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          跨系统兼容
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/about/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../solution/compatibility/virtual-machine/" class="md-nav__link">
+        搭建虚拟机
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          寻求帮助
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="寻求帮助" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          寻求帮助
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../help/howto-ask-for-help/" class="md-nav__link">
+        如何提问
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          关于
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="关于" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          关于
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        许可协议
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_3" type="checkbox" id="__nav_7_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7_3">
+          贡献指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="贡献指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          贡献指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/" class="md-nav__link">
+        快速指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-01/" class="md-nav__link">
+        慢速开始 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/contributing/base-02/" class="md-nav__link">
+        慢速开始 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#理解进程" class="md-nav__link">
+    理解进程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#列举进程" class="md-nav__link">
+    列举进程
+  </a>
+  
+    <nav class="md-nav" aria-label="列举进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-ps-列出进程" class="md-nav__link">
+    使用 ps 列出进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-top-列出和更改进程" class="md-nav__link">
+    使用 top 列出和更改进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-htop-列出进程" class="md-nav__link">
+    使用 Htop 列出进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用系统监视器列出进程" class="md-nav__link">
+    使用系统监视器列出进程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#管理后台和前台进程" class="md-nav__link">
+    管理后台和前台进程
+  </a>
+  
+    <nav class="md-nav" aria-label="管理后台和前台进程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#运行后台进程" class="md-nav__link">
+    运行后台进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#将命令切换到前台" class="md-nav__link">
+    将命令切换到前台
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#强制终止和调整优先级" class="md-nav__link">
+    强制终止和调整优先级
+  </a>
+  
+    <nav class="md-nav" aria-label="强制终止和调整优先级">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#使用-kill-和-killall-终止进程" class="md-nav__link">
+    使用 kill 和 killall 终止进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#使用-nice-和-renice-设置进程优先级" class="md-nav__link">
+    使用 nice 和 renice 设置进程优先级
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#使用-cgroup-限制进程" class="md-nav__link">
+    使用 cgroup 限制进程
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/linuxhitchhiker/THGLG/edit/main/docs/advanced/shell/base4.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="管理运行进程">管理运行进程<a class="headerlink" href="#管理运行进程" title="Permanent link">&para;</a></h1>
+<h2 id="理解进程">理解进程<a class="headerlink" href="#理解进程" title="Permanent link">&para;</a></h2>
+<p>Linux 是一个多用户系统，支持许多程序同时运行。</p>
+<p>进程（process）是命令的运行实例。例如，系统上可能有一个 <code>nano</code> 命令。但如果 <code>nano</code> 当前由 15 个不同的用户运行，则该命令由 15 个不同的运行进程表示。</p>
+<p>每一个的进程都会有一个独一无二的 PID（进程标识符，process ID），Linux 使用 PID 识别进程，并将同一程序的不同进程进行区分。当进程结束后，PID 就会被系统回收，分配给新的进程。</p>
+<p>除了 PID，一个进程还会具有其他的属性，如，进程所属的用户和用户组，这将决定系统如何为一个进程分配系统资源。管理进程是 Linux 系统管理员的重要技能之一。</p>
+<h2 id="列举进程">列举进程<a class="headerlink" href="#列举进程" title="Permanent link">&para;</a></h2>
+<h3 id="使用-ps-列出进程">使用 ps 列出进程<a class="headerlink" href="#使用-ps-列出进程" title="Permanent link">&para;</a></h3>
+<p>在命令行界面中，最常用于列出运行进程的命令行工具是 <code>ps</code>。使用该命令即可查看正在运行的进程。</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; ps u
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+bh         2400  0.0  0.1   9968  6372 pts/1    Ss   15:55   0:00 /bin/bash
+bh         2447  100  0.0  10520  3676 pts/1    R+   15:55   0:00 ps u
+</code></pre></div>
+<p>如上，<code>u</code> 或 <code>-u</code> 选项用于显示用户名和其他信息，如进程开始的时间、与归属于当前用户的进程的 CPU 和内存使用情况。上述显示的进程均和当前的终端（<code>tty1</code>）关联在一起。在图形化界面未发明之前，人们都是通过字符终端控制系统，一个终端通常就代表一个用户。如今，通过在桌面上打开多个虚拟终端或终端窗口，你可以在一个屏幕上拥有多个“终端”。如上终端设备 <code>tty1</code> 正在用于登录会话。</p>
+<p><code>USER</code> 列显示了启动该进程的用户名。<code>PID</code> 列显示进程的 PID。你可以通过将 PID 作为参数指定进程管理命令对使用该 PID 的进程发送相关的信号（如，重启、结束或挂起）。<code>%CPU</code> 和 <code>%MEM</code> 列显示了进程使用的 CPU 资源和 RAM 资源（按百分比计算）。</p>
+<p><code>VSZ</code>（虚拟集大小）显示图像进程（image process）的大小（以千字节 kb 为单位），<code>RSS</code>（驻留集大小）显示进程占用物理内存的大小。<code>VSZ</code> 和 <code>RSS</code> 的大小可能不同，因为 <code>VSZ</code> 是为进程分配的内存量，而 <code>RSS</code> 是实际使用的内存量。<code>RSS</code> 内存表示不能交换的物理内存。</p>
+<p><code>STAT</code> 列代表了进程的状态，<code>R</code> 表示正在运行，<code>S</code> 表示该进程已经睡眠。<code>START</code> 显示了进程开始运行的时间，<code>TIME</code> 显示进程累积使用的系统时间（许多命令消耗的 CPU 时间非常短暂，所以 TIME 为 00:00）。</p>
+<p>除了以上的这些进程，Linux 系统还有很多不关联终端的进程。这些在后台运行的进程处理着大量事务（比如发现新设备、启动时唤醒图形界面和管理系统资源）。它们随着系统的启动而运行，随着系统关闭或用户注销（部分后台进程不会因为用户注销而停止）而停止。</p>
+<p>要以当前用户的身份查看 Linux 系统上运行的所有进程，键入：</p>
+<div class="highlight"><pre><span></span><code>$ ps ux | less
+</code></pre></div>
+<p>要查看所有的进程，键入：</p>
+<div class="highlight"><pre><span></span><code>$ ps aux | less
+</code></pre></div>
+<p>你可以使用 <code>-o</code> 选项和 <code>--sort</code> 选项对 ps 的输出结果进行修改和排序。如：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; ps -eo pid,user,uid,group,gid,vsz,rss,comm | less
+   PID USER       UID GROUP      GID    VSZ   RSS COMMAND
+     1 root         0 root         0 167048 14080 systemd
+     2 root         0 root         0      0     0 kthreadd
+     3 root         0 root         0      0     0 rcu_gp
+     4 root         0 root         0      0     0 rcu_par_gp
+     6 root         0 root         0      0     0 kworker/0:0H-events_highpri
+... ...
+bh@localhost:~&gt; ps -eo pid,user,group,gid,vsz,rss,comm --sort=-vsz | head
+   PID USER     GROUP      GID    VSZ   RSS COMMAND
+  1543 bh       bh        1000 268746444 32796 baloo_file
+  1773 bh       bh        1000 25530864 191624 cfw
+  1577 bh       bh        1000 21425924 152472 cfw
+... ...
+</code></pre></div>
+<p>如上，<code>-e</code> 选项能列出全部的进程，<code>--sort=-vsz</code> 选项将输出按 <code>VSZ</code> 进行降序排列。</p>
+<p>是不是看着很繁琐，且你无法查看实时运行情况？</p>
+<h3 id="使用-top-列出和更改进程">使用 top 列出和更改进程<a class="headerlink" href="#使用-top-列出和更改进程" title="Permanent link">&para;</a></h3>
+<p><code>top</code> 也是一个常用的命令，用于实时查看进程和系统概况：</p>
+<p><img alt="TOP" src="../assets/top.png" /></p>
+<p><code>top</code> 命令默认根据进程消耗的 CPU 资源（<code>%CPU</code>）进行排序。在发现异常进程后，你可以使用 <code>top</code> 终止进程（<code>kill</code>）或者重新设定进程优先级（<code>renice</code>）。</p>
+<p>如果你希望能够终止或取消任何进程，则需要以 root 用户身份运行 top。如果你只想显示进程并可能终止或更改你自己的进程，你可以普通用户的身份执行此操作。</p>
+<p>有关系统的概况显示在 <code>top</code> 输出的顶部，然后是有关每个正在运行的进程的信息（或至少与屏幕上显示的一样多）。你可以使用 <code>top</code> 查看系统运行了多长时间，当前有多少用户登录到系统，以及过去 1、5 和 10 分钟的系统平均负载。其他概况信息包括当前正在运行的进程（任务）数量、正在使用的 CPU 数量以及可用和正在使用的 RAM 和 SWAP 空间。</p>
+<p>概况信息的下方是进程列表，该列表按每个进程使用的 CPU 百分比排序。默认情况下，所有这些信息每 5 秒重新刷新一次。按 h 键查看帮助选项，然后按 q 或 Esc 键返回 <code>top</code> 输出界面。</p>
+<p>按下 k 键，然后输入进程的 PID 即可杀死（强制终止）该进程。</p>
+<h3 id="使用-htop-列出进程">使用 Htop 列出进程<a class="headerlink" href="#使用-htop-列出进程" title="Permanent link">&para;</a></h3>
+<p><code>htop</code> 是一个类似 <code>top</code> 的进程管理器，支持使用鼠标控制进程。</p>
+<p><img alt="htop" src="../assets/htop.png" /></p>
+<ul>
+<li>在 openSUSE 上安装 <code>htop</code>：<code>$ sudo zypper in htop</code></li>
+<li>在 Fedora 上安装 <code>htop</code>：<code>$ sudo dnf in htop</code></li>
+</ul>
+<p>要启动 htop，只需要输入命令：<code>htop</code> 即可。</p>
+<p>你可以使用鼠标点击选中某个进程，然后再点击底栏的按钮（如 <code>Nice -</code>、<code>Nice +</code> 或 <code>Kill</code>）对进程进行管理。要退出 <code>htop</code>，点击底栏最右侧的 <code>Quit</code> 或按 q 键退出。</p>
+<h3 id="使用系统监视器列出进程">使用系统监视器列出进程<a class="headerlink" href="#使用系统监视器列出进程" title="Permanent link">&para;</a></h3>
+<p>每个桌面环境都有一个图形化系统监视器用于管理进程。 KDE 桌面默认使用 <code>plasma-systemmonitor</code>，xfce4 桌面默认使用 <code>xfce4-taskmanager</code>，gnome 桌面环境默认使用 <code>gnome-system-monitor</code>。</p>
+<p>以 <code>plasma-systemmonitor</code> 为例，打开该应用程序，在左侧点击<strong>进程</strong>，进入进程页面。你可以点击顶栏，将进程按照某一要求（如进程名，内存使用量）进行升序或降序排序。然后鼠标右键点击你要控制的进程，然后<strong>发送信号</strong>（如待机、挂起或强制终止等）至进程。</p>
+<h2 id="管理后台和前台进程">管理后台和前台进程<a class="headerlink" href="#管理后台和前台进程" title="Permanent link">&para;</a></h2>
+<p>在图形化界面中，你可以同时运行多个程序，然后在它们之间不断切换。在命令行界面中，你所看到的似乎就是你所运行的全部程序。</p>
+<p>虽然 shell 不能让你同时运行多个程序，但允许你把活跃的进程移动至后台或前台。这样你就能同时运行多个程序，并处理其中的一个活动进程。</p>
+<h3 id="运行后台进程">运行后台进程<a class="headerlink" href="#运行后台进程" title="Permanent link">&para;</a></h3>
+<p>要将进程放至到后台，你可以在命令运行的时候，按下快捷键 <code>Ctrl + Z</code> 或在输入的命令末尾加上 <code>&amp;</code>，如：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; find ~ &gt; ~/filelist &amp;
+[3] 8855
+</code></pre></div>
+<p>如上，该命令会将你用户目录（<code>$HOME</code>）下的所有文件都打印出来，然后导入到 同一目录的 <code>filelist</code> 纯文本文件中，该命令是在后台运行。在将进程放至后台时，你可以同时看到和该进程相关的 job 值（<code>[3]</code>）和进程 ID（<code>8855</code>）。要查看当前后台运行的进程，请输入 <code>jobs</code>：</p>
+<div class="highlight"><pre><span></span><code>bh@localhost:~&gt; jobs
+[1]-  已停止               sudo zypper ref
+[2]+  已停止               htop
+[3]   已完成               find ~ &gt; ~/filelist
+</code></pre></div>
+<p>如上，第一个进程（Job 1）是一个刷新元数据的进程，第二个进程是 <code>htop</code>，第三个进程则是刚刚放至后台的 <code>find</code>。</p>
+<p>紧随 job 数字后加号 (+) 表示它最近被放置在后台中，减号 (-) 表明它在最近的后台进程被放置到后台之前就已经被放置在后台。前两个任务因为都需要终端的输入，所以它们无法在后台运行，只能进入<code>已停止</code>的状态，直到用户将它们切换到前台。第三个命令由于不需要终端的输入，所以它在完成任务后，会自动退出（并显示<code>已完成</code>）。</p>
+<h3 id="将命令切换到前台">将命令切换到前台<a class="headerlink" href="#将命令切换到前台" title="Permanent link">&para;</a></h3>
+<p>你可以使用 <code>fg</code> 命令将特定的进程切换到前台，如上文的中例子，要将第二个进程切换到前台，你可以输入：<code>$ fg 2</code>。</p>
+<h2 id="强制终止和调整优先级">强制终止和调整优先级<a class="headerlink" href="#强制终止和调整优先级" title="Permanent link">&para;</a></h2>
+<h3 id="使用-kill-和-killall-终止进程">使用 kill 和 killall 终止进程<a class="headerlink" href="#使用-kill-和-killall-终止进程" title="Permanent link">&para;</a></h3>
+<p>你可以使用 <code>kill</code> 或 <code>killall</code> 向特定的进程发送一个终止信号（signal）。</p>
+<p>在使用 <code>ps</code> 或 <code>top</code> 之类的命令确定你要终止的进程后，你可以使用 <code>kill</code> 和该进程的 PID 来结束此进程。例如：</p>
+<div class="highlight"><pre><span></span><code>[bh@c004-v1 ~]$ ps
+    PID TTY          TIME CMD
+   2225 pts/0    00:00:00 bash
+   2257 pts/0    00:00:00 htop
+   2299 pts/0    00:00:00 ps
+[bh@c004-v1 ~]$ kill 2257
+</code></pre></div>
+<p>除了用于告诉进程中止的信号外，还有其他可用于告诉进程重新读取配置文件、暂停或挂起后继续的信号。信号用数字和名称表示，最为常见的信号包括 <code>SIGKILL (9)</code>、<code>SIGTERM (15)</code> 和 <code>SIGHUP (1)</code>。默认的信号是用于完全中止进程的 <code>SIGTERM</code>。<code>SIGKILL</code> 可用于完全中止进程；<code>SIGHUP</code> 可用于让进程重新读取配置文件；<code>SIGSTOP</code> 可用于暂停进程；<code>SIGCONT</code> 可用于继续运行已暂停的进程。</p>
+<p>不同的进程对于信号的反应是不一样，但进程都无法屏蔽 <code>SIGKILL</code> 和 <code>SIGSTOP</code> 信号。一些信号的样例如下所示（键入 <code>$ man 7 signal</code> 获取更多信息）：</p>
+<table>
+<thead>
+<tr>
+<th>信号</th>
+<th>数字</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>检测到控制终端挂起或控制进程中止。</td>
+</tr>
+<tr>
+<td>SIGINT</td>
+<td>2</td>
+<td>从键盘中断。</td>
+</tr>
+<tr>
+<td>SIGQUIT</td>
+<td>3</td>
+<td>退出键盘。</td>
+</tr>
+<tr>
+<td>SIGABRT</td>
+<td>6</td>
+<td>来自 abort(3) 的中止信号。</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>中止信号。</td>
+</tr>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>终止信号。</td>
+</tr>
+<tr>
+<td>SIGCONT</td>
+<td>19,18,25</td>
+<td>如果暂停则继续</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>17,19,23</td>
+<td>暂停进程</td>
+</tr>
+</tbody>
+</table>
+<p>注意，由于架构的差异，<code>SIGCONT</code> 和 <code>SIGSTOP</code> 具有不同的值，第一个值适用于 Alpha 和 SPARC 架构，第二个值适用于 x86 和 Power 架构，第三个值适用于 MIPS 架构。</p>
+<div class="highlight"><pre><span></span><code>$ kill 2257
+$ kill -15 2257
+$ kill -SIGKILL 2257
+</code></pre></div>
+<p>紧接上文的例子，<code>kill</code> 命令默认发送的信号是 <code>SIGTERM (15)</code>。你可以使用 <code>-</code> 和数字或者信号名称改变 <code>kill</code> 命令发送的信号。另一个有用的信号是 <code>SIGHUP (1)</code>，你可以使用此命令在某程序崩溃时，让该程序重新读取配置文件并重启，如重启 gnome-shell：</p>
+<div class="highlight"><pre><span></span><code># kill -1 1833 #此处假定 gnome-shell 的 PID 是 1833。
+# killall -HUP gnome-shell
+</code></pre></div>
+<p><code>killall</code> 命令和 <code>kill</code> 类似。不同之处在于，<code>killall</code> 允许你使用进程名字作为命令参数，向匹配关键字的进程发送信号。缺点是，这会杀死所有同名的进程，并误伤正常运行的进程。</p>
+<h3 id="使用-nice-和-renice-设置进程优先级">使用 nice 和 renice 设置进程优先级<a class="headerlink" href="#使用-nice-和-renice-设置进程优先级" title="Permanent link">&para;</a></h3>
+<p>Linux Kernel 的一项工作是将计算机资源（CPU、RAM）分配给各个进程，而各个进程所能获得资源由 <code>nice</code> 值决定。每一个进程都有 nice 值，其取值范围是 -20 至 19，默认值是 0。</p>
+<ul>
+<li>nice 值越小，进程能获得 CPU 资源就越多。</li>
+<li>普通用户只能将 nice 设置为 0~19 之间的数值，不能设置为负值。</li>
+<li>普通用户只能将 nice 值设置为更高的值，负值和比原始值更低的 nice 值是不允许的操作。</li>
+<li>普通用户只能调整属于他自己的进程的 nice 值。</li>
+<li>root 用户或系统管理员（<code>wheel</code> 用户组成员）不受以上限制。</li>
+</ul>
+<p>你可以使用 <code>nice</code> 为一个进程设定 nice 值，然后使用 <code>renice</code> 重新设置该进程的 nice 值。注意，如上所述，你可能需要管理员权限才能运行这两个命令。</p>
+<div class="highlight"><pre><span></span><code># nice -n +5 updatedb &amp;
+# renice -n -5 20284
+</code></pre></div>
+<p>如上，要将 <code>updatedb</code> 的 nice 值设置为 5，你需要使用 <code>-n</code> 选项，将 <code>+5</code> 作为参数。要将 <code>updatedb</code> 的 nice 值调整为 -5，你需要使用 <code>-n</code> 选项，将 <code>-5</code> 作为参数。然后你就在 <code>top</code> 命令中看到 <code>updatedb</code> 进程（因为它具有很高的优先级）。</p>
+<ul>
+<li><code>updatedb</code> 命令用于收集文件系统的文件名生成供 <code>locate</code> 命令使用的数据库文件。</li>
+</ul>
+<h2 id="使用-cgroup-限制进程">使用 cgroup 限制进程<a class="headerlink" href="#使用-cgroup-限制进程" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>cgroup 知识属于系统管理员的范围，以下内容仅作了解内容。</p>
+</blockquote>
+<p><code>nice</code> 命令只能设置单一进程的优先级，而 Linux 系统或应用程序要正常运作是由大量进程所组成的。所以此时你需要使用 <code>cgroup</code> 命令。</p>
+<p>Cgroups 可用于将进程标识为属于特定的控制组的任务。你可以设置具有层次结构的任务 (Tasks)，例如，可能有一个称为守护进程的任务，它为所有守护进程服务器的进程设置默认限制，然后是子任务 (subtasks)，可以为 FTP 服务守护进程 (<code>vsftpd</code>) 的 Web 服务器守护进程 (<code>httpd</code>) 设置特定限制。</p>
+<p>当一个任务启动一个进程时，初始进程启动的其他进程（称为子进程）会继承父进程具有的限制。这些限制可能表明控制组中的所有进程只能访问特定的处理器和某些 RAM 集，或者他们可能只允许访问最多 30% 的机器总处理能力。</p>
+<p>cgroup 可以设置限制的资源类型如下：</p>
+<ul>
+<li>储存（<code>blkio</code>）：限制对存储设备（如硬盘、USB 驱动器等）的总输入和输出访问。</li>
+<li>处理器调度（<code>cpu</code>）：指定一个 cgroup 任务的访问量，以安排处理能力。</li>
+<li>进程会计（<code>cpuacct</code>）：CPU 使用情况报告。可以利用此信息向客户收取他们使用的处理能力的费用。</li>
+<li>CPU 分配（<code>cpuset</code>）：在具有多个 CPU 内核的系统上，将任务分配给一组特定的处理器和相关的内存。</li>
+<li>设备访问（<code>devices</code>）：允许 cgroup 中的任务打开或创建 (mknod) 选定的设备类型。</li>
+<li>暂停/恢复（<code>freezer</code>）：暂停或恢复 cgroup 任务。</li>
+<li>内存使用（<code>memory</code>）：按任务限制内存使用。它还创建有关使用的内存资源的报告。</li>
+<li>网络带宽（<code>net_cls</code>）：限制对选定 cgroup 任务的网络访问。这是通过标记网络数据包来识别发起数据包的 cgroup 任务并让 Linux 流量控制器监控和限制来自每个 cgroup 的数据包来完成的。</li>
+<li>网络流量（<code>net_prio</code>）：设置来自选定 cgroup 的网络流量的优先级，并允许管理员动态更改这些优先级。</li>
+<li>名字空间（<code>ns</code>）：将 cgroup 分隔为名字空间，因此一个 cgroup 中的进程只能看到与该 cgroup 关联的名字空间。命名空间可以包括单独的进程表、挂载表和网络接口。</li>
+</ul>
+<p>有关于 cgroup 更深入的内容，详见：</p>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/resource_management_guide/index">Red Hat Enterprise Linux Resource Management and Linux Containers Guide</a></li>
+<li>内核文档：<code>/usr/share/doc/kernel-doc-*/Documentation/cgroups</code>（你需要先安装 <code>kernel-doc</code> 以获取这些文档。）</li>
+</ul>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-12-14 11:17:13</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-01-22 03:20:45</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+  data-repo="linuxhitchhiker/THGLG"
+  data-repo-id="R_kgDOGrdtuw"
+  data-category="giscus"
+  data-category-id="DIC_kwDOGrdtu84CTEdX"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+
+
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      
+        
+        <a href="../base3/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 运用文本文件" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              运用文本文件
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../base5/" class="md-footer__link md-footer__link--next" aria-label="下一页: 编写简单的 Shell 脚本" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              编写简单的 Shell 脚本
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2022 Linux 银河漫游指南贡献者，在 CC-BY-SA 4.0 下提供。
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
